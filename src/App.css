@@ -7,20 +7,25 @@ ul {
   color: white;
   margin: 0;
   padding: 0;
+  position: sticky;
+  top: 0;
 }
 
 li {
   float: left;
-  margin: 20px;
+  margin-top: 30px;
+  margin-left: 10px;
 }
 
 li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 0px 0px;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
+  width: 100px;
+  height: 40px;
 }
 
 li a:hover {
@@ -28,10 +33,18 @@ li a:hover {
   transition: background-color 0.3s ease-in-out;
 }
 
+ul img {
+  transform: scale(0.7);
+  width: 350px;
+  height: 100px;
+}
+
+
 /* ClassName CSS */
 .App {
   text-align: center;
   background-color: rgb(133, 125, 125);
+  overflow: hidden;
 }
 
 .App-logo {
@@ -51,11 +64,18 @@ li a:hover {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
-  padding-left: 30px;
-  box-shadow: 0 5px rgb(0, 0, 0);
+  padding-left: 0px;
+  box-shadow: 0 4px rgb(89, 89, 89);
+  flex-wrap: wrap;
+}
+
+.App-header > input {
+  display: inline-block;
+  align-items: right;
+  margin: 30px;
 }
 
 .App-title {
@@ -83,6 +103,12 @@ li a:hover {
   color:rgb(255, 255, 255);
   text-shadow: 2px 1px rgb(0, 0, 0);
   font-size: 70px;
+}
+
+.NavBar-input {
+  border-radius: 10px;
+  width: 200px;
+  height: 25px;
 }
 
 .App-link {
