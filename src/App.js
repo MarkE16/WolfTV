@@ -30,9 +30,9 @@ function App() {
         <header className='App-header'>
           <img src={require("../src/assets/WeissWolf.png")} />
           <img src={require("../src/assets/WolfTVText.png")} />
-          <li><a href='#home'>Home</a></li>
-          <li><a href='#members'>Members</a></li>
-          <li><a href='#more'>More</a></li>
+          <a href='#home'><li>Home</li></a>
+          <a href='#members'><li>Members</li></a>
+          <a href='#more'><li>More</li></a>
           <input type="text" className='NavBar-input' placeholder='Find Something...' value={search} onChange={(txt) => setSearch(txt.target.value)}></input>
           <Button className='button' disabled={isLoading} onClick={() => handleClick(search)}>Search</Button>
         </header>
