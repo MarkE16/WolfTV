@@ -3,7 +3,7 @@
 
 html {
   scroll-behavior: smooth;
-  transition: scroll-behavior 1s ease;
+  overflow-x: hidden;
 }
 
 ul {
@@ -37,24 +37,23 @@ a li:hover {
   transition: background-color 0.3s ease-in-out;
 }
 
-img {
-  padding-top: 20px;
-  transform: scale(1.3);
-  height: 50px;
-  
-}
+
 
 label:hover {
 
 }
 
-
+div > img {
+  transform: scale(1.3);
+  height: 200px;
+  border: 2px solid;
+  display: flex;
+}
 
 /* ClassName CSS */
 .App {
   text-align: center;
   background-color: rgb(133, 125, 125);
-  overflow: hidden;
 }
 
 .App-logo {
@@ -80,7 +79,9 @@ label:hover {
   padding-left: 0px;
   box-shadow: 0 4px rgb(89, 89, 89);
   flex-wrap: wrap;
-  position: relative;
+  top: 0;
+  position: sticky;
+  z-index: 1;
 }
 
 .App-header > input {
@@ -131,10 +132,15 @@ label:hover {
 }
 
 .Bottom {
-  position: sticky;
-  bottom: 0;
-  background-color: #61dafb;
-  width: 30px;
+  background-color: #8a0808;
+  margin-top: 20px;
+  width: 100vw;
+  height: 100px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  box-shadow: 0px -2px 5px rgb(0, 0, 0);
 }
 
 .NavBar-input {
@@ -185,7 +191,32 @@ label:hover {
 }
 
 .member-imgs {
+  padding-top: 30px;
+  margin: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
+.member-img {
+  margin: 50px;
+}
+
+.member {
+  background-color: rgb(210, 210, 210);
+  border-radius: 5px;
+}
+
+.member:hover {
+  background-color: #8a0808;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.member-name {
+  color: white;
+  text-shadow: 2px 0 rgb(0, 0, 0);
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .button-circle:hover {
@@ -193,15 +224,29 @@ label:hover {
   cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+/* MODAL CSS */
+
+.darkBG {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal {
+  width: 900px;
+  height: 700px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  align-self: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
