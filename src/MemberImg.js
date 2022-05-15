@@ -3,18 +3,20 @@ import Modal from './Modal';
 import './App.css';
 
 function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
-  const memberImg = member[Object.keys(member)[0]];
+  const memberImgFileName = member[Object.keys(member)[0]][0].slice(24);
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
   return (
-    <div className='member' onClick={() => {
-      setModalOpen(true);
-      setSelectedMemberName(memberName)
-      }}>
-      <div className='member-img'>
-        <img src={memberImg} style={{ width: 200, height: 200, borderRadius: 5 }}/>
+    <div>
+      <div className='member' onClick={() => {
+        setModalOpen(true);
+        setSelectedMemberName(memberName)
+        }}>
+        <div className='member-img'>
+          <img src={require(`../src/assets/crew_imgs/${memberImgFileName}`)} style={{ transform: "scale(1.2)", height: 175, borderRadius: 5, borderColor: "black" }}/>
+        </div>
+        <p className='member-name'>{memberName}</p>
       </div>
-      <p className='member-name'>{memberName}</p>
-      {modalOpen && selectedMemberName === memberName && <Modal member={member} isOpen={setModalOpen}/>}
+      {modalOpen && selectedMemberName === memberName && <Modal member={member} setOpen={setModalOpen} />}
     </div>
   )
 }

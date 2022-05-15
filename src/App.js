@@ -2,63 +2,59 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import React, { useState, useEffect } from 'react';
 import MemberImg from './MemberImg';
+import MessageModal from './MessageModal';
 
 // WOLFTV SITE | v0.1
 
+// FIX: ADDING EMBEDDED VIMEO >> CURRENT ISSUES WITH VIMEO API
+
 function App() {
   const [search, setSearch] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedMemberName, setSelectedMemberName] = useState("");
+  const [messageModalShown, setMessageModalShown] = useState(false);
 
-  const members = {
-    "2021-2022": [
-      {"michael": require("../src/assets/crew_imgs/michael.jpg")},
-      {"max": require("../src/assets/crew_imgs/max.jpg")},
-      {"mark": require("../src/assets/crew_imgs/mark.jpg")},
-      {"maddie": require("../src/assets/crew_imgs/maddie.jpg")},
-      {"lex": require("../src/assets/crew_imgs/lex.jpg")},
-      {"josh S": require("../src/assets/crew_imgs/joshS.jpg")},
-      {"eli": require("../src/assets/crew_imgs/eli.jpg")},
-      {"diego": require("../src/assets/crew_imgs/diego.jpg")},
-      {"christian": require("../src/assets/crew_imgs/christian.jpg")}
-    ]
+  const members = require("../src/data/crew.json");
+  const googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfGEBMAZqY-2TjH9Br1C7Tb48PuTaG4r7JOSlD8rsrRZKRwVw/viewform";
+
+  const vimeoStuff = {
+    "clientid": "4157255da0ff71dace40183da6f65f1f137eb945",
+    "token": "a0ca4b46a912abfcac526a6a9a8cb4f8",
+    "secret": "pv+00dWjoStxmTLL+5fxNswYgsDK2oYLAqg9u8+Zbbu7iCcLTrTWLLAM/Xr6H3CBew7uDWpOtROO1KkSdFRFmG5w7E3MR7KVA+eEVpmRW8A+IkCpGUhls8kefzddVYZl"
   }
 
-  const handleClick = query => {
-    if (!isLoading) {
-      if (query == "") {
-        return alert("Cannot search for an empty string.");
-      }
-      setIsLoading(true);
-      console.log(query);
-      setTimeout(() => {
-        console.log("Hello!");
-        setIsLoading(false);
-      }, 3000);
-    }
-  }
+  // let Vimeo = require('vimeo').Vimeo;
+  // const vimeo = new Vimeo(vimeoStuff["clientid"], vimeoStuff["secret"], vimeoStuff["token"]);
+
+  //const fetchVimeo = () => console.log(vimeo.request("https://vimeo.com/user152561840"))
 
   useEffect(() => {
-
+    // document.body.style.overflowY = "hidden";
+    console.log(document.body.style)
+    //etchVimeo();
   }, [])
 
+  
   return (
     <div id="home" className="App">
+      <a href='#home'><Button id="topBtn" className="button-circle scroll-to-top-btn">↑</Button></a>
       <header className='App-header'>
         <img style={{ paddingTop: 20, transform: "scale(1.3)", height: 50 }} src={require("../src/assets/WeissWolf.png")} />
         <img style={{ paddingTop: 20, transform: "scale(1.3)", height: 50 }} src={require("../src/assets/WolfTVText.png")} />
         <a href='#home'><li>Home</li></a>
         <a href='#members'><li>Members</li></a>
         <a href='#segments'><li>Segments</li></a>
-        <input type="text" className='NavBar-input' placeholder='Find Something...' value={search} onChange={(txt) => setSearch(txt.target.value)}></input>
-        <Button className='button' disabled={isLoading} onClick={() => handleClick(search)}>Search</Button>
       </header>
-      <div className='Intro'>
+      <div>
+        <video width="800" controls style={{ borderRadius: 5 }}>
+          {/* <source src={require("../src/assets/2022-05-11 22-42-21.mp4")} type="video/mp4" /> */}
+          <source src={require("https://vimeo.com/695798382")} type="video/mp4" />
+        </video>
         <h1 className='title'>What is WOLF TV?</h1>
         <div className='body'>
           <p>
-            WolfTV is an announcement video broadcast at Weiss High School. It mainly showcases important information
+            WolfTV is an announcement video broadcast at Weiss High School. WolfTV is produced by students in the AV
+            (Audio Visual) class. It mainly showcases important information
             for students, teachers, and staff. Often times, segments are included to add some "fun" to the show. The
             show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
             going on around the school.
@@ -66,7 +62,7 @@ function App() {
           <a href='#members'><Button className='button-circle'>↓</Button></a>
         </div>
       </div>
-      <div id='members' className='Members'>
+      <div id='members'>
         <h1 className='title'>WOLF TV Members</h1>
         <div className='body'>
           <p>
@@ -81,12 +77,65 @@ function App() {
                 })
               }
             </div>
+            <p>
+              These members gave it their all to make the best content possible for Wolf TV. Whether it took minutes, hours, or
+              even days, they made sure to continue producing. Thank you!
+            </p>
+            <a href='#segments'><Button className='button-circle'>↓</Button></a>
           </div>
         </div>
-        <a href='#home'><Button className="button-circle">↑</Button></a>
       </div>
+      <div id="segments">
+        <h1 className='title'>WOLF TV Segments</h1>
+        <div className='body'>
+          <p>
+            During WOLF TV broadcasts, some segments are likely to appear after the daily announcements section is complete. 
+            Please, give them a look!
+          </p>
+          <div>
+            <div className='wolftv-segments'>
+              <div className='segment'>
+                <h3 style={{ color: "#4ff0ff", textShadow: "0px 1px 2px black" }}>Cyber News</h3>
+                <p style={{ margin: 40 }}>
+                  Cyber News is a segment that updates you on the latest on the Cyber World, whether it'd be video games, music,
+                  or just news in general.
+                </p>
+              </div>
+              <div className='segment'>
+                <h3 style={{ color: "#f09e4d", textShadow: "0px 1px 2px black" }}>Retro Review</h3>
+                <p style={{ margin: 40 }}>
+                  Retro Review is a segment that takes a deep dive into the past of classical TV shows, video games, movies,
+                  and music. 
+                </p>
+              </div>
+              <div className='segment'>
+                <h3 style={{ color: "#00ff0d", textShadow: "0px 1px 2px black" }}>Stories</h3>
+                <p style={{ margin: 40 }}>
+                  Stories are about people that are experiencing something big.
+                  Whether it may be something special, tramatic, or heart-warming,
+                  we want people's stories to be heard!
+                </p>
+              </div>
+            </div>
+            <div className='wolftv-segments'>
+              <Button className='button' onClick={() => setMessageModalShown(true)}>Learn More</Button>
+              <Button className='button' onClick={() => setMessageModalShown(true)}>Learn More</Button>
+              <Button className='button' onClick={() => setMessageModalShown(true)}>Learn More</Button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option currently isn't available yet. Come back later."/> }
+      <div className='end'>
+        <h1 className='title'>This is the end.</h1>
+      </div>
+      <p>Want More? Head over to the <a href='https://vimeo.com/user152561840' target="_blank" className='link'>Vimeo Page</a> to watch WolfTV!</p>
       <div className='Bottom'>
-        <p style={{ marginTop: 70 }}>© 2022 WolfTV is owned by PFISD/Weiss High School | WolfTV website developed by Mark Evola</p>
+        <p style={{ marginTop: 70 }}>
+          © 2022 WolfTV is owned by PFISD/Weiss High School | WolfTV website developed by Mark Evola | v0.1 |
+          Have feedback? Submit a <a href={googleForm} target="_blank" className='link'>form</a> here.
+        </p>
       </div>
     </div>
   );

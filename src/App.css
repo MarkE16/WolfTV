@@ -51,6 +51,7 @@ div > img {
 }
 
 /* ClassName CSS */
+
 .App {
   text-align: center;
   background-color: rgb(133, 125, 125);
@@ -73,7 +74,7 @@ div > img {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
   padding-left: 0px;
@@ -82,12 +83,6 @@ div > img {
   top: 0;
   position: sticky;
   z-index: 1;
-}
-
-.App-header > input {
-  display: inline-block;
-  align-items: right;
-  margin: 30px;
 }
 
 .App-title {
@@ -109,10 +104,6 @@ div > img {
   text-shadow: 2px 1px rgb(255, 255, 255);
   cursor: pointer;
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-}
-
-.Intro {
-
 }
 
 .title {
@@ -143,23 +134,16 @@ div > img {
   box-shadow: 0px -2px 5px rgb(0, 0, 0);
 }
 
-.NavBar-input {
-  border-radius: 10px;
-  width: 200px;
-  height: 25px;
-  font-size: 15px;
-  padding: 5px;
-}
-
 .button {
   background-color: rgb(185, 136, 136);
   border: 1px solid rgb(185, 136, 136);
   border-radius: 5px;
+  border-color: #8a0808;
   font-size: 20px;
   transition: all 0.2s ease-in-out;
-  margin-top: 35px;
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 20px;
   color: white;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -192,19 +176,20 @@ div > img {
 
 .member-imgs {
   padding-top: 30px;
-  margin: 100px;
+  margin: 80px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .member-img {
-  margin: 50px;
+  margin: 60px;
 }
 
 .member {
   background-color: rgb(210, 210, 210);
   border-radius: 5px;
+  padding: 5px;
 }
 
 .member:hover {
@@ -219,9 +204,54 @@ div > img {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.wolftv-segments {
+  background-color: white;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+.segment {
+  width: 100%;
+  height: 100%;
+}
+
+.end {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 100px;
+  border-radius: 5px;
+}
+
 .button-circle:hover {
   background-color: rgb(224, 224, 224);
+  color: black;
   cursor: pointer;
+}
+
+
+.scroll-to-top-btn {
+  /* display: none; */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 1; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  background-color: #b31b1b; /* Set a background color */
+  color: rgb(214, 205, 205); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  font-size: 18px; /* Increase font size */
+  box-shadow: 0 1px 2px black;
+}
+
+.link {
+  color: lightblue;
+}
+
+.link:hover {
+  color: white;
 }
 
 /* MODAL CSS */
@@ -235,7 +265,7 @@ div > img {
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
-  display: flex;
+  overflow-y: hidden;
 }
 
 .modal {
@@ -244,9 +274,128 @@ div > img {
   background-color: white;
   border-radius: 5px;
   border: 1px solid black;
+  box-shadow: 2px 5px 7px #8a0808;
   align-self: center;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
+  justify-items: center;
+  animation-name: modalAnim;
+  animation-duration: 0.5s;
+}
+
+.modal > .button {
+  display: flex;
+  margin-top: -60px;
+  margin-right: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  float: right;
+  box-shadow: 2px 3px 2px black;
+}
+
+.modal > .button:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.modal-header {
+  height: 85px;
+  background: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  justify-content: center;
+}
+
+.heading {
+  text-align: center;
+  font-size: 45px;
+  margin: 0;
+  padding: 10px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow: 2px 1px 1px #8a0808;
+}
+
+.modal-img {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+  transform: scale(1);
+}
+
+.modal-content {
+  background-color: #c1c1c1;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal-description {
+  font-size: 20px;
+  height: 135px;
+}
+
+.x-btn {
+  background-color: white;
+  border-radius: 50px;
+  padding-bottom: 10px;
+  font-size: 25px;
+  position: absolute;
+  display: flex;
+  align-self: flex-start;
+  margin-left: -10px;
+  margin-top: -10px;
+  left: 0px;
+  top: 0px;
+}
+
+.x-btn:hover {
+  cursor: pointer;
+  background-color: #8a0808;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.2s, color 0.2s, border-radius 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+.msgModal {
+  width: 500px;
+  height: 200px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 2px 5px 7px #8a0808;
+  align-self: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  justify-items: center;
+  animation-name: msgModalAnim;
+  animation-duration: 0.3s;
+}
+
+.msgDescription {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  white-space: normal;
+
+}
+
+@keyframes msgModalAnim {
+  0% { opacity: 0%; transition: ease-in; }
+  100% { opacity: 100%; transition: ease-out; }
+}
+
+@keyframes modalAnim {
+  0% { top: 1300px; }
+  100% { bottom: 0px; }
+  /* 0% { opacity: 0%; }
+  100% { opacity: 100%; } */
 }

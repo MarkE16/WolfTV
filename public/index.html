@@ -39,5 +39,20 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      var btn = document.getElementById("topBtn");
+      console.log(btn);
+      
+      window.onscroll = function() { scrollFunc() };
+      
+      function scrollFunc() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          btn.style.display = "block";
+        } else {
+          btn.style.display = "none";
+        }
+      }
+
+    </script>
   </body>
 </html>
