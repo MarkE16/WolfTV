@@ -1,4 +1,10 @@
 {
+  "teacher": {"mr. Hodge": [
+    "../src/assets/crew_imgs/hodge.jpg",
+    "Teacher of the AV Class",
+    "Mr. Hodge is the teacher and instructor of the Audio and Visual Class. He makes sure that the students do amazing in class and that they can be the best they can be in the studio."
+  ]},
+
   "2021-2022": [
     {"michael": [
       "../src/assets/crew_imgs/michael.jpg",
@@ -23,7 +29,7 @@
     {"lex": [
       "../src/assets/crew_imgs/lex.jpg",
       "Editor, Cyber News Director",
-      "Lex is also an edtior. Lex is the director of Cyber News, to where Lex also edits the segment as well!"
+      "Lex is also an edtior, but not just an editor, but also the director of Cyber News. Lex makes sure that the segment is produced well, and even does all the editing for the segment as well!"
     ]},
     {"josh S": [
       "../src/assets/crew_imgs/joshS.jpg",

@@ -26,12 +26,25 @@ function App() {
   // let Vimeo = require('vimeo').Vimeo;
   // const vimeo = new Vimeo(vimeoStuff["clientid"], vimeoStuff["secret"], vimeoStuff["token"]);
 
-  //const fetchVimeo = () => console.log(vimeo.request("https://vimeo.com/user152561840"))
+  // const fetchVimeo = () => vimeo.request({
+  //   method: 'GET',
+  //   path: 'https://api.vimeo.com/users/152561840/videos'
+  // }, function (error, body, status_code, headers) {
+  //   if (error) {
+  //     console.log(error);
+  //   }
+
+  //   console.log(body);
+  // })
+  const fetchVimeo = () => fetch(`https://api.vimeo.com/users/152561840/videos?client_id=${vimeoStuff["clientid"]}&token=${vimeoStuff["token"]}&secret=${vimeoStuff["secret"]}`)
+  .then(res => res.json())
+  .then(data => console.log(data))
+
 
   useEffect(() => {
     // document.body.style.overflowY = "hidden";
     console.log(document.body.style)
-    //etchVimeo();
+    fetchVimeo();
   }, [])
 
   
@@ -47,8 +60,8 @@ function App() {
       </header>
       <div>
         <video width="800" controls style={{ borderRadius: 5 }}>
-          {/* <source src={require("../src/assets/2022-05-11 22-42-21.mp4")} type="video/mp4" /> */}
-          <source src={require("https://vimeo.com/695798382")} type="video/mp4" />
+          <source src={require("../src/assets/2022-05-11 22-42-21.mp4")} type="video/mp4" />
+          {/* <source src={require("https://vimeo.com/695798382")} type="video/mp4" /> */}
         </video>
         <h1 className='title'>What is WOLF TV?</h1>
         <div className='body'>
@@ -69,6 +82,10 @@ function App() {
             The following people help continue bringing new content to WOLF TV: 
           </p>
           <div>
+            <h2 className='title'>Teacher</h2>
+            <div className='member-imgs'>
+              <MemberImg member={members["teacher"]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+            </div>
             <h2 className='title'>2021-2022</h2>
             <div className='member-imgs'>
               {
