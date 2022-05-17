@@ -225,8 +225,9 @@ div > img {
 }
 
 .button-circle:hover {
-  background-color: rgb(224, 224, 224);
-  color: black;
+  background-color: rgb(0, 0, 0);
+  border-color: white;
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
