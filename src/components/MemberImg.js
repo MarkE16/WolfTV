@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
-import './App.css';
+import "../App.css";
 
 function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const memberImgFileName = member[Object.keys(member)[0]][0].slice(24);
@@ -12,7 +12,7 @@ function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSel
         setSelectedMemberName(memberName)
         }}>
         <div className='member-img'>
-          <img src={require(`../src/assets/crew_imgs/${memberImgFileName}`)} style={{ transform: "scale(1.2)", height: 175, borderRadius: 5, borderColor: "black" }}/>
+          <img src={require(`../assets/crew_imgs/${memberImgFileName}`)} style={{ transform: "scale(1.2)", height: 175, borderRadius: 5, borderColor: "black" }}/>
         </div>
         <p className='member-name'>{memberName}</p>
       </div>

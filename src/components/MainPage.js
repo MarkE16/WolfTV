@@ -2,8 +2,10 @@ import Button from 'react-bootstrap/Button';
 import React, { useState, useEffect } from 'react';
 import MemberImg from './MemberImg';
 import MessageModal from './MessageModal';
-import "./App.css";
+import NavBar from './NavBar';
+import "../App.css";
 import { Link } from "react-router-dom";
+import { Nav } from 'react-bootstrap';
 
 function MainPage() {
   const [search, setSearch] = useState("");
@@ -11,7 +13,7 @@ function MainPage() {
   const [selectedMemberName, setSelectedMemberName] = useState("");
   const [messageModalShown, setMessageModalShown] = useState(false);
 
-  const members = require("../src/data/crew.json");
+  const members = require("../data/crew.json");
   const googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfGEBMAZqY-2TjH9Br1C7Tb48PuTaG4r7JOSlD8rsrRZKRwVw/viewform";
 
   const vimeoStuff = {
@@ -63,13 +65,8 @@ function MainPage() {
   
   return (
     <div id="top" className="App">
+      <NavBar />
       <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn">↑</Button></a>
-      <header className='App-header'>
-        <img style={{ paddingTop: 15, transform: "scale(2.5)", height: 50 }} src={require("../src/assets/wolftv-logo-transparent.png")} />
-        <a href='#top'><li>Home</li></a>
-        <a href='#members'><li>Members</li></a>
-        <a href='#segments'><li>Segments</li></a>
-      </header>
       <div>
         {/* <video width="800" controls style={{ borderRadius: 5 }}>
           <source src={require("../src/assets/2022-05-11 22-42-21.mp4")} type="video/mp4" />

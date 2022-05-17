@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import "../App.css";
 import Button from 'react-bootstrap/Button';
 import { RiCloseLine } from 'react-icons/ri';
 
@@ -19,7 +19,7 @@ function Modal({ member, setOpen }) {
           </Button>
         </div>
         <div className='modal-img'>
-          <img style={{ borderRadius: 5, borderColor: "black"}} src={require(`../src/assets/crew_imgs/${memberImgFileName}`)} />
+          <img style={{ borderRadius: 5, borderColor: "black"}} src={require(`../assets/crew_imgs/${memberImgFileName}`)} />
         </div>
         <div className='modal-content'>
           <h5 style={{ color: "white", textShadow: "2px 0 2px black" }}>Role(s): {memberRole}</h5>

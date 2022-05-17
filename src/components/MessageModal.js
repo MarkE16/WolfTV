@@ -1,5 +1,5 @@
 import React from 'react';
-import "./App.css";
+import "../App.css";
 import Button from 'react-bootstrap/Button';
 
 function MessageModal({ setMsgModalOpen, msg, title }) {

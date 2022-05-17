@@ -1,10 +1,10 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import MainPage from './MainPage';
+import MainPage from './components/MainPage';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CyberNews from './segments/CyberNews';
-import RetroReview from './segments/RetroReview';
-import Stories from './segments/Stories';
+import CyberNews from './components/CyberNews';
+import RetroReview from './components/RetroReview';
+import Stories from './components/Stories';
 
 // WOLFTV SITE | v0.1
 
