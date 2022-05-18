@@ -12,6 +12,7 @@ function NavBar() {
         <div className='dropdown'>
           <a><li>Segments</li></a>
           <div className="dropdown-content">
+            <Link to="/announcements">Announcements</Link>
             <Link to="/cyber-news">Cyber News</Link>
             <Link to="/retro-review">Retro Review</Link>
             <Link to="/stories">Stories</Link>

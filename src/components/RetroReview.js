@@ -4,11 +4,11 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 
-function RetroReview() {
+function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   return (
     <div className='App'>
       <NavBar />
-      <p>Retro Review</p>
+      <h1 className="title retro-review">Retro Review</h1>
       <Link to="/">Back To Home</Link>
     </div>
   )

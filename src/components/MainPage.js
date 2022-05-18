@@ -3,18 +3,15 @@ import React, { useState, useEffect } from 'react';
 import MemberImg from './MemberImg';
 import MessageModal from './MessageModal';
 import NavBar from './NavBar';
+import Bottom from "./Bottom";
 import "../App.css";
 import { Link } from "react-router-dom";
-import { Nav } from 'react-bootstrap';
 
-function MainPage() {
+function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const [search, setSearch] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedMemberName, setSelectedMemberName] = useState("");
   const [messageModalShown, setMessageModalShown] = useState(false);
 
   const members = require("../data/crew.json");
-  const googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfGEBMAZqY-2TjH9Br1C7Tb48PuTaG4r7JOSlD8rsrRZKRwVw/viewform";
 
   const vimeoStuff = {
     "clientid": "4157255da0ff71dace40183da6f65f1f137eb945",
@@ -120,6 +117,13 @@ function MainPage() {
           <div>
             <div className='wolftv-segments'>
               <div className='segment'>
+                <h3 style={{ color: "#b31b1b", textShadow: "0px 1px 2px black"}}>Announcements</h3>
+                <p style={{ margin: 40 }}>
+                  The main part of the show: the announcements! This segement contains all the information one Weiss Wolf should
+                  know when at the school. It contains information about classes, tests, and events.
+                </p>
+              </div>
+              <div className='segment'>
                 <h3 style={{ color: "#4ff0ff", textShadow: "0px 1px 2px black" }}>Cyber News</h3>
                 <p style={{ margin: 40 }}>
                   Cyber News is a segment that updates you on the latest on the Cyber World, whether it'd be video games, music,
@@ -143,6 +147,7 @@ function MainPage() {
               </div>
             </div>
             <div className='wolftv-segments'>
+              <Link to="/announcements"><Button className='button'>Learn More</Button></Link>
               <Link to="/cyber-news"><Button className='button'>Learn More</Button></Link>
               <Link to="/retro-review"><Button className='button'>Learn More</Button></Link>
               <Link to="/stories"><Button className='button'>Learn More</Button></Link>
@@ -156,12 +161,7 @@ function MainPage() {
         <h1 className='title'>This is the end.</h1>
       </div>
       <p>Want More? Head over to the <a href='https://vimeo.com/user152561840' target="_blank" className='link'>Vimeo Page</a> to watch WolfTV!</p>
-      <div className='Bottom'>
-        <p style={{ marginTop: 70 }}>
-          © 2022 WolfTV is owned by PFISD/Weiss High School | WolfTV website developed by Mark Evola | v0.1 |
-          Have feedback? Submit a <a href={googleForm} target="_blank" className='link'>form</a> here.
-        </p>
-      </div>
+      <Bottom />
     </div>
   );
 }

@@ -4,11 +4,11 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 
-function CyberNews() {
+function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   return (
     <div className='App'>
       <NavBar />
-      <p>Cyber News</p>
+      <h1 className="title cyber-news">Cyber News</h1>
       <Link to="/">Back To Home</Link>
     </div>
   )
