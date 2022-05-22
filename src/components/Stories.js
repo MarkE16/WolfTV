@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Button from "react-bootstrap/Button";
 import "../App.css";
 import { Link } from "react-router-dom";
 import NavBar from './NavBar';
+import Bottom from "./Bottom";
 
 function Stories({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   return (

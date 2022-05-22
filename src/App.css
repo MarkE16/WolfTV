@@ -58,8 +58,8 @@ p > ul {
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  transform: scale(2.5);
+  height: 50px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -73,15 +73,14 @@ p > ul {
   min-height: 100px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items:center;
   justify-content: space-evenly;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: rgb(255, 255, 255);
   padding-left: 0px;
-  box-shadow: 0 4px rgb(89, 89, 89);
-  flex-wrap: wrap;
-  top: 0;
+  box-shadow: 0 4px 7px rgb(0, 0, 0);
   position: sticky;
+  top: 0;
   z-index: 1;
 }
 
@@ -104,6 +103,80 @@ p > ul {
   text-shadow: 2px 1px rgb(255, 255, 255);
   cursor: pointer;
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.intro {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.intro-subtitle {
+  margin: 200px;
+  z-index: 1;
+}
+
+.intro video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 20px 20px black;
+  z-index: 0;
+  animation: fade 5s ease-in;
+  animation-iteration-count: infinite;
+}
+
+/* Get the first video source in the div intro */
+
+
+/* .intro video:nth-child(1) > source {
+  animation-delay: 0s;
+}
+
+.intro video:nth-child(2) > source{
+  animation-delay: 5s;
+} */
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.intro-title {
+  color: white;
+  font-size: 90px;
+  text-shadow: 3px 1px 3px black;
+  position: relative;
+  padding: 10px;
+}
+
+.intro-body {
+  color: white;
+  text-shadow: 3px 1px 3px black;
+  font-size: 30px;
+  position: relative;
+  padding: 10px;
 }
 
 .title {
@@ -178,6 +251,7 @@ p > ul {
   border: 1px solid black;
   cursor: pointer;
   color:rgb(0, 0, 0);
+  box-shadow: 0px 0px 20px rgba(231, 142, 142, 0.8);
   transition: all 0.3s ease-in-out;
 }
 
@@ -215,12 +289,13 @@ p > ul {
   background-color: rgb(210, 210, 210);
   border-radius: 5px;
   padding: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
 .member:hover {
   background-color: #8a0808;
   cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .member-name {
@@ -332,7 +407,9 @@ p > ul {
   background-color: rgb(255, 255, 255);
   color: black;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0;
+  transition: all 0.2s ease-in-out;
 }
 
 .modal-header {
@@ -383,6 +460,8 @@ p > ul {
   margin-top: -10px;
   left: 0px;
   top: 0px;
+  box-shadow: 4px 4px 3px black;
+  transition: all 0.2s;
 }
 
 .x-btn:hover {
@@ -390,8 +469,11 @@ p > ul {
   background-color: #8a0808;
   color: white;
   border-radius: 5px;
-  transition: background-color 0.2s, color 0.2s, border-radius 0.2s;
-  transition-timing-function: ease-in-out;
+  opacity: 1;
+  transition: all 0.2s;
+  box-shadow: 0px 0px 20px rgba(180, 28, 28, 0.8);
+  transform: translate(5px, 5px);
+  
 }
 
 .msgModal {
@@ -426,8 +508,16 @@ p > ul {
 }
 
 @keyframes modalAnim {
-  0% { top: 1300px; }
-  100% { bottom: 0px; }
+  0% { 
+    top: 1300px;
+    opacity: 0%; 
+    transition: ease-in;
+  }
+  100% { 
+    bottom: 0px;
+    opacity: 100%; 
+    transition: ease-out;
+  }
   /* 0% { opacity: 0%; }
   100% { opacity: 100%; } */
 }
@@ -471,6 +561,19 @@ p > ul {
   border-color: black;
   animation-name: dropdownAnim;
   animation-duration: 0.5s;
+}
+
+.dropdown-btn {
+  border-radius: 25px;
+  background-color: #d33333;
+  height: 50px;
+  width: 50px;
+  transition: all 0.2s;
+}
+
+.dropdown-btn:hover {
+  background-color: #b11818;
+  transition: all 0.2s;
 }
 
 @keyframes dropdownAnim {

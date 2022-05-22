@@ -8,7 +8,6 @@ import "../App.css";
 import { Link } from "react-router-dom";
 
 function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
-  const [search, setSearch] = useState("");
   const [messageModalShown, setMessageModalShown] = useState(false);
 
   const members = require("../data/crew.json");
@@ -42,42 +41,38 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
     // console.log(document.body.style)
     // fetchVimeo();
   }, [])
-
-  {/* <Router>
-      <div>
-        <MainPage />
-        <nav>
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Routes>
-          <Route path="/home" element={<MainPage />}/>
-        </Routes>
-      </div>
-    </Router> */}
   
+  console.log(document.body.clientHeight)
   return (
     <div id="top" className="App">
+      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn">↑</Button></a>}
       <NavBar />
-      <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn">↑</Button></a>
       <div>
-        {/* <video width="800" controls style={{ borderRadius: 5 }}>
-          <source src={require("../src/assets/2022-05-11 22-42-21.mp4")} type="video/mp4" />
-        </video> */}
-        <h1 className='title'>What is WOLF TV?</h1>
-        <div className='body'>
-          <p>
-            WolfTV is an announcement video broadcast at Weiss High School. WolfTV is produced by students in the AV
-            (Audio Visual) class. It mainly showcases important information
-            for students, teachers, and staff. Often times, segments are included to add some "fun" to the show. The
-            show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
-            going on around the school.
-          </p>
-          <a href='#members'><Button className='button-circle'>↓</Button></a>
+        <div className='intro'>
+          <video autoPlay={true} muted={true} loop={true}>
+            <source src={require("../assets/videos/max_editing.mp4")} type="video/mp4" />
+          </video>
+          <video autoPlay={true} muted={true} loop={true}>
+            <source src={require("../assets/videos/michael_editing.mp4")} type="video/mp4" />
+          </video>
+          <div className='intro-subtitle'>
+            <h1 className='intro-title'>Welcome to Wolf TV</h1>
+            <p className='intro-body'>The website for the Weiss High School's announcement broadcast show.</p>
+            <a href='#start'><button varient="primary" className='button'>Scroll to Begin ↓</button></a>
+          </div>
+        </div>
+        <div style={{ marginTop: 100 }}>
+          <h1 id="start" className='title'>What is WOLF TV?</h1>
+          <div className='body'>
+            <p>
+              WolfTV is an announcement video broadcast at Weiss High School. WolfTV is produced by students in the AV
+              (Audio Visual) class. It mainly showcases important information
+              for students, teachers, and staff. Often times, segments are included to add some "fun" to the show. The
+              show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
+              going on around the school.
+            </p>
+            <a href='#members'><Button className='button-circle'>↓</Button></a>
+          </div>
         </div>
       </div>
       <div id='members'>
@@ -90,6 +85,10 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <h2 className='title'>Teacher</h2>
             <div className='member-imgs'>
               <MemberImg member={members["teacher"]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+            </div>
+            <h2 className='title'>2022-2023</h2>
+            <div className='member-imgs'>
+              <p>Coming soon!</p>
             </div>
             <h2 className='title'>2021-2022</h2>
             <div className='member-imgs'>

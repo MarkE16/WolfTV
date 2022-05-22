@@ -40,6 +40,7 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
           </div>
         </div>
       </div>
+      <Link to="/"><button className='button'>Return to Home</button></Link>
       <Bottom />
     </div>
   )
