@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
+  const [currentVimeoEp, setCurrentVimeoEp] = useState();
 
   const members = require("../data/crew.json");
 
@@ -17,32 +18,26 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
     "token": "a0ca4b46a912abfcac526a6a9a8cb4f8",
     "secret": "pv+00dWjoStxmTLL+5fxNswYgsDK2oYLAqg9u8+Zbbu7iCcLTrTWLLAM/Xr6H3CBew7uDWpOtROO1KkSdFRFmG5w7E3MR7KVA+eEVpmRW8A+IkCpGUhls8kefzddVYZl"
   }
+  
+  const fetchVimeo = () => fetch("https://api.vimeo.com/users/152561840/videos", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        // 'Access-Control-Allow-Origin':'*',
+        "Authorization": "Bearer " + vimeoStuff["token"]
+      }
+    })
+      .then(response => response.json())
+      .then(data => data.data[0].link.slice(18))
+      .catch(error => console.log(error))
 
-  // let Vimeo = require('vimeo').Vimeo;
-  // const vimeo = new Vimeo(vimeoStuff["clientid"], vimeoStuff["secret"], vimeoStuff["token"]);
-
-  // const fetchVimeo = () => vimeo.request({
-  //   method: 'GET',
-  //   path: 'https://api.vimeo.com/users/152561840/videos'
-  // }, function (error, body, status_code, headers) {
-  //   if (error) {
-  //     console.log(error);
-  //   }
-
-  //   console.log(body);
-  // })
-  const fetchVimeo = () => fetch(`https://api.vimeo.com/users/152561840/videos?client_id=${vimeoStuff["clientid"]}&token=${vimeoStuff["token"]}&secret=${vimeoStuff["secret"]}`)
-  .then(res => res.json())
-  .then(data => console.log(data))
-
+  const videoRef = React.createRef();
 
   useEffect(() => {
-    // document.body.style.overflowY = "hidden";
-    // console.log(document.body.style)
-    // fetchVimeo();
-  }, [])
-  
-  console.log(document.body.clientHeight)
+    fetchVimeo().then(vid => setCurrentVimeoEp(vid));
+    videoRef.current?.load();
+  }, [currentVimeoEp])
+
   return (
     <div id="top" className="App">
       { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn">↑</Button></a>}
@@ -55,10 +50,23 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           <video autoPlay={true} muted={true} loop={true}>
             <source src={require("../assets/videos/michael_editing.mp4")} type="video/mp4" />
           </video>
+          <video autoPlay={true} muted={true} loop={true}>
+            <source src={require("../assets/videos/josh_hodge.MP4")} type="video/mp4" />
+          </video>
           <div className='intro-subtitle'>
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
             <p className='intro-body'>The website for the Weiss High School's announcement broadcast show.</p>
             <a href='#start'><button varient="primary" className='button'>Scroll to Begin ↓</button></a>
+          </div>
+        </div>
+        <div>
+          <h1 className='title'>Latest Wolf TV Episode</h1>
+          <p className='subtitle'>
+            Here you can watch the latest episode of WolfTV!
+            Latest Episode: 
+          </p>
+          <div style={{ backgroundColor: "black" }}>
+            <iframe src={`https://player.vimeo.com/video/${currentVimeoEp}`} width="740" height="460" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
         </div>
         <div style={{ marginTop: 100 }}>

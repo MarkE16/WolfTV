@@ -126,20 +126,17 @@ p > ul {
   object-fit: cover;
   box-shadow: 0 20px 20px black;
   z-index: 0;
-  animation: fade 5s ease-in;
+  animation: fade 10s ease-in;
   animation-iteration-count: infinite;
 }
 
-/* Get the first video source in the div intro */
-
-
-/* .intro video:nth-child(1) > source {
-  animation-delay: 0s;
+.intro video:nth-child(2) {
+  animation-delay: 5s;
 }
 
-.intro video:nth-child(2) > source{
-  animation-delay: 5s;
-} */
+.intro video:nth-child(3) {
+  animation-delay: 10s;
+}
 
 @keyframes fade {
   0% {
@@ -147,7 +144,7 @@ p > ul {
   }
   
   25% {
-    opacity: 1;
+    opacity: 0.5;
   }
 
   50% {
@@ -159,6 +156,10 @@ p > ul {
   }
 
   100% {
+    opacity: 0.5;
+  }
+
+  120% {
     opacity: 0;
   }
 }
