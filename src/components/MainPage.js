@@ -44,7 +44,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
       <NavBar />
       <div>
         <div className='intro'>
-          <video autoPlay={true} muted={true} loop={true}>
+          {/* <video autoPlay={true} muted={true} loop={true}>
             <source src={require("../assets/videos/max_editing.mp4")} type="video/mp4" />
           </video>
           <video autoPlay={true} muted={true} loop={true}>
@@ -52,21 +52,26 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </video>
           <video autoPlay={true} muted={true} loop={true}>
             <source src={require("../assets/videos/josh_hodge.MP4")} type="video/mp4" />
-          </video>
+          </video> */}
           <div className='intro-subtitle'>
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
-            <p className='intro-body'>The website for the Weiss High School's announcement broadcast show.</p>
-            <a href='#start'><button varient="primary" className='button'>Scroll to Begin ↓</button></a>
+            <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
+            {/* <a href='#start'><button varient="primary" className='button'>Scroll to Begin ↓</button></a> */}
+            <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button'>WolfTV Vimeo Page</button></a>
+            <a href='#segments'><button varient="primary" className='button'>Segments</button></a>
+            <a href='#latest-ep'><button varient="primary" className='button'>Watch Latest Episode</button></a>
           </div>
         </div>
         <div>
           <h1 className='title'>Latest Wolf TV Episode</h1>
-          <p className='subtitle'>
+          <p id="latest-ep" className='subtitle'>
             Here you can watch the latest episode of WolfTV!
             Latest Episode: 
           </p>
-          <div style={{ backgroundColor: "black" }}>
-            <iframe src={`https://player.vimeo.com/video/${currentVimeoEp}`} width="740" height="460" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <div className='body'>
+            <div style={{ backgroundColor: "black" }}>
+              <iframe src={`https://player.vimeo.com/video/${currentVimeoEp}`} width="740" height="460" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
         <div style={{ marginTop: 100 }}>
