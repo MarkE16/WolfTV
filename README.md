@@ -14,7 +14,7 @@ The website is currently not finished, and isn't being hosted right now. When it
 
 This is the current up-to-date preview of the Wolf TV website.
 
-https://user-images.githubusercontent.com/76978800/168712793-bb51c019-7909-48c8-83b6-0ecb0284f13e.mp4
+https://user-images.githubusercontent.com/76978800/170415664-ac3c2879-f36a-4532-8c3b-401cc7626cb7.mp4
 
 ## When will the website be finished?
 
