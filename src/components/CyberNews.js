@@ -3,12 +3,6 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import Bottom from "./Bottom";
-
-import React, { useState, useEffect } from 'react';
-import "../App.css";
-import { Link } from "react-router-dom";
-import NavBar from './NavBar';
-import Bottom from "./Bottom";
 import MemberImg from './MemberImg';
 
 function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
