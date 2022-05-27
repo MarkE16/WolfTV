@@ -40,17 +40,25 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      var btn = document.getElementById("topBtn");
-      console.log(btn);
-      
-      window.onscroll = function() { scrollFunc() };
-      
-      function scrollFunc() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          btn.style.display = "block";
-        } else {
-          btn.style.display = "none";
+
+      window.onload = () => {
+        var btn = document.getElementById("topBtn");
+        
+        window.onscroll = function() { scrollFunc() };
+        
+        function scrollFunc() {
+          if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+            btn.style.display = "block";
+          } else {
+            btn.style.display = "none";
+          }
         }
+
+        const info_x_btn = document.getElementById("info-x-btn");
+        info_x_btn.addEventListener("click", () => {
+          const info_box = document.getElementById("info-box");
+          info_box.style.display = "none";
+        });
       }
 
     </script>

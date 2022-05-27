@@ -6,17 +6,16 @@ import NavBar from './NavBar';
 import Bottom from "./Bottom";
 import "../App.css";
 import { Link } from "react-router-dom";
+import InfoBox from './InfoBox';
 
 function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
-  const [currentVimeoEp, setCurrentVimeoEp] = useState();
+  const [currentVimeoEpData, setCurrentVimeoEpData] = useState({title: "", linkCode: ""});
 
   const members = require("../data/crew.json");
 
   const vimeoStuff = {
-    "clientid": "4157255da0ff71dace40183da6f65f1f137eb945",
-    "token": "a0ca4b46a912abfcac526a6a9a8cb4f8",
-    "secret": "pv+00dWjoStxmTLL+5fxNswYgsDK2oYLAqg9u8+Zbbu7iCcLTrTWLLAM/Xr6H3CBew7uDWpOtROO1KkSdFRFmG5w7E3MR7KVA+eEVpmRW8A+IkCpGUhls8kefzddVYZl"
+    "token": "a0ca4b46a912abfcac526a6a9a8cb4f8"
   }
   
   const fetchVimeo = () => fetch("https://api.vimeo.com/users/152561840/videos", {
@@ -28,19 +27,20 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
       }
     })
       .then(response => response.json())
-      .then(data => data.data[0].link.slice(18))
+      .then(data => setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)}) )
       .catch(error => console.log(error))
 
   const videoRef = React.createRef();
 
   useEffect(() => {
-    fetchVimeo().then(vid => setCurrentVimeoEp(vid));
+    fetchVimeo();
     videoRef.current?.load();
-  }, [currentVimeoEp])
+  }, [])
 
   return (
     <div id="top" className="App">
-      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn">↑</Button></a>}
+      <InfoBox />
+      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top">↑</Button></a>}
       <NavBar />
       <div>
         <div className='intro'>
@@ -57,20 +57,17 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
             {/* <a href='#start'><button varient="primary" className='button'>Scroll to Begin ↓</button></a> */}
-            <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button'>WolfTV Vimeo Page</button></a>
-            <a href='#segments'><button varient="primary" className='button'>Segments</button></a>
-            <a href='#latest-ep'><button varient="primary" className='button'>Watch Latest Episode</button></a>
+            <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
+            <a href='#segments'><button varient="primary" className='button' title='View Wolf TV Segments'>Segments</button></a>
+            <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
           </div>
         </div>
         <div>
           <h1 className='title'>Latest Wolf TV Episode</h1>
-          <p id="latest-ep" className='subtitle'>
-            Here you can watch the latest episode of WolfTV!
-            Latest Episode: 
-          </p>
+          <p id="latest-ep" className='subtitle'>Here you can watch the latest episode of Wolf TV! <br />Latest Episode: {currentVimeoEpData.title.slice(10, 22)}</p>
           <div className='body'>
             <div style={{ backgroundColor: "black" }}>
-              <iframe src={`https://player.vimeo.com/video/${currentVimeoEp}`} width="740" height="460" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              <iframe src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="740" height="460" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ function Modal({ member, setOpen }) {
           </Button>
         </div>
         <div className='modal-img'>
-          <img style={{ borderRadius: 5, borderColor: "black"}} src={require(`../assets/crew_imgs/${memberImgFileName}`)} />
+          <img title={`${memberName}'s image`} style={{ borderRadius: 5, borderColor: "black"}} src={require(`../assets/crew_imgs/${memberImgFileName}`)} />
         </div>
         <div className='modal-content'>
           <h5 style={{ color: "white", textShadow: "2px 0 2px black" }}>Role(s): {memberRole}</h5>

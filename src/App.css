@@ -73,7 +73,7 @@ p > ul {
   min-height: 100px;
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   justify-content: space-evenly;
   font-size: calc(5px + 2vmin);
   color: rgb(255, 255, 255);
@@ -122,6 +122,14 @@ p > ul {
 .intro-subtitle a > button {
   margin: 20px;
   padding: 10px;
+  border: 3px solid black;
+  transition: all 0.6s ease-in;
+}
+
+.intro-subtitle a > button:hover {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid black;
+  transition: all 0.6s ease-in;
 }
 
 .intro {
@@ -134,6 +142,7 @@ p > ul {
   background-repeat: no-repeat;
   transition: 1s;
   box-shadow: 2px 2px 10px black;
+  position: relative;
 
   /* animation-name: changeImage;
   animation-direction: alternate-reverse;
@@ -208,7 +217,7 @@ p > ul {
   text-shadow: 2px 1px rgb(0, 0, 0);
   font-size: 30px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding: 70px;
+  padding: 30px;
 }
 
 .body {
@@ -229,6 +238,7 @@ p > ul {
   display: flex;
   justify-content: center;
   border: 1px solid;
+  bottom: 0;
   box-shadow: 0px -2px 5px rgb(0, 0, 0);
 }
 
@@ -251,7 +261,7 @@ p > ul {
   border: 1px solid black;
   cursor: pointer;
   color:rgb(0, 0, 0);
-  box-shadow: 0px 0px 20px rgba(231, 142, 142, 0.8);
+  box-shadow: 0px 0px 40px rgba(253, 183, 183, 0.8);
   transition: all 0.3s ease-in-out;
 }
 
@@ -339,11 +349,11 @@ p > ul {
 
 
 .scroll-to-top-btn {
-  /* display: none; */
+  display: none;
   position: fixed; /* Fixed/sticky position */
   bottom: 20px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
-  z-index: 1; /* Make sure it does not overlap */
+  z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   background-color: #b31b1b; /* Set a background color */
   color: rgb(214, 205, 205); /* Text color */
@@ -520,6 +530,21 @@ p > ul {
   }
   /* 0% { opacity: 0%; }
   100% { opacity: 100%; } */
+}
+
+.infobox-x-btn {
+  border: none;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+.infobox-x-btn:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
 }
 
 /* DROP DOWN CSS */
