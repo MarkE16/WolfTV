@@ -19,10 +19,10 @@ function Modal({ member, setOpen }) {
           </Button>
         </div>
         <div className='modal-img'>
-          <img title={`${memberName}'s image`} style={{ borderRadius: 5, borderColor: "black"}} src={require(`../assets/crew_imgs/${memberImgFileName}`)} />
+          <img title={`${memberName}'s image`} alt="Rendering..." style={{ borderRadius: 5, borderColor: "black"}} src={require(`../assets/crew_imgs/${memberImgFileName}`)} />
         </div>
         <div className='modal-content'>
-          <h5 style={{ color: "white", textShadow: "2px 0 2px black" }}>Role(s): {memberRole}</h5>
+          <h5 className='modal-role'>Role(s): {memberRole}</h5>
           <p className='modal-description'>{memberDescription}</p>
         </div>
         <Button className='button' onClick={() => setOpen(false)}>OK</Button>

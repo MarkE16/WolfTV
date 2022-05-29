@@ -1,60 +1,63 @@
 {
   "teacher": {"mr. Hodge": [
-    "../src/assets/crew_imgs/hodge.jpg",
+    "../src/assets/crew_imgs/teachers/hodge.jpg",
     "Teacher of the AV Class",
     "Mr. Hodge is the teacher and instructor of the Audio and Visual Class. He makes sure that the students do amazing in class and that they can be the best they can be in the studio."
   ]},
 
   "2021-2022": [
     {"michael": [
-      "../src/assets/crew_imgs/michael.jpg",
+      "../src/assets/crew_imgs/2021-2022/michael.jpg",
       "Cameraman",
       "Michael is a cameramen who goes out and helps fetch footage for stories. Without footage, Wolf TV wouldn't be a thing."
     ]},
     {"max": [
-      "../src/assets/crew_imgs/max.jpg",
+      "../src/assets/crew_imgs/2021-2022/max.jpg",
       "Head Editor",
       "The main editor of the team. Max lives up to his role by editing stories and other films with Adobe Premiere Pro."
     ]},
     {"mark": [
-      "../src/assets/crew_imgs/mark.jpg",
+      "../src/assets/crew_imgs/2021-2022/mark.jpg",
       "Editor, Talent",
       "Like Max, Mark is also an editor (and developed this site!). He helps edit the announcements, and is the talent of Cyber News."
     ]},
     {"maddie": [
-      "../src/assets/crew_imgs/maddie.jpg",
+      "../src/assets/crew_imgs/2021-2022/maddie.jpg",
       "Script Writer",
       "Maddie is a member who writes out the scripts for announcements, and for other segments of the show. Her work helps develop segments, piece together announcements, and allow questions to be asked for people being interviewed."
     ]},
     {"lex": [
-      "../src/assets/crew_imgs/lex.jpg",
+      "../src/assets/crew_imgs/2021-2022/lex.jpg",
       "Editor, Cyber News Director",
       "Lex is also an edtior, but not just an editor, but also the director of Cyber News. Lex makes sure that the segment is produced well, and even does all the editing for the segment as well!"
     ]},
-    {"josh S": [
-      "../src/assets/crew_imgs/joshS.jpg",
+    {"josh Styles": [
+      "../src/assets/crew_imgs/2021-2022/joshS.jpg",
       "Graphic Designer",
-      "Josh is the graphic designer of the team. He creates amazing images and designs not only for Wolf TV, but for other parts of the school as well."
+      "Josh Styles is the graphic designer of the team. He creates amazing images and designs not only for Wolf TV, but for other parts of the school as well."
     ]},
-    {
-      "ethan": [
-        "../src/assets/crew_imgs/ethan.jpg",
-        "Talent",
-        "Ethan is the talent of the announcements. He gets the job done by simply following along on the scripts. You get to see him in action when Wolf TV episodes come out!"
-      ]
-    },
+    {"josh Ellis": [
+      "../src/assets/crew_imgs/2021-2022/joshE.jpg",
+      "Editor",
+      "Josh Ellis is another editor on the team. He is apart of the segment 'Retro Review' and is the editor for the segment."
+    ]},
+    {"ethan": [
+      "../src/assets/crew_imgs/2021-2022/ethan.jpg",
+      "Talent",
+      "Ethan is the talent of the announcements. He gets the job done by simply following along on the scripts. You get to see him in action when Wolf TV episodes come out!"
+    ]},
     {"eli": [
-      "../src/assets/crew_imgs/eli.jpg",
+      "../src/assets/crew_imgs/2021-2022/eli.jpg",
       "Director",
       "Eli is the director of Wolf TV. He makes sure that everything is doing well, making sure content is being made, while also still having a good time."
     ]},
     {"diego": [
-      "../src/assets/crew_imgs/diego.jpg",
-      "Cameraman",
-      "Like Michael, Diego is also a cameraman with the same tasks: Collect footage for stories, interviews, and other films."
+      "../src/assets/crew_imgs/2021-2022/diego.jpg",
+      "Cameraman, Talent",
+      "Like Michael, Diego is also a cameraman with the same tasks: Collect footage for stories, interviews, and other films. He is also the talent for Retro Review."
     ]},
     {"christian": [
-      "../src/assets/crew_imgs/christian.jpg",
+      "../src/assets/crew_imgs/2021-2022/christian.jpg",
       "Talent",
       "Like Ethan, Christian is also a talent of the announcements. He gets the job done by doing the same thing as Ethan: reading the script! You also get to see him in action!"
     ]}

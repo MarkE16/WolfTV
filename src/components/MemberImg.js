@@ -11,12 +11,12 @@ function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSel
         setModalOpen(true);
         setSelectedMemberName(memberName)
         }}>
-        <div className='member-img'>
+        <div>
           <img 
             src={require(`../assets/crew_imgs/${memberImgFileName}`)}
             loading="lazy"
             alt='Rendering...'
-            style={{ transform: "scale(1.2)", height: 175, borderRadius: 5, borderColor: "black" }}
+            className='member-img'
             />
         </div>
         <p className='member-name'>{memberName}</p>

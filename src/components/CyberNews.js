@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "../App.css";
 import { Link } from "react-router-dom";
 import NavBar from './NavBar';
@@ -8,6 +8,7 @@ import MemberImg from './MemberImg';
 function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
 
+  document.title = "Cyber News | Weiss High School";
   return (
     <div className='App'>
       <NavBar />
@@ -29,15 +30,16 @@ function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMem
               <li>News in general</li>
             </ul>
           </p>
-          <h2 className='subtitle'>Who is in charge of the Cyber News?</h2>
+          <h2 className='subtitle'>Who is in charge of Cyber News?</h2>
           <p>The following people are in charge:</p>
           <div className='member-imgs'>
             <MemberImg member={members["2021-2022"][4]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+            <MemberImg member={members["2021-2022"][3]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
             <MemberImg member={members["2021-2022"][2]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>Back To Home</button></Link>
+      <Link to="/"><button className='button'>[← Return to Home</button></Link>
       <Bottom />
     </div>
   )

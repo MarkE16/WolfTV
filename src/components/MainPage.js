@@ -20,9 +20,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
   
   const fetchVimeo = () => fetch("https://api.vimeo.com/users/152561840/videos", {
       method: "GET",
-      mode: "cors",
       headers: {
-        // 'Access-Control-Allow-Origin':'*',
         "Authorization": "Bearer " + vimeoStuff["token"]
       }
     })
@@ -56,7 +54,6 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           <div className='intro-subtitle'>
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
-            {/* <a href='#start'><button varient="primary" className='button'>Scroll to Begin ↓</button></a> */}
             <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
             <a href='#segments'><button varient="primary" className='button' title='View Wolf TV Segments'>Segments</button></a>
             <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
@@ -64,14 +61,17 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
         </div>
         <div>
           <h1 className='title'>Latest Wolf TV Episode</h1>
-          <p id="latest-ep" className='subtitle'>Here you can watch the latest episode of Wolf TV! <br />Latest Episode: {currentVimeoEpData.title.slice(10, 22)}</p>
+          <p id="latest-ep" className='subtitle'>
+            Here you can watch the latest episode of Wolf TV! <br />
+            Latest Episode: <strong>Ep {(currentVimeoEpData.title && currentVimeoEpData.linkCode) === "" ? "Fetching..." : currentVimeoEpData.title.slice(10, 14) + " | " + currentVimeoEpData.title.slice(15, 22)}</strong>
+          </p>
           <div className='body'>
-            <div style={{ backgroundColor: "black" }}>
-              <iframe src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="740" height="460" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
+            <div className='video-bg'>
+              <iframe id="vimeoVideo" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="740" height="460" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
             </div>
           </div>
         </div>
-        <div style={{ marginTop: 100 }}>
+        <div>
           <h1 id="start" className='title'>What is WOLF TV?</h1>
           <div className='body'>
             <p>
@@ -98,7 +98,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             </div>
             <h2 className='title'>2022-2023</h2>
             <div className='member-imgs'>
-              <p>Coming soon!</p>
+              <p><strong>This section isn't available yet. Check back later.</strong></p>
             </div>
             <h2 className='title'>2021-2022</h2>
             <div className='member-imgs'>
@@ -120,46 +120,43 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
         <h1 className='title'>WOLF TV Segments</h1>
         <div className='body'>
           <p>
-            During WOLF TV broadcasts, some segments are likely to appear after the daily announcements section is complete. 
-            Please, give them a look!
+            Currently, there are a total of <strong>4 segments</strong> that can appear on Wolf TV. Please, give them a look!
           </p>
           <div>
             <div className='wolftv-segments'>
               <div className='segment'>
                 <h3 style={{ color: "#b31b1b", textShadow: "0px 1px 2px black"}}>Announcements</h3>
-                <p style={{ margin: 40 }}>
+                <p className='segment-desc'>
                   The main part of the show: the announcements! This segement contains all the information one Weiss Wolf should
                   know when at the school. It contains information about classes, tests, and events.
                 </p>
+                <Link to="/announcements"><Button className='button'>Learn More</Button></Link>
               </div>
               <div className='segment'>
                 <h3 style={{ color: "#4ff0ff", textShadow: "0px 1px 2px black" }}>Cyber News</h3>
-                <p style={{ margin: 40 }}>
+                <p className='segment-desc'>
                   Cyber News is a segment that updates you on the latest on the Cyber World, whether it'd be video games, music,
                   or just news in general.
                 </p>
+                <Link to="/cyber-news"><Button className='button'>Learn More</Button></Link>
               </div>
               <div className='segment'>
                 <h3 style={{ color: "#f09e4d", textShadow: "0px 1px 2px black" }}>Retro Review</h3>
-                <p style={{ margin: 40 }}>
+                <p className='segment-desc'>
                   Retro Review is a segment that takes a deep dive into the past of classical TV shows, video games, movies,
                   and music. 
                 </p>
+                <Link to="/retro-review"><Button className='button'>Learn More</Button></Link>
               </div>
               <div className='segment'>
                 <h3 style={{ color: "#00ff0d", textShadow: "0px 1px 2px black" }}>Stories</h3>
-                <p style={{ margin: 40 }}>
+                <p className='segment-desc'>
                   Stories are about people that are experiencing something big.
                   Whether it may be something special, tramatic, or heart-warming,
                   we want people's stories to be heard!
                 </p>
+                <Link to="/stories"><Button className='button'>Learn More</Button></Link>
               </div>
-            </div>
-            <div className='wolftv-segments'>
-              <Link to="/announcements"><Button className='button'>Learn More</Button></Link>
-              <Link to="/cyber-news"><Button className='button'>Learn More</Button></Link>
-              <Link to="/retro-review"><Button className='button'>Learn More</Button></Link>
-              <Link to="/stories"><Button className='button'>Learn More</Button></Link>
             </div>
           </div>
         </div>
@@ -169,7 +166,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
       <div className='end'>
         <h1 className='title'>This is the end.</h1>
       </div>
-      <p>Want More? Head over to the <a href='https://vimeo.com/user152561840' target="_blank" className='link'>Vimeo Page</a> to watch WolfTV!</p>
+      <p style={{ color: "white" }}>Want More? Head over to the <a href='https://vimeo.com/user152561840' target="_blank" className='link'>Vimeo Page</a> to watch WolfTV!</p>
       <Bottom />
     </div>
   );

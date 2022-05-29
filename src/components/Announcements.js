@@ -8,6 +8,7 @@ import Bottom from "./Bottom";
 function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
 
+  document.title = "Announcements | Weiss High School";
   return (
     <div className='App'>
       <NavBar />
@@ -32,15 +33,16 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
           <h2 className='subtitle'>Who is in charge of the announcements?</h2>
           <p>The following people are in charge:</p>
           <div className='member-imgs'>
+           <MemberImg member={members["2021-2022"][0]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
            <MemberImg member={members["2021-2022"][1]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
            <MemberImg member={members["2021-2022"][3]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
            <MemberImg member={members["2021-2022"][2]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
-           <MemberImg member={members["2021-2022"][9]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
-           <MemberImg member={members["2021-2022"][6]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+           <MemberImg member={members["2021-2022"][10]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+           <MemberImg member={members["2021-2022"][7]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>Return to Home</button></Link>
+      <Link to="/"><button className='button'>[← Return to Home</button></Link>
       <Bottom />
     </div>
   )
