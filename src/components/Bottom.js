@@ -1,6 +1,6 @@
 import React from 'react';
 import "../App.css";
-
+import { BsInstagram, BsGithub } from "react-icons/bs";
 function Bottom() {
   const googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfGEBMAZqY-2TjH9Br1C7Tb48PuTaG4r7JOSlD8rsrRZKRwVw/viewform";
   return (
@@ -9,8 +9,8 @@ function Bottom() {
         © 2022 WolfTV is owned by PFISD/Weiss High School | WolfTV website developed by Mark Evola | v0.1 |
         Have feedback? Submit a <a href={googleForm} target="_blank" className='link'>form</a> here.
       </p>
-      <a href='https://www.instagram.com/whs.productions/' target="_blank" title='Wolf TV Instagram'><img className='icon' src={require("../assets/icons/instagram.png")}/></a>
-      <a href='https://github.com/MarkE16/WolfTV' target="_blank" title='Wolf TV Github'><img className='icon' src={require("../assets/icons/github.png")}/></a>
+      <a href='https://www.instagram.com/whs.productions/' target="_blank" title='Wolf TV Instagram'><button className='icon'><BsInstagram /></button></a>
+      <a href='https://github.com/MarkE16/WolfTV' target="_blank" title='Wolf TV Github'><button className='icon'><BsGithub /></button></a>
     </div>
   )
 }
