@@ -8,7 +8,7 @@ import MemberImg from './MemberImg';
 function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
 
-  document.title = "Cyber News | Weiss High School";
+  document.title = "Wolf TV | Cyber News";
   return (
     <div className='App'>
       <NavBar />

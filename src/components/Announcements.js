@@ -8,7 +8,7 @@ import Bottom from "./Bottom";
 function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
 
-  document.title = "Announcements | Weiss High School";
+  document.title = "Wolf TV | Announcements";
   return (
     <div className='App'>
       <NavBar />

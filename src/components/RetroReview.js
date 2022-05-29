@@ -8,7 +8,7 @@ import MemberImg from './MemberImg';
 function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
 
-  document.title = "Retro Review | Weiss High School";
+  document.title = "Wolf TV | Retro Review";
   return (
     <div className='App'>
       <NavBar />

@@ -8,7 +8,7 @@ import MemberImg from "./MemberImg";
 function Stories({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
 
-  document.title = "Stories | Weiss High School";
+  document.title = "Wolf TV | Stories";
   return (
     <div className='App'>
       <NavBar />

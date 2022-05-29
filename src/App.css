@@ -436,6 +436,7 @@ a > img {
 .modal {
   width: 900px;
   height: 700px;
+  max-height: fit-content;
   background-color: white;
   border-radius: 5px;
   border: 1px solid black;
@@ -453,7 +454,8 @@ a > img {
 
 .modal > .button {
   display: flex;
-  justify-content: flex-end;
+  margin-top: -60px;
+  margin-right: 45px;
   padding-left: 50px;
   padding-right: 50px;
   float: right;
@@ -728,9 +730,13 @@ a > img {
   }
 
   .modal-content {
-    max-height: auto;
+    max-height: 100%;
   }
 
+  .intro-subtitle a > button {
+    font-size: 15px;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 1200px) {

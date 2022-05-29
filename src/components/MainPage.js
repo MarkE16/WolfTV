@@ -35,6 +35,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
     videoRef.current?.load();
   }, [])
 
+  document.title = "Wolf TV | Home";
   return (
     <div id="top" className="App">
       <InfoBox />
