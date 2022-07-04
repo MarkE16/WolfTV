@@ -1,3 +1,29 @@
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b4b4b4;
+  border: 0px none #ffffff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #686767;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
 
 /* HTML TAG CSS */
 
@@ -25,18 +51,12 @@ a li {
   display: block;
   color: white;
   text-align: center;
-  margin: 20px;
+  margin-left: 50px;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
   width: 100%;
   height: 100%;
   font-family: DejaVu Sans Mono, monospace;
-  transition: all 0.2s ease-in-out;
-}
-
-a li:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease-in-out;
 }
 
 div > img {
@@ -63,6 +83,7 @@ a > img {
   text-align: center;
   background-color: hsl(0, 1%, 28%);
   margin: auto;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -80,17 +101,28 @@ a > img {
   margin: inherit;
   background-color: #b31b1b;
   min-height: 100px;
-  display: flex;
-  flex-direction: row;
+  padding-left: 100px;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
   font-size: calc(5px + 2vmin);
   color: rgb(255, 255, 255);
-  padding-left: 0px;
   box-shadow: 0 4px 7px rgb(0, 0, 0);
   position: sticky;
   top: 0;
   z-index: 1;
+  object-fit: contain;
+}
+
+
+.App-header a {
+  float: left;
+  padding: 14px 60px;
+  text-align: center;
+}
+
+.header-items {
+  display: block;
+  float: right;
 }
 
 .App-title {
@@ -119,6 +151,7 @@ a > img {
 .intro-subtitle {
   margin: inherit;
   z-index: 1;
+  display: block;
 }
 
 .intro-subtitle a > button {
@@ -135,13 +168,13 @@ a > img {
 .intro {
   width: 100%;
   height: 100vh;
-  background-image: url("../src/assets/images/ethan.JPG");
+  /* background-image: url("../src/assets/images/ethan.JPG"); */
   z-index: 0;
-  background-size: cover;
+  /* background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: 1s;
-  box-shadow: 2px 2px 10px black;
+  transition: 1s; */
+  box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.5);
   position: relative;
   margin: auto;
   display: flex;
@@ -157,6 +190,53 @@ a > img {
   animation-iteration-count: infinite; */
 }
 
+.slideShow {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+  height: 95%;
+  width: 100%;
+}
+
+.slide {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.dots {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  border: 1px solid black;
+  background-color: #c4c4c4;
+}
+
+.dot.active {
+  background-color: #8a0808;
+}
+
+.dot:hover {
+  background-color: rgba(176, 176, 176, 0.4);
+}
 
 @keyframes changeImage {
   0% {
@@ -232,11 +312,16 @@ a > img {
 }
 
 .body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   background-color: #cdcdcd;
   border-radius: 5px;
   margin: auto 120px;
   padding: 60px;
   font-size: 30px;
+  font-family: avenir-lt-w01_35-light1475496,sans-serif;
   max-width: 100%;
 }
 
@@ -262,18 +347,24 @@ a > img {
   border: 1px solid;
   bottom: 0;
   box-shadow: 0px -2px 5px rgb(0, 0, 0);
+  z-index: 100;
 }
 
 .icon {
-  transform: scale(0.5); 
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  transform: scale(2);
   max-width: "100%"; 
   max-height: "100%";
   transition: all 0.3s ease-in-out;
+  margin: 15px;
 }
 
 .icon:hover {
-  transform: scale(0.7);
-  transition: transform 0.3s ease-in-out;
+  color: white;
+  cursor: pointer;
+  transform: scale(2.5);
+  transition: all 0.3s ease-in-out;
 }
 
 .button {
@@ -308,6 +399,8 @@ a > img {
 
 .button-circle {
   background-color: rgb(255, 255, 255);
+  position: relative;
+  z-index: 1;
   border-radius: 50px;
   font-size: 20px;
   transition: all 0.2s ease-in-out;
@@ -321,17 +414,16 @@ a > img {
   padding-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   max-width: 100%;
-  margin: auto;
 }
 
 
 .member-img {
   object-fit: cover;
   max-width: 100%;
-  border-radius: 5;
-  border-color: "black";
+  border-radius: 5px;
+  border-color: black;
   transform: scale(0.8);
 }
 
@@ -339,6 +431,7 @@ a > img {
   background-color: rgb(210, 210, 210);
   border-radius: 5px;
   padding: 5px;
+  margin: 50px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -401,13 +494,13 @@ a > img {
   position: fixed; /* Fixed/sticky position */
   bottom: 20px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
+  z-index: 98; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   background-color: #b31b1b; /* Set a background color */
   color: rgb(214, 205, 205); /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
-  font-size: 18px; /* Increase font size */
+  font-size: 20px; /* Increase font size */
   box-shadow: 0 1px 2px black;
 }
 
@@ -425,7 +518,7 @@ a > img {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 99;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -442,7 +535,7 @@ a > img {
   border: 1px solid black;
   box-shadow: 2px 5px 7px #8a0808;
   align-self: center;
-  position: fixed;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -453,12 +546,13 @@ a > img {
 }
 
 .modal > .button {
-  display: flex;
-  margin-top: -60px;
-  margin-right: 45px;
+  font-size: 20px;
+  margin: auto;
   padding-left: 50px;
   padding-right: 50px;
-  float: right;
+  position: absolute;
+  right: 2.5%;
+  top: 95%;
   box-shadow: 2px 3px 2px black;
   transition: all 0.2s ease-in-out;
 }
@@ -521,8 +615,11 @@ a > img {
 }
 
 .modal-description {
+  display: flex;
+  flex-wrap: wrap;
   font-size: 20px;
   height: 135px;
+  overflow-y: scroll;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -566,10 +663,14 @@ a > img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 99;
   justify-items: center;
   animation-name: msgModalAnim;
   animation-duration: 0.3s;
+}
+
+.msgModal > button {
+  float: right;
 }
 
 .msgDescription {
@@ -577,7 +678,8 @@ a > img {
   text-align: center;
   overflow: hidden;
   white-space: normal;
-
+  flex-wrap: wrap;
+  margin: 30px;
 }
 
 @keyframes msgModalAnim {
@@ -600,6 +702,12 @@ a > img {
   100% { opacity: 100%; } */
 }
 
+/* Disable scroll when modal is open */
+.modal-open {
+  overflow: hidden;
+
+}
+
 .infobox-x-btn {
   border: none;
   font-size: 20px;
@@ -616,11 +724,33 @@ a > img {
 }
 
 /* DROP DOWN CSS */
-.dropdown {
-  float: left;
-  overflow: hidden;
+.hamburger {
+  display: block;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 15px;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+  color: white;
 }
 
+.hamburger:hover {
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: rgb(224, 224, 224);
+  color: black;
+}
+
+.hamburger.is-active {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgb(0, 0, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown {
+  overflow: hidden;
+  margin: 0 auto;
+}
 
 .dropdown-content {
   display: none;
@@ -630,6 +760,8 @@ a > img {
   border: 2px solid black;
   z-index: 1;
   min-height: 100%;
+  margin: 0 auto;
+  transform: translate(auto, 20%);
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -654,9 +786,6 @@ a > img {
 .dropdown:hover .dropdown-content {
   display: block;
   border-color: black;
-  animation-name: dropdownAnim;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 
 .dropdown-btn {
@@ -677,10 +806,19 @@ a > img {
   to { top: 80px; }
 }
 
+.sort-box {
+  font-size: 20px;
+  border-radius: 5px;
+  max-width: fit-content;
+  margin: 10px;
+}
+
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
+  /* Center logo */
   .App-logo {
-    transform: scale(1.5);
+    align-self: center;
+    justify-self: center;
   }
 
   .body {
@@ -726,17 +864,37 @@ a > img {
     font-size: 15px;
     float: auto;
     margin: auto;
-    
   }
 
   .modal-content {
     max-height: 100%;
   }
 
-  .intro-subtitle a > button {
+  .intro-subtitle a > li {
     font-size: 15px;
-    margin: auto;
+    margin: 30px auto;
+    display: block;
   }
+
+  .App-header a > li{
+    display: none;
+  }
+
+  .msgModal {
+    width: 400px;
+    height: 200px;
+  }
+
+  .sort-box {
+    font-size: inherit;
+  }
+
+  .dropdown:hover {
+    display: none;
+    cursor: default;
+  }
+
+ 
 }
 
 @media screen and (max-width: 1200px) {

@@ -4,9 +4,22 @@ import MemberImg from './MemberImg';
 import MessageModal from './MessageModal';
 import NavBar from './NavBar';
 import Bottom from "./Bottom";
+import SlideShow from './SlideShow';
 import "../App.css";
 import { Link } from "react-router-dom";
 import InfoBox from './InfoBox';
+import { BsArrowUp, BsArrowDown } from "react-icons/bs";
+import classNames from 'classnames';
+
+// function sort(sortItem) {
+//   useEffect(() => {
+//     if (sortItem === "latest") {
+      
+//     } else {
+
+//     }
+//   }, [sortItem]);
+// }
 
 function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
@@ -30,6 +43,11 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
 
   const videoRef = React.createRef();
 
+  const appClass = classNames({
+    "App": true,
+    "modal-open": modalOpen
+  })
+
   useEffect(() => {
     fetchVimeo();
     videoRef.current?.load();
@@ -37,12 +55,13 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
 
   document.title = "Wolf TV | Home";
   return (
-    <div id="top" className="App">
-      <InfoBox />
-      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top">↑</Button></a>}
+    <div id="top" className={appClass}>
+      {/* <InfoBox /> */}
+      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><BsArrowUp /></Button></a>}
       <NavBar />
-      <div>
+      <div style={{zIndex: 0 }}>
         <div className='intro'>
+          <SlideShow />
           {/* <video autoPlay={true} muted={true} loop={true}>
             <source src={require("../assets/videos/max_editing.mp4")} type="video/mp4" />
           </video>
@@ -60,7 +79,8 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
           </div>
         </div>
-        <div>
+        <a href='#start'><button className='button-circle'><BsArrowDown /></button></a>
+        <div style={{ zIndex: 0 }}>
           <h1 className='title'>Latest Wolf TV Episode</h1>
           <p id="latest-ep" className='subtitle'>
             Here you can watch the latest episode of Wolf TV! <br />
@@ -82,7 +102,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
-            <a href='#members'><Button className='button-circle'>↓</Button></a>
+            <a href='#members'><Button className='button-circle' title='Next'><BsArrowDown /></Button></a>
           </div>
         </div>
       </div>
@@ -96,6 +116,13 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <h2 className='title'>Teacher</h2>
             <div className='member-imgs'>
               <MemberImg member={members["teacher"]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+            </div>
+            <div style={{ float: "right" }}>
+              <label>Sort by:</label>
+              <select name='sort' id='sort' className='sort-box' onClick={e => { e.stopPropagation(); setMessageModalShown(true)}}>
+                <option value="latest">Latest</option>
+                <option value="oldest">Oldest</option>
+              </select>
             </div>
             <h2 className='title'>2022-2023</h2>
             <div className='member-imgs'>
@@ -113,7 +140,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               These members gave it their all to make the best content possible for Wolf TV. Whether it took minutes, hours, or
               even days, they made sure to continue producing. Thank you!
             </p>
-            <a href='#segments'><Button className='button-circle'>↓</Button></a>
+            <a href='#segments'><Button className='button-circle' title='Next'><BsArrowDown /></Button></a>
           </div>
         </div>
       </div>
@@ -163,9 +190,9 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
         </div>
         
       </div>
-      { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option currently isn't available yet. Come back later."/> }
+      { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option is currently in development and is not available yet. Come back later!"/> }
       <div className='end'>
-        <h1 className='title'>This is the end.</h1>
+        <h1 className='title'>You've scrolled to the end.</h1>
       </div>
       <p style={{ color: "white" }}>Want More? Head over to the <a href='https://vimeo.com/user152561840' target="_blank" className='link'>Vimeo Page</a> to watch WolfTV!</p>
       <Bottom />

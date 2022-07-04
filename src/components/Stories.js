@@ -31,8 +31,8 @@ function Stories({ modalOpen, setModalOpen, selectedMemberName, setSelectedMembe
             the stories have an impact on the viewers. The team also wants the viewer to be aware that those stories exist. That is part
             of the goal Wolf TV has.
           </p>
-          <h2 className='subtitle'>Who is in charge of Stories?</h2>
-          <p>The following people are in charge:</p>
+          <h2 className='subtitle'>Who is in charge of developing this segment?</h2>
+          <p>The following people who help produce content for this segment are:</p>
           <div className='member-imgs'>
             <MemberImg member={members["2021-2022"][0]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
             <MemberImg member={members["2021-2022"][1]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>

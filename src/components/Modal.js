@@ -14,7 +14,7 @@ function Modal({ member, setOpen }) {
       <div className='modal' onClick={e => e.stopPropagation()}>
         <div className='modal-header'>
           <h5 className='heading'>{memberName}</h5>
-          <Button className='x-btn' onClick={() => setOpen(false)}>
+          <Button title="Close this window" className='x-btn' onClick={() => setOpen(false)}>
             <RiCloseLine style={{ marginBottom: "-7px" }} />
           </Button>
         </div>

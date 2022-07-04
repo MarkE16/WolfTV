@@ -29,8 +29,8 @@ function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedM
               <li>Movies</li>
             </ul>
           </p>
-          <h2 className='subtitle'>Who is in charge of Retro Review?</h2>
-          <p>The following people are in charge:</p>
+          <h2 className='subtitle'>Who is in charge of developing this segment?</h2>
+          <p>The following people who help produce content for this segment are:</p>
           <div className='member-imgs'>
             <MemberImg member={members["2021-2022"][6]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
             <MemberImg member={members["2021-2022"][9]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>

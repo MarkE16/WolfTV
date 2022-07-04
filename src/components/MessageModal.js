@@ -11,8 +11,8 @@ function MessageModal({ setMsgModalOpen, msg, title }) {
         </div>
         <div>
           <p className='msgDescription'>{msg}</p>
-          <Button className='button' onClick={() => setMsgModalOpen(false)}>OK</Button>
         </div>
+        <Button className='button' onClick={() => setMsgModalOpen(false)}>OK</Button>
       </div>
     </div>
   )

@@ -2,7 +2,7 @@
   "teacher": {"mr. Hodge": [
     "../src/assets/crew_imgs/teachers/hodge.jpg",
     "Teacher of the AV Class",
-    "Mr. Hodge is the teacher and instructor of the Audio and Visual Class. He makes sure that the students do amazing in class and that they can be the best they can be in the studio."
+    "Mr. Hodge is the teacher and instructor of the Audio and Visual Class. He makes sure that the students do amazing in class and that they can be the best they can be in the studio while producing Wolf."
   ]},
 
   "2021-2022": [
@@ -21,10 +21,10 @@
       "Editor, Talent",
       "Like Max, Mark is also an editor (and developed this site!). He helps edit the announcements, and is the talent of Cyber News."
     ]},
-    {"maddie": [
+    {"madison": [
       "../src/assets/crew_imgs/2021-2022/maddie.jpg",
       "Script Writer",
-      "Maddie is a member who writes out the scripts for announcements, and for other segments of the show. Her work helps develop segments, piece together announcements, and allow questions to be asked for people being interviewed."
+      "Madison is a member who writes out the scripts for announcements, and for other segments of the show. Her work helps develop segments, piece together announcements, and allow questions to be asked for people being interviewed."
     ]},
     {"lex": [
       "../src/assets/crew_imgs/2021-2022/lex.jpg",
