@@ -12,7 +12,7 @@ function NavBar() {
   //   "hamburger": document.body.wid < 768
   // })
   return (
-    <div id="navBar">
+    <div id="navBar" style={{ display: "sticky", position: "fixed", top: 0, zIndex: 1, width: "100%" }}>
       <header className='App-header'>
       <Link title="Home" to="/"><img className='App-logo' src={require("../assets/wolftv-logo-transparent.png")} alt="Rendering..." /></Link>
       <div className="header-items">

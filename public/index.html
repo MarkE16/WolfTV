@@ -53,9 +53,11 @@
         $(window).scroll(function() {
           if ($(window).scrollTop() > 20) {
             $('#topBtn').css('display', 'block');
+            $(".App-header").css("background-color", "rgba(169, 26, 26, 0.5)");
             // $('#navBar').css('display', 'block');
           } else {
             $('#topBtn').css('display', 'none');
+            $(".App-header").css("background-color", "rgba(169, 26, 26, 1)");
             // $('#navBar').css('display', 'none');
           }
         })

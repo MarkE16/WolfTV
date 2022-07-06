@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import Bottom from "./Bottom";
 import MemberImg from './MemberImg';
+import { CgLogOut } from 'react-icons/cg';
 
 function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
@@ -12,8 +13,8 @@ function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedM
   return (
     <div className='App'>
       <NavBar />
-      <h1 className="title retro-review">Retro Review</h1>
-      <div>
+      <div className='segment-container'>
+        <h1 className="title retro-review">Retro Review</h1>
         <div className='body'>
           <h2 className='subtitle'>What is Retro Review?</h2>
           <p>
@@ -37,7 +38,7 @@ function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedM
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>[← Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut /> Return to Home</button></Link>
       <Bottom />
     </div>
   )

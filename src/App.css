@@ -77,6 +77,10 @@ a > img {
   margin: auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* ClassName CSS */
 
 .App {
@@ -99,6 +103,7 @@ a > img {
 
 .App-header { 
   margin: inherit;
+  color: rgb(169, 26, 26);
   background-color: #b31b1b;
   min-height: 100px;
   padding-left: 100px;
@@ -107,10 +112,8 @@ a > img {
   font-size: calc(5px + 2vmin);
   color: rgb(255, 255, 255);
   box-shadow: 0 4px 7px rgb(0, 0, 0);
-  position: sticky;
-  top: 0;
-  z-index: 1;
   object-fit: contain;
+  transition: 0.5s ease;
 }
 
 
@@ -166,10 +169,10 @@ a > img {
 }
 
 .intro {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   /* background-image: url("../src/assets/images/ethan.JPG"); */
-  z-index: 0;
+
   /* background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -180,7 +183,7 @@ a > img {
   display: flex;
   text-align: center;
   justify-content: center;
-  top: 0;
+  z-index: 0;
   /* animation-name: changeImage;
   animation-direction: alternate-reverse;
   animation-play-state: running;
@@ -200,7 +203,7 @@ a > img {
 .slider {
   white-space: nowrap;
   transition: ease 1000ms;
-  height: 95%;
+  height: 100%;
   width: 100%;
 }
 
@@ -278,6 +281,7 @@ a > img {
   color:rgb(255, 255, 255);
   background-color: rgb(197, 49, 49);
   text-shadow: 2px 1px rgb(0, 0, 0);
+
   font-size: 70px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -318,12 +322,16 @@ a > img {
   align-items: center;
   background-color: #cdcdcd;
   border-radius: 5px;
-  margin: auto 120px;
-  padding: 60px;
+  margin: auto 5vw;
+  padding: 5rem;
   font-size: 30px;
-  font-family: avenir-lt-w01_35-light1475496,sans-serif;
+  font-family: Georgia, serif;
+  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+  /* font-family: avenir-lt-w01_35-light1475496,sans-serif; */
   max-width: 100%;
 }
+
+
 
 .video-bg {
   background-color: black;
@@ -368,6 +376,9 @@ a > img {
 }
 
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(185, 136, 136);
   border: 1px solid rgb(185, 136, 136);
   border-radius: 5px;
@@ -397,10 +408,13 @@ a > img {
   cursor: default;
 }
 
+.button-icon {
+}
+
 .button-circle {
   background-color: rgb(255, 255, 255);
   position: relative;
-  z-index: 1;
+  z-index: 0;
   border-radius: 50px;
   font-size: 20px;
   transition: all 0.2s ease-in-out;
@@ -408,6 +422,15 @@ a > img {
   height: 50px;
   color: rgb(0, 0, 0);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.arrow-down {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.button-circle:hover .arrow-down {
+  transform: translateY(5px);
 }
 
 .member-imgs {
@@ -432,13 +455,12 @@ a > img {
   border-radius: 5px;
   padding: 5px;
   margin: 50px;
-  transition: all 0.3s ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .member:hover {
   background-color: #8a0808;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 
 .member-name {
@@ -468,6 +490,10 @@ a > img {
   max-width: 100%;
   height: 100%;
   font-size: 30px;
+}
+
+.segment-container {
+  margin-top: 15vh;
 }
 
 .segment-desc {
@@ -527,9 +553,8 @@ a > img {
 }
 
 .modal {
-  width: 900px;
-  height: 700px;
-  max-height: fit-content;
+  width: 50vw;
+  height: 80vh;
   background-color: white;
   border-radius: 5px;
   border: 1px solid black;
@@ -602,23 +627,29 @@ a > img {
 }
 
 .modal-content {
+  display: block;
   background-color: #c1c1c1;
   border-radius: 5px;
   text-align: center;
-  height: auto;
+  height: 35%;
+  position: absolute;
+  bottom: 0;
 }
 
 .modal-role {
   color: white;
   text-shadow: 2px 0 2px black;
-  font-size: 30px;
+  font-size: 25px;
+  position: relative;
+  top: -20px;
 }
 
 .modal-description {
-  display: flex;
   flex-wrap: wrap;
   font-size: 20px;
-  height: 135px;
+  height: 100%;
+  position: relative;
+  top: -20px;
   overflow-y: scroll;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -822,7 +853,13 @@ a > img {
   }
 
   .body {
-    font-size: 15px;
+    font-size: 20px;
+    margin: auto 10vw;
+    padding: 2rem;
+  }
+
+  .subtitle {
+    font-size: 20px;
   }
 
   .segment-desc {
@@ -838,8 +875,8 @@ a > img {
   }
 
   .modal {
-    width: 400px;
-    height: 500px;
+    width: 90vw;
+    height: 60vh;
   }
 
   .heading {

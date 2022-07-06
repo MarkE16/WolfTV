@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import MemberImg from './MemberImg';
 import Bottom from "./Bottom";
+import { CgLogOut } from "react-icons/cg";
 
 function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
@@ -12,8 +13,8 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
   return (
     <div className='App'>
       <NavBar />
-      <h1 className='title announcements'>Announcements</h1>
-      <div>
+      <div className='segment-container'>
+        <h1 className='title announcements'>Announcements</h1>
         <div className="body">
           <h2 className='subtitle'>What are the announcements?</h2>
           <p>
@@ -42,7 +43,7 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>[← Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut /> Return to Home</button></Link>
       <Bottom />
     </div>
   )

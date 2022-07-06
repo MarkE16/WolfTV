@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import Bottom from "./Bottom";
 import MemberImg from './MemberImg';
+import { CgLogOut } from 'react-icons/cg';
 
 function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
@@ -12,8 +13,8 @@ function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMem
   return (
     <div className='App'>
       <NavBar />
-      <h1 className="title cyber-news">Cyber News</h1>
-      <div>
+      <div className='segment-container'>
+        <h1 className="title cyber-news">Cyber News</h1>
         <div className='body'>
           <h2 className='subtitle'>What is Cyber News?</h2>
           <p>
@@ -39,7 +40,7 @@ function CyberNews({ modalOpen, setModalOpen, selectedMemberName, setSelectedMem
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>[← Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut /> Return to Home</button></Link>
       <Bottom />
     </div>
   )

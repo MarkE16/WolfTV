@@ -9,6 +9,8 @@ function Modal({ member, setOpen }) {
   const memberDescription = member[Object.keys(member)[0]][2];
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
 
+  
+
   return (
     <div className='darkBG' onClick={() => setOpen(false)}>
       <div className='modal' onClick={e => e.stopPropagation()}>
@@ -23,7 +25,9 @@ function Modal({ member, setOpen }) {
         </div>
         <div className='modal-content'>
           <h5 className='modal-role'>Role(s): {memberRole}</h5>
-          <p className='modal-description'>{memberDescription}</p>
+          <div style={{ overflowY: "scroll", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <p className='modal-description'>{memberDescription}</p>
+          </div>
         </div>
         <Button className='button' onClick={() => setOpen(false)}>OK</Button>
       </div>

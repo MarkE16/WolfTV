@@ -51,6 +51,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
   useEffect(() => {
     fetchVimeo();
     videoRef.current?.load();
+    
   }, [])
 
   document.title = "Wolf TV | Home";
@@ -79,7 +80,6 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
           </div>
         </div>
-        <a href='#start'><button className='button-circle'><BsArrowDown /></button></a>
         <div style={{ zIndex: 0 }}>
           <h1 className='title'>Latest Wolf TV Episode</h1>
           <p id="latest-ep" className='subtitle'>
@@ -95,14 +95,14 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
         <div>
           <h1 id="start" className='title'>What is WOLF TV?</h1>
           <div className='body'>
-            <p>
+            <p className='paragraph-txt'>
               WolfTV is an announcement video broadcast at Weiss High School. WolfTV is produced by students in the AV
               (Audio Visual) class. It mainly showcases important information
               for students, teachers, and staff. Often times, segments are included to add some "fun" to the show. The
               show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
-            <a href='#members'><Button className='button-circle' title='Next'><BsArrowDown /></Button></a>
+            <a href='#members'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
           </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               These members gave it their all to make the best content possible for Wolf TV. Whether it took minutes, hours, or
               even days, they made sure to continue producing. Thank you!
             </p>
-            <a href='#segments'><Button className='button-circle' title='Next'><BsArrowDown /></Button></a>
+            <a href='#segments'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
           </div>
         </div>
       </div>
