@@ -25,7 +25,7 @@ function Modal({ member, setOpen }) {
         </div>
         <div className='modal-content'>
           <h5 className='modal-role'>Role(s): {memberRole}</h5>
-          <div style={{ overflowY: "scroll", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ overflowY: "scroll", position: "absolute", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", top: "6vh" }}>
             <p className='modal-description'>{memberDescription}</p>
           </div>
         </div>

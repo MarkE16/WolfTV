@@ -75,9 +75,11 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           <div className='intro-subtitle'>
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
-            <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
-            <a href='#segments'><button varient="primary" className='button' title='View Wolf TV Segments'>Segments</button></a>
-            <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
+            <div className='intro-actions'>
+              <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
+              <a href='#segments'><button varient="primary" className='button' title='View Wolf TV Segments'>Segments</button></a>
+              <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
+            </div>
           </div>
         </div>
         <div style={{ zIndex: 0 }}>
