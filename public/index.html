@@ -54,10 +54,14 @@
           if ($(window).scrollTop() > 20) {
             $('#topBtn').css('display', 'block');
             $(".App-header").css("background-color", "rgba(169, 26, 26, 0.5)");
+            $(".App-header").css("box-shadow", "0px 0px 10px rgba(0, 0, 0, 0.5)");
             // $('#navBar').css('display', 'block');
           } else {
             $('#topBtn').css('display', 'none');
+            // $(".App-header").css("background-color", "rgba(169, 26, 26, 1)");
+            // Set App-header's background color to rgba(169, 26, 26, 1) and box-shadow to 0 4px 7px rgb(0, 0, 0)
             $(".App-header").css("background-color", "rgba(169, 26, 26, 1)");
+            $(".App-header").css("box-shadow", "0 4px 7px rgb(0, 0, 0)");
             // $('#navBar').css('display', 'none');
           }
         })

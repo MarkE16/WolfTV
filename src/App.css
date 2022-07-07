@@ -51,12 +51,14 @@ a li {
   display: block;
   color: white;
   text-align: center;
-  margin-left: 50px;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
-  width: 100%;
-  height: 100%;
+  padding: 10px;
   font-family: DejaVu Sans Mono, monospace;
+}
+
+a li:hover {
+  background-color: rgb(197, 49, 49);
 }
 
 div > img {
@@ -91,9 +93,12 @@ a {
 }
 
 .App-logo {
-  transform: scale(2.5);
-  height: 50px;
+  height: 10vmin;
+  object-fit: contain;
+  float: left;
 }
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -102,30 +107,23 @@ a {
 }
 
 .App-header { 
-  margin: inherit;
   color: rgb(169, 26, 26);
   background-color: #b31b1b;
-  min-height: 100px;
-  padding-left: 100px;
-  justify-content: center;
-  align-items: center;
+  min-height: 10vh;
   font-size: calc(5px + 2vmin);
   color: rgb(255, 255, 255);
   box-shadow: 0 4px 7px rgb(0, 0, 0);
-  object-fit: contain;
   transition: 0.5s ease;
 }
 
-
-.App-header a {
-  float: left;
-  padding: 14px 60px;
-  text-align: center;
-}
-
 .header-items {
-  display: block;
+  display: flex;
   float: right;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1vw;
 }
 
 .App-title {
@@ -281,9 +279,9 @@ a {
   color:rgb(255, 255, 255);
   background-color: rgb(197, 49, 49);
   text-shadow: 2px 1px rgb(0, 0, 0);
-
   font-size: 70px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
 }
 
 .body div > .title {
@@ -326,6 +324,7 @@ a {
   padding: 5rem;
   font-size: 30px;
   font-family: Georgia, serif;
+  box-shadow: 0 0 50px red;
   /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
   /* font-family: avenir-lt-w01_35-light1475496,sans-serif; */
   max-width: 100%;
@@ -335,8 +334,8 @@ a {
 
 .video-bg {
   background-color: black;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 50vh;
 }
 
 .video-bg > iframe {
@@ -502,9 +501,26 @@ a {
 }
 
 .end {
-  background-color: rgba(255, 255, 255, 0.5);
-  margin: 100px;
+  margin: 10vmax;
   border-radius: 5px;
+}
+
+.end button {
+  background-color: transparent;
+  border: 5px solid #8a0808;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bolder;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.end button:hover {
+  background-color: #ffffff;
+  border: 5px solid #8a0808;
+  color: black;
+  cursor: pointer;
 }
 
 .button-circle:hover {
@@ -792,7 +808,6 @@ a {
   z-index: 1;
   min-height: 100%;
   margin: 0 auto;
-  transform: translate(auto, 20%);
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -848,8 +863,8 @@ a {
 @media screen and (max-width: 700px) {
   /* Center logo */
   .App-logo {
-    align-self: center;
-    justify-self: center;
+    height: 10vmax;
+    float: none;
   }
 
   .body {

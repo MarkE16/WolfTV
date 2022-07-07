@@ -51,7 +51,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
   useEffect(() => {
     fetchVimeo();
     videoRef.current?.load();
-    
+
   }, [])
 
   document.title = "Wolf TV | Home";
@@ -88,7 +88,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </p>
           <div className='body'>
             <div className='video-bg'>
-              <iframe id="vimeoVideo" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="740" height="460" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
+              <iframe id="vimeoVideo" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
             </div>
           </div>
         </div>
@@ -117,13 +117,13 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <div className='member-imgs'>
               <MemberImg member={members["teacher"]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
             </div>
-            <div style={{ float: "right" }}>
+            {/* <div style={{ float: "right" }}>
               <label>Sort by:</label>
               <select name='sort' id='sort' className='sort-box' onClick={e => { e.stopPropagation(); setMessageModalShown(true)}}>
                 <option value="latest">Latest</option>
                 <option value="oldest">Oldest</option>
               </select>
-            </div>
+            </div> */}
             <h2 className='title'>2022-2023</h2>
             <div className='member-imgs'>
               <p><strong>This section isn't available yet. Check back later.</strong></p>
@@ -193,8 +193,8 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
       { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option is currently in development and is not available yet. Come back later!"/> }
       <div className='end'>
         <h1 className='title'>You've scrolled to the end.</h1>
+        <a href="https://vimeo.com/user152561840"><button className='button'>WATCH WOLFTV</button></a>
       </div>
-      <p style={{ color: "white" }}>Want More? Head over to the <a href='https://vimeo.com/user152561840' target="_blank" className='link'>Vimeo Page</a> to watch WolfTV!</p>
       <Bottom />
     </div>
   );
