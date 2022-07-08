@@ -53,8 +53,8 @@ a li {
   text-align: center;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
-  padding: 10px;
-  font-family: DejaVu Sans Mono, monospace;
+  padding: 0 10px;
+  font-family: Arial Black, sans-serif;
 }
 
 a li:hover {
@@ -98,11 +98,27 @@ a {
   float: left;
 }
 
+.loading {
+  align-self: center;
+  position: absolute;
+  box-sizing: border-box;
+}
+
 
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .loading {
+    animation: loading-spin infinite 1s linear;
+  }
+}
+
+/* App-logo-spin CSS */
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -118,7 +134,7 @@ a {
 
 .header-items {
   display: flex;
-  float: right;
+  float: left;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -883,6 +899,14 @@ a {
 
   .subtitle {
     font-size: 20px;
+  }
+  .intro {
+    height: 75vh;
+  }
+  .slide {
+    object-fit: cover;
+    height: 75vh;
+    max-width: 100%;
   }
 
   .segment-desc {
