@@ -8,7 +8,8 @@ import SlideShow from './SlideShow';
 import "../App.css";
 import { Link } from "react-router-dom";
 import InfoBox from './InfoBox';
-import { BsArrowUp, BsArrowDown } from "react-icons/bs";
+import { BsArrowDown } from "react-icons/bs";
+import { IoIosArrowUp } from "react-icons/io";
 import classNames from 'classnames';
 
 // function sort(sortItem) {
@@ -58,7 +59,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
   return (
     <div id="top" className={appClass}>
       {/* <InfoBox /> */}
-      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><BsArrowUp /></Button></a>}
+      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></Button></a>}
       <NavBar />
       <div style={{zIndex: 0 }}>
         <div className='intro'>
@@ -112,7 +113,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
         <h1 className='title'>WOLF TV Members</h1>
         <div className='body'>
           <p>
-            The following people help continue bringing new content to WOLF TV: 
+            The following people help continue bring new content to WOLF TV: 
           </p>
           <div>
             <h2 className='title'>Teacher</h2>

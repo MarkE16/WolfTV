@@ -1,3 +1,8 @@
+/* ROOT */
+:root {
+  --navBar-color: #b31b1b;
+}
+
 /* SCROLL BAR */
 ::-webkit-scrollbar {
   width: 10px;
@@ -54,7 +59,7 @@ a li {
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
   padding: 0 10px;
-  font-family: Arial Black, sans-serif;
+  font-family: apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 
 a li:hover {
@@ -124,7 +129,7 @@ a {
 
 .App-header { 
   color: rgb(169, 26, 26);
-  background-color: #b31b1b;
+  background-color: var(--navBar-color);
   min-height: 10vh;
   font-size: calc(5px + 2vmin);
   color: rgb(255, 255, 255);
@@ -517,6 +522,25 @@ a {
   font-size: 30px;
 }
 
+.segment button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: auto;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+  font-size: 20px;
+  color: black;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+}
+
+.segment button:hover {
+  background-color: rgb(219, 218, 218);
+  border: none;
+  cursor: pointer;
+}
+
 .segment-container {
   margin-top: 15vh;
 }
@@ -529,6 +553,15 @@ a {
 .end {
   margin: 10vmax;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #8a0808;
+}
+
+.end > .title {
+  background-color: transparent;
 }
 
 .end button {
@@ -691,6 +724,9 @@ a {
 
 .modal-description {
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 50px;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -826,13 +862,19 @@ a {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #b31b1b;
+  background-color: var(--navBar-color);
   box-shadow: 0px 8px 16px 11px rgba(0,0,0,0.2);
   border: 2px solid black;
   z-index: 1;
   min-height: 100%;
   margin: 0 auto;
+  animation: fadeIn 0.3s;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .dropdown-content > a {
@@ -952,7 +994,10 @@ a {
 
 
   .modal-description {
-    font-size: 15px;
+    font-size: 10px;
+    position: fixed;
+    bottom: 10%;
+    margin: 0;
   }
 
   .intro-subtitle a > li {
