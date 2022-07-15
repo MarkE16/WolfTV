@@ -730,6 +730,15 @@ a {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+}
+
 .x-btn {
   background-color: white;
   border-radius: 50px;
@@ -995,7 +1004,7 @@ a {
 
   .modal-description {
     font-size: 10px;
-    position: fixed;
+
     bottom: 10%;
     margin: 0;
   }
