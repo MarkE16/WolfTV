@@ -35,6 +35,7 @@ function Loading() {
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedMemberName, setSelectedMemberName] = useState("");
+  const [infoboxShown, setInfoboxShown] = useState(true);
 
   return (
     <Router>
@@ -48,7 +49,7 @@ function App() {
                 element={
                   <React.Suspense fallback={<Loading />}>
                     <div>
-                      <MainPage modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                      <MainPage modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName} infoBoxOpen={infoboxShown} setInfoBoxOpen={setInfoboxShown}/>
                     </div>
                   </React.Suspense>
                 }

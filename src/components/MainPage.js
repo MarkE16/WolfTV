@@ -22,9 +22,10 @@ import classNames from 'classnames';
 //   }, [sortItem]);
 // }
 
-function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
+function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
   const [currentVimeoEpData, setCurrentVimeoEpData] = useState({title: "", linkCode: ""});
+  
 
   const members = require("../data/crew.json");
 
@@ -58,7 +59,6 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
   document.title = "Wolf TV | Home";
   return (
     <div id="top" className={appClass}>
-      {/* <InfoBox /> */}
       { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></Button></a>}
       <NavBar />
       <div style={{zIndex: 0 }}>
@@ -105,11 +105,11 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
-            <a href='#members'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
+            <a href='#crew'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
           </div>
         </div>
       </div>
-      <div id='members'>
+      <div id='crew'>
         <h1 className='title'>WOLF TV Members</h1>
         <div className='body'>
           <p>
@@ -198,6 +198,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
         <h1 className='title'>You've scrolled to the end.</h1>
         <a href="https://vimeo.com/user152561840"><button className='button'>WATCH WOLFTV</button></a>
       </div>
+      { infoBoxOpen && <InfoBox setOpen={setInfoBoxOpen} />}
       <Bottom />
     </div>
   );

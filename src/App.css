@@ -48,8 +48,7 @@ ul {
 
 li {
   float: left;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 20px;
 }
 
 a li {
@@ -310,7 +309,7 @@ a {
   color:rgb(255, 255, 255);
   background-color: rgb(197, 49, 49);
   text-shadow: 2px 1px rgb(0, 0, 0);
-  font-size: 70px;
+  font-size: 4vmax;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-style: italic;
 }
@@ -353,7 +352,7 @@ a {
   border-radius: 5px;
   margin: auto 5vw;
   padding: 5rem;
-  font-size: 30px;
+  font-size: 3.5vmin;
   font-family: Georgia, serif;
   box-shadow: 0 0 50px red;
   /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
@@ -405,10 +404,11 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
+.btn-icon {
+  display: inline;
+}
+
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(185, 136, 136);
   border: 1px solid rgb(185, 136, 136);
   border-radius: 5px;
@@ -841,26 +841,66 @@ a {
 
 /* DROP DOWN CSS */
 .hamburger {
-  display: block;
+  display: none;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   padding: 15px;
   font-size: 20px;
+  position: relative;
+  z-index: 100;
   transition: all 0.2s ease-in-out;
   color: white;
 }
 
-.hamburger:hover {
-  cursor: pointer;
-  border-radius: 25px;
-  background-color: rgb(224, 224, 224);
+.hamburger:active {
+  background-color: rgba(229, 229, 229, 1);
   color: black;
+  transition: all 0.2s ease-in-out;
 }
 
-.hamburger.is-active {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgb(0, 0, 0);
+.hamburger-menu {
+  position: fixed;
+  transform: translateY(-100%);
+  transition: transform 0.2s;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  list-style: none;
+  padding-top: 4rem;
+}
+
+.hamburger-menu > .subtitle {
+  font-size: xx-large;
+}
+
+.menuItem {
+  display: block;
+  margin: 2rem 4rem;
+  font-size: 1.8rem;
+  border: none;
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-shadow: 0 2px 0 black;
+}
+
+.menuItem:active {
+  cursor: pointer;
+  background-color: rgba(215, 215, 215, 0.2);
+  color: white;
   transition: all 0.2s ease-in-out;
+}
+
+.showingMenu {
+  transform: translateY(0);
+}
+
+.close {
+  display: none;
 }
 
 .dropdown {
@@ -934,16 +974,38 @@ a {
   margin: 10px;
 }
 
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #8a0808;
+  font-size: 2vmin;
+  position: fixed;
+  width: 100%;
+  height: fit-content;
+  bottom: 0;
+}
+
+.info-box p > a:hover {
+  color: rgb(80, 171, 201)
+}
+
+.info-box p > a:active {
+  color: rgb(13, 139, 182);
+  text-decoration: none;
+}
+
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
   /* Center logo */
   .App-logo {
     height: 10vmax;
-    float: none;
+
   }
 
   .body {
-    font-size: 20px;
     margin: auto 10vw;
     padding: 2rem;
   }
@@ -968,9 +1030,9 @@ a {
     font-size: 15px;
   }
 
-  .title {
-    font-size: 30px;
-  }
+  /* .title {
+    font-size: 50px;
+  } */
 
   .modal {
     width: 90vw;
@@ -1033,6 +1095,11 @@ a {
     cursor: default;
   }
 
+  .hamburger {
+    display: block;
+    float: right;
+    margin: 10px;
+  }
  
 }
 

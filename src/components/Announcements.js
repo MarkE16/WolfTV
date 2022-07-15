@@ -43,7 +43,7 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'><CgLogOut /> Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut className='btn-icon' /> Return to Home</button></Link>
       <Bottom />
     </div>
   )
