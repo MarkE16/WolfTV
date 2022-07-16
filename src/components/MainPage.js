@@ -8,8 +8,8 @@ import SlideShow from './SlideShow';
 import "../App.css";
 import { Link } from "react-router-dom";
 import InfoBox from './InfoBox';
-import { BsArrowDown, BsPlayFill } from "react-icons/bs";
-import { IoIosArrowUp } from "react-icons/io";
+import { BsPlayFill } from "react-icons/bs";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import classNames from 'classnames';
 import Loading from './Loading';
 
@@ -109,7 +109,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
-            <a href='#crew'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
+            <a href='#crew'><Button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></Button></a>
           </div>
         </div>
       </div>
@@ -147,7 +147,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               These members gave it their all to make the best content possible for Wolf TV. Whether it took minutes, hours, or
               even days, they made sure to continue producing. Thank you!
             </p>
-            <a href='#segments'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
+            <a href='#segments'><Button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></Button></a>
           </div>
         </div>
       </div>
