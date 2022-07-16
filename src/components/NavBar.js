@@ -8,21 +8,21 @@ import classNames from 'classnames';
 function NavBar() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
+
   useEffect(() => {
     const menu = document.querySelector('.hamburger-menu');
     const hamburger = document.querySelector(".hamburger");
     const items = document.querySelectorAll(".menuItem");
 
-    function toggleMenu() {
-      if (menu.classList.contains("showingMenu")) {
-        menu.classList.remove("showingMenu");
+    if (menu.classList.contains("showingMenu")) {
+      document.querySelector("html").style.overflow = "auto";
+      menu.classList.remove("showingMenu");
 
-      } else {
-        menu.classList.add("showingMenu");
-      }
+    } else {
+      document.querySelector("html").style.overflow = "hidden";
+      menu.classList.add("showingMenu");
     }
-
-    hamburger.addEventListener("click", toggleMenu);
+    
     // items.forEach(item => item.addEventListener("click", toggleMenu));
   }, [hamburgerOpen])
 

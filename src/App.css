@@ -222,6 +222,7 @@ a {
 
 .slide {
   display: inline-block;
+  position: relative;
 
   /* Make the image fit the container,
   regardless of it's dimenstions. */
@@ -234,7 +235,7 @@ a {
 .dots {
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 100;
   justify-content: center;
   align-items: center;
 }
@@ -595,7 +596,7 @@ a {
   position: fixed; /* Fixed/sticky position */
   bottom: 20px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
-  z-index: 98; /* Make sure it does not overlap */
+  z-index: 1; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   background-color: #b31b1b; /* Set a background color */
   color: rgb(214, 205, 205); /* Text color */
@@ -829,12 +830,13 @@ a {
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0);
   transition: all 0.2s ease-in-out;
+  color: white;
 }
 
 .infobox-x-btn:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
   background-color: white;
+  color: black;
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
 }
@@ -984,6 +986,7 @@ a {
   font-size: 2vmin;
   position: fixed;
   width: 100%;
+  z-index: 1;
   height: fit-content;
   bottom: 0;
 }
@@ -996,6 +999,8 @@ a {
   color: rgb(13, 139, 182);
   text-decoration: none;
 }
+
+
 
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
