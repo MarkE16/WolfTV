@@ -888,13 +888,15 @@ a {
   color: white;
   padding: 0.5rem 1rem;
   text-shadow: 0 2px 0 black;
+  transition: all 0.2s ease-in-out;
 }
 
 .menuItem:active {
   cursor: pointer;
   background-color: rgba(215, 215, 215, 0.2);
   color: white;
-  transition: all 0.2s ease-in-out;
+  transform: translateX(0.5rem);
+
 }
 
 .showingMenu {

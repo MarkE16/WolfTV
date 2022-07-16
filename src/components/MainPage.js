@@ -8,7 +8,7 @@ import SlideShow from './SlideShow';
 import "../App.css";
 import { Link } from "react-router-dom";
 import InfoBox from './InfoBox';
-import { BsArrowDown } from "react-icons/bs";
+import { BsArrowDown, BsPlayFill } from "react-icons/bs";
 import { IoIosArrowUp } from "react-icons/io";
 import classNames from 'classnames';
 
@@ -196,7 +196,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
       { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option is currently in development and is not available yet. Come back later!"/> }
       <div className='end'>
         <h1 className='title'>You've scrolled to the end.</h1>
-        <a href="https://vimeo.com/user152561840"><button className='button'>WATCH WOLFTV</button></a>
+        <a href="https://vimeo.com/user152561840"><button className='button'><BsPlayFill /> WATCH WOLFTV</button></a>
       </div>
       { infoBoxOpen && <InfoBox setOpen={setInfoBoxOpen} />}
       <Bottom />
