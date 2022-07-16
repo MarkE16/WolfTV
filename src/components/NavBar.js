@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineQuestion } from "react-icons/ai";
 import classNames from 'classnames';
+import { RiCloseLine } from 'react-icons/ri';
 
 function NavBar() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
@@ -48,7 +49,7 @@ function NavBar() {
         </div>
         <div>
             <button id="hamburger" className="hamburger" title='More' onClick={() => setHamburgerOpen(!hamburgerOpen ? true : false)}>
-              <GiHamburgerMenu />
+              { !hamburgerOpen ? <GiHamburgerMenu /> : <RiCloseLine /> }
             </button>
             <div className="hamburger-menu" onClick={e => e.stopPropagation()}>
               <h2 className='subtitle'>Navigate</h2>
