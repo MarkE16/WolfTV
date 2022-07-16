@@ -14,7 +14,7 @@ The first released version of the website is [here](https://wolf-tv.herokuapp.co
 
 This is the current up-to-date preview of the Wolf TV website.
 
-https://user-images.githubusercontent.com/76978800/179329182-274280b4-1b40-41bb-804b-0e6cd2ae81c4.mp4
+
 
 ## When will the website be finished?
 

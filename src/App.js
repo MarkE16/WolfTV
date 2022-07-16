@@ -7,6 +7,7 @@ import CyberNews from './components/CyberNews';
 import RetroReview from './components/RetroReview';
 import Stories from './components/Stories';
 import Announcements from './components/Announcements';
+import Loading from './components/Loading';
 
 // WOLFTV SITE | v0.1
 
@@ -18,18 +19,6 @@ function Wrapper({ children }) {
     window.scrollTo(0, 0);
   }, [location.pathname]);
   return children;
-}
-
-
-function Loading() {
-  return (
-    <div className='App' style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", width: "100vw", height: "100vh" }}>
-      <div className='loading'>
-        <img src={require("./assets/WeissWolf.png")} alt="WeissWolf" className='App-logo' style={{ border: "none", margin: "auto" }}/>
-      </div>
-      <p className="subtitle" style={{fontSize: 40, position: "absolute", bottom: "30vh"}}>Loading...</p>
-    </div>
-  )
 }
 
 function App() {

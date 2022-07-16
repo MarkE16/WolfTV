@@ -11,6 +11,7 @@ import InfoBox from './InfoBox';
 import { BsArrowDown, BsPlayFill } from "react-icons/bs";
 import { IoIosArrowUp } from "react-icons/io";
 import classNames from 'classnames';
+import Loading from './Loading';
 
 // function sort(sortItem) {
 //   useEffect(() => {
@@ -25,7 +26,7 @@ import classNames from 'classnames';
 function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
   const [currentVimeoEpData, setCurrentVimeoEpData] = useState({title: "", linkCode: ""});
-  
+  const [loadingVideo, setLoadingVideo] = useState(false);
 
   const members = require("../data/crew.json");
 
@@ -33,15 +34,17 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
     "token": "a0ca4b46a912abfcac526a6a9a8cb4f8"
   }
   
-  const fetchVimeo = () => fetch("https://api.vimeo.com/users/152561840/videos", {
+  const fetchVimeo = async () => {
+    setLoadingVideo(true);
+    const getVideo = await fetch("https://api.vimeo.com/users/152561840/videos", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + vimeoStuff["token"]
       }
     })
-      .then(response => response.json())
-      .then(data => setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)}) )
-      .catch(error => console.log(error))
+    const videoData = await getVideo.json();
+    return videoData;
+    }
 
   const videoRef = React.createRef();
 
@@ -51,9 +54,10 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
   })
 
   useEffect(() => {
-    fetchVimeo();
-    videoRef.current?.load();
-
+    fetchVimeo().then(data => {
+      setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
+      setLoadingVideo(false);
+    })
   }, [])
 
   document.title = "Wolf TV | Home";
@@ -91,7 +95,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </p>
           <div className='body'>
             <div className='video-bg'>
-              <iframe id="vimeoVideo" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
+              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>}
             </div>
           </div>
         </div>
