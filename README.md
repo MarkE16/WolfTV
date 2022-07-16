@@ -1,3 +1,4 @@
+![wolftv-logo-transparent](https://user-images.githubusercontent.com/76978800/179336821-35ad8f9d-1a69-46d5-ba4c-3662186952c2.png)
 # Wolf TV Website
 
 This is the Github page for the Wolf TV website.
