@@ -9,12 +9,14 @@ function Modal({ member, setOpen }) {
   const memberDescription = member[Object.keys(member)[0]][2];
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
 
+  
+
   return (
     <div className='darkBG' onClick={() => setOpen(false)}>
       <div className='modal' onClick={e => e.stopPropagation()}>
         <div className='modal-header'>
           <h5 className='heading'>{memberName}</h5>
-          <Button className='x-btn' onClick={() => setOpen(false)}>
+          <Button title="Close this window" className='x-btn' onClick={() => setOpen(false)}>
             <RiCloseLine style={{ marginBottom: "-7px" }} />
           </Button>
         </div>
@@ -23,9 +25,13 @@ function Modal({ member, setOpen }) {
         </div>
         <div className='modal-content'>
           <h5 className='modal-role'>Role(s): {memberRole}</h5>
-          <p className='modal-description'>{memberDescription}</p>
+          <div style={{ overflowY: "scroll", position: "absolute", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", top: "6vh" }}>
+            <p className='modal-description'>{memberDescription}</p>
+          </div>
         </div>
-        <Button className='button' onClick={() => setOpen(false)}>OK</Button>
+        <div className='modal-footer'>
+          <Button className='button' onClick={() => setOpen(false)}>OK</Button>
+        </div>
       </div>
     </div>
   )

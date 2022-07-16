@@ -1,3 +1,34 @@
+/* ROOT */
+:root {
+  --navBar-color: #b31b1b;
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b4b4b4;
+  border: 0px none #ffffff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #686767;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
 
 /* HTML TAG CSS */
 
@@ -17,26 +48,21 @@ ul {
 
 li {
   float: left;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 20px;
 }
 
 a li {
   display: block;
   color: white;
   text-align: center;
-  margin: 20px;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
-  width: 100%;
-  height: 100%;
-  font-family: DejaVu Sans Mono, monospace;
-  transition: all 0.2s ease-in-out;
+  padding: 0 10px;
+  font-family: apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 
 a li:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease-in-out;
+  background-color: rgb(197, 49, 49);
 }
 
 div > img {
@@ -57,40 +83,67 @@ a > img {
   margin: auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* ClassName CSS */
 
 .App {
   text-align: center;
   background-color: hsl(0, 1%, 28%);
   margin: auto;
+  overflow-x: hidden;
 }
 
 .App-logo {
-  transform: scale(2.5);
-  height: 50px;
+  height: 10vmin;
+  object-fit: contain;
+  float: left;
 }
 
+.loading {
+  align-self: center;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .loading {
+    animation: loading-spin infinite 1s linear;
+  }
+}
+
+/* App-logo-spin CSS */
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
 .App-header { 
-  margin: inherit;
-  background-color: #b31b1b;
-  min-height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+  color: rgb(169, 26, 26);
+  background-color: var(--navBar-color);
+  min-height: 10vh;
   font-size: calc(5px + 2vmin);
   color: rgb(255, 255, 255);
-  padding-left: 0px;
   box-shadow: 0 4px 7px rgb(0, 0, 0);
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  transition: 0.5s ease;
+}
+
+.header-items {
+  display: flex;
+  float: left;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1vw;
 }
 
 .App-title {
@@ -119,6 +172,7 @@ a > img {
 .intro-subtitle {
   margin: inherit;
   z-index: 1;
+  display: block;
 }
 
 .intro-subtitle a > button {
@@ -133,21 +187,15 @@ a > img {
 }
 
 .intro {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  background-image: url("../src/assets/images/ethan.JPG");
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: 1s;
-  box-shadow: 2px 2px 10px black;
+  box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.5);
   position: relative;
   margin: auto;
   display: flex;
   text-align: center;
   justify-content: center;
-  top: 0;
+  z-index: 0;
   /* animation-name: changeImage;
   animation-direction: alternate-reverse;
   animation-play-state: running;
@@ -157,6 +205,59 @@ a > img {
   animation-iteration-count: infinite; */
 }
 
+.slideShow {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  display: inline-block;
+  position: relative;
+
+  /* Make the image fit the container,
+  regardless of it's dimenstions. */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+}
+
+.dots {
+  text-align: center;
+  position: relative;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  border: 1px solid black;
+  background-color: #c4c4c4;
+}
+
+.dot.active {
+  background-color: #8a0808;
+}
+
+.dot:hover {
+  background-color: rgba(176, 176, 176, 0.4);
+}
 
 @keyframes changeImage {
   0% {
@@ -178,7 +279,7 @@ a > img {
 
 .intro-title {
   color: white;
-  font-size: 90px;
+  font-size: 5vmax;
   text-shadow: 3px 1px 3px black;
   position: relative;
   padding: 10px;
@@ -188,18 +289,30 @@ a > img {
 .intro-body {
   color: white;
   text-shadow: 3px 1px 3px black;
-  font-size: 30px;
+  font-size: 4vmin;
   position: relative;
   padding: 10px;
   margin: auto;
+}
+
+.intro-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.intro-actions a > button {
+  font-size: 2vmin;
 }
 
 .title {
   color:rgb(255, 255, 255);
   background-color: rgb(197, 49, 49);
   text-shadow: 2px 1px rgb(0, 0, 0);
-  font-size: 70px;
+  font-size: 4vmax;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
 }
 
 .body div > .title {
@@ -232,18 +345,28 @@ a > img {
 }
 
 .body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   background-color: #cdcdcd;
   border-radius: 5px;
-  margin: auto 120px;
-  padding: 60px;
-  font-size: 30px;
+  margin: auto 5vw;
+  padding: 5rem;
+  font-size: 3.5vmin;
+  font-family: Georgia, serif;
+  box-shadow: 0 0 50px red;
+  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+  /* font-family: avenir-lt-w01_35-light1475496,sans-serif; */
   max-width: 100%;
 }
 
+
+
 .video-bg {
   background-color: black;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 50vh;
 }
 
 .video-bg > iframe {
@@ -262,18 +385,28 @@ a > img {
   border: 1px solid;
   bottom: 0;
   box-shadow: 0px -2px 5px rgb(0, 0, 0);
+  z-index: 100;
 }
 
 .icon {
-  transform: scale(0.5); 
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  transform: scale(2);
   max-width: "100%"; 
   max-height: "100%";
   transition: all 0.3s ease-in-out;
+  margin: 15px;
 }
 
 .icon:hover {
-  transform: scale(0.7);
-  transition: transform 0.3s ease-in-out;
+  color: white;
+  cursor: pointer;
+  transform: scale(2.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-icon {
+  display: inline;
 }
 
 .button {
@@ -306,8 +439,13 @@ a > img {
   cursor: default;
 }
 
+.button-icon {
+}
+
 .button-circle {
   background-color: rgb(255, 255, 255);
+  position: relative;
+  z-index: 0;
   border-radius: 50px;
   font-size: 20px;
   transition: all 0.2s ease-in-out;
@@ -317,21 +455,29 @@ a > img {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.arrow-down {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.button-circle:hover .arrow-down {
+  transform: translateY(5px);
+}
+
 .member-imgs {
   padding-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   max-width: 100%;
-  margin: auto;
 }
 
 
 .member-img {
   object-fit: cover;
   max-width: 100%;
-  border-radius: 5;
-  border-color: "black";
+  border-radius: 5px;
+  border-color: black;
   transform: scale(0.8);
 }
 
@@ -339,13 +485,13 @@ a > img {
   background-color: rgb(210, 210, 210);
   border-radius: 5px;
   padding: 5px;
-  transition: all 0.3s ease-in-out;
+  margin: 50px;
+  transition: all 200ms ease-in-out;
 }
 
 .member:hover {
   background-color: #8a0808;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 
 .member-name {
@@ -377,15 +523,64 @@ a > img {
   font-size: 30px;
 }
 
+.segment button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: auto;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+  font-size: 20px;
+  color: black;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+}
+
+.segment button:hover {
+  background-color: rgb(219, 218, 218);
+  border: none;
+  cursor: pointer;
+}
+
+.segment-container {
+  margin-top: 15vh;
+}
+
 .segment-desc {
   margin: 40px;
   font-size: 30px;
 }
 
 .end {
-  background-color: rgba(255, 255, 255, 0.5);
-  margin: 100px;
+  margin: 10vmax;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #8a0808;
+}
+
+.end > .title {
+  background-color: transparent;
+}
+
+.end button {
+  background-color: transparent;
+  border: 5px solid #8a0808;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bolder;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.end button:hover {
+  background-color: #ffffff;
+  border: 5px solid #8a0808;
+  color: black;
+  cursor: pointer;
 }
 
 .button-circle:hover {
@@ -401,13 +596,13 @@ a > img {
   position: fixed; /* Fixed/sticky position */
   bottom: 20px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
+  z-index: 1; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   background-color: #b31b1b; /* Set a background color */
   color: rgb(214, 205, 205); /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
-  font-size: 18px; /* Increase font size */
+  font-size: 20px; /* Increase font size */
   box-shadow: 0 1px 2px black;
 }
 
@@ -425,7 +620,7 @@ a > img {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 99;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -434,15 +629,14 @@ a > img {
 }
 
 .modal {
-  width: 900px;
-  height: 700px;
-  max-height: fit-content;
+  width: 50vw;
+  height: 80vh;
   background-color: white;
   border-radius: 5px;
   border: 1px solid black;
   box-shadow: 2px 5px 7px #8a0808;
   align-self: center;
-  position: fixed;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -453,12 +647,13 @@ a > img {
 }
 
 .modal > .button {
-  display: flex;
-  margin-top: -60px;
-  margin-right: 45px;
+  font-size: 20px;
+  margin: auto;
   padding-left: 50px;
   padding-right: 50px;
-  float: right;
+  position: fixed;
+  top: 95%;
+  left: 43vw;
   box-shadow: 2px 3px 2px black;
   transition: all 0.2s ease-in-out;
 }
@@ -508,22 +703,41 @@ a > img {
 }
 
 .modal-content {
+  display: flex;
+  justify-content: center;
+
   background-color: #c1c1c1;
   border-radius: 5px;
   text-align: center;
-  height: auto;
+  height: 35%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .modal-role {
   color: white;
   text-shadow: 2px 0 2px black;
-  font-size: 30px;
+  font-size: 25px;
+  position: relative;
+  top: -20px;
 }
 
 .modal-description {
   font-size: 20px;
-  height: 135px;
+  display: flex;
+  justify-content: center;
+  margin: 50px;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
 }
 
 .x-btn {
@@ -566,10 +780,14 @@ a > img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 99;
   justify-items: center;
   animation-name: msgModalAnim;
   animation-duration: 0.3s;
+}
+
+.msgModal > button {
+  float: right;
 }
 
 .msgDescription {
@@ -577,7 +795,8 @@ a > img {
   text-align: center;
   overflow: hidden;
   white-space: normal;
-
+  flex-wrap: wrap;
+  margin: 30px;
 }
 
 @keyframes msgModalAnim {
@@ -600,37 +819,113 @@ a > img {
   100% { opacity: 100%; } */
 }
 
+/* Disable scroll when modal is open */
+.modal-open {
+  overflow: hidden;
+
+}
+
 .infobox-x-btn {
   border: none;
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0);
   transition: all 0.2s ease-in-out;
+  color: white;
 }
 
 .infobox-x-btn:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
   background-color: white;
+  color: black;
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
 }
 
 /* DROP DOWN CSS */
-.dropdown {
-  float: left;
-  overflow: hidden;
+.hamburger {
+  display: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 15px;
+  font-size: 20px;
+  position: relative;
+  z-index: 100;
+  transition: all 0.2s ease-in-out;
+  color: white;
 }
 
+.hamburger:active {
+  background-color: rgba(229, 229, 229, 1);
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+.hamburger-menu {
+  position: fixed;
+  transform: translateY(-100%);
+  transition: transform 0.2s;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  list-style: none;
+  padding-top: 4rem;
+}
+
+.hamburger-menu > .subtitle {
+  font-size: xx-large;
+}
+
+.menuItem {
+  display: block;
+  margin: 2rem 4rem;
+  font-size: 1.8rem;
+  border: none;
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-shadow: 0 2px 0 black;
+}
+
+.menuItem:active {
+  cursor: pointer;
+  background-color: rgba(215, 215, 215, 0.2);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.showingMenu {
+  transform: translateY(0);
+}
+
+.close {
+  display: none;
+}
+
+.dropdown {
+  overflow: hidden;
+  margin: 0 auto;
+}
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #b31b1b;
+  background-color: var(--navBar-color);
   box-shadow: 0px 8px 16px 11px rgba(0,0,0,0.2);
   border: 2px solid black;
   z-index: 1;
   min-height: 100%;
+  margin: 0 auto;
+  animation: fadeIn 0.3s;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .dropdown-content > a {
@@ -654,9 +949,6 @@ a > img {
 .dropdown:hover .dropdown-content {
   display: block;
   border-color: black;
-  animation-name: dropdownAnim;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 
 .dropdown-btn {
@@ -677,14 +969,62 @@ a > img {
   to { top: 80px; }
 }
 
+.sort-box {
+  font-size: 20px;
+  border-radius: 5px;
+  max-width: fit-content;
+  margin: 10px;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #8a0808;
+  font-size: 2vmin;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: fit-content;
+  bottom: 0;
+}
+
+.info-box p > a:hover {
+  color: rgb(80, 171, 201)
+}
+
+.info-box p > a:active {
+  color: rgb(13, 139, 182);
+  text-decoration: none;
+}
+
+
+
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
+  /* Center logo */
   .App-logo {
-    transform: scale(1.5);
+    height: 10vmax;
+
   }
 
   .body {
-    font-size: 15px;
+    margin: auto 10vw;
+    padding: 2rem;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+  .intro {
+    height: 75vh;
+  }
+  .slide {
+    object-fit: cover;
+    height: 75vh;
+    max-width: 100%;
   }
 
   .segment-desc {
@@ -695,13 +1035,13 @@ a > img {
     font-size: 15px;
   }
 
-  .title {
-    font-size: 30px;
-  }
+  /* .title {
+    font-size: 50px;
+  } */
 
   .modal {
-    width: 400px;
-    height: 500px;
+    width: 90vw;
+    height: 60vh;
   }
 
   .heading {
@@ -713,9 +1053,7 @@ a > img {
     margin: auto;
   }
   
-  .modal-description {
-    font-size: 15px;
-  }
+
 
   .modal-role {
     font-size: 15px;
@@ -724,19 +1062,50 @@ a > img {
   .modal > .button {
     align-self: center;
     font-size: 15px;
-    float: auto;
+    top: 93%;
+    left: 55vw;
     margin: auto;
-    
   }
 
-  .modal-content {
-    max-height: 100%;
+
+
+  .modal-description {
+    font-size: 10px;
+
+    bottom: 10%;
+    margin: 0;
   }
 
-  .intro-subtitle a > button {
+  .intro-subtitle a > li {
     font-size: 15px;
-    margin: auto;
+    margin: 30px auto;
+    display: block;
   }
+
+  .App-header a > li{
+    display: none;
+  }
+
+  .msgModal {
+    width: 400px;
+    height: 200px;
+  }
+
+  .sort-box {
+    font-size: inherit;
+  }
+
+  .dropdown:hover {
+    display: none;
+    cursor: default;
+  }
+
+  .hamburger {
+    display: block;
+    float: right;
+    margin: 10px;
+  }
+ 
 }
 
 @media screen and (max-width: 1200px) {

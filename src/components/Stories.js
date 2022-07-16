@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import Bottom from "./Bottom";
 import MemberImg from "./MemberImg";
+import { CgLogOut } from 'react-icons/cg';
 
 function Stories({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
@@ -12,8 +13,8 @@ function Stories({ modalOpen, setModalOpen, selectedMemberName, setSelectedMembe
   return (
     <div className='App'>
       <NavBar />
+      <div className='segment-container'>
       <h1 className='title stories'>Stories</h1>
-      <div>
         <div className='body'>
           <h2 className='subtitle'>What is Stories?</h2>
           <p>
@@ -31,8 +32,8 @@ function Stories({ modalOpen, setModalOpen, selectedMemberName, setSelectedMembe
             the stories have an impact on the viewers. The team also wants the viewer to be aware that those stories exist. That is part
             of the goal Wolf TV has.
           </p>
-          <h2 className='subtitle'>Who is in charge of Stories?</h2>
-          <p>The following people are in charge:</p>
+          <h2 className='subtitle'>Who is in charge of developing this segment?</h2>
+          <p>The following people who help produce content for this segment are:</p>
           <div className='member-imgs'>
             <MemberImg member={members["2021-2022"][0]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
             <MemberImg member={members["2021-2022"][1]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
@@ -42,7 +43,7 @@ function Stories({ modalOpen, setModalOpen, selectedMemberName, setSelectedMembe
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>[← Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut /> Return to Home</button></Link>
       <Bottom />
     </div>
   )

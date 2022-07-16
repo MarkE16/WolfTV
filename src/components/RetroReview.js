@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import Bottom from "./Bottom";
 import MemberImg from './MemberImg';
+import { CgLogOut } from 'react-icons/cg';
 
 function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
@@ -12,8 +13,8 @@ function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedM
   return (
     <div className='App'>
       <NavBar />
-      <h1 className="title retro-review">Retro Review</h1>
-      <div>
+      <div className='segment-container'>
+        <h1 className="title retro-review">Retro Review</h1>
         <div className='body'>
           <h2 className='subtitle'>What is Retro Review?</h2>
           <p>
@@ -29,15 +30,15 @@ function RetroReview({ modalOpen, setModalOpen, selectedMemberName, setSelectedM
               <li>Movies</li>
             </ul>
           </p>
-          <h2 className='subtitle'>Who is in charge of Retro Review?</h2>
-          <p>The following people are in charge:</p>
+          <h2 className='subtitle'>Who is in charge of developing this segment?</h2>
+          <p>The following people who help produce content for this segment are:</p>
           <div className='member-imgs'>
             <MemberImg member={members["2021-2022"][6]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
             <MemberImg member={members["2021-2022"][9]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>[← Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut /> Return to Home</button></Link>
       <Bottom />
     </div>
   )

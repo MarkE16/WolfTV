@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import MemberImg from './MemberImg';
 import Bottom from "./Bottom";
+import { CgLogOut } from "react-icons/cg";
 
 function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const members = require("../data/crew.json");
@@ -12,8 +13,8 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
   return (
     <div className='App'>
       <NavBar />
-      <h1 className='title announcements'>Announcements</h1>
-      <div>
+      <div className='segment-container'>
+        <h1 className='title announcements'>Announcements</h1>
         <div className="body">
           <h2 className='subtitle'>What are the announcements?</h2>
           <p>
@@ -30,8 +31,8 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
               <li>Information about Events (Football games, prom, etc)</li>
             </ul>
           </p>
-          <h2 className='subtitle'>Who is in charge of the announcements?</h2>
-          <p>The following people are in charge:</p>
+          <h2 className='subtitle'>Who is in charge of developing this segment?</h2>
+          <p>The following people who help produce content for this segment are:</p>
           <div className='member-imgs'>
            <MemberImg member={members["2021-2022"][0]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
            <MemberImg member={members["2021-2022"][1]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
@@ -42,7 +43,7 @@ function Announcements({ modalOpen, setModalOpen, selectedMemberName, setSelecte
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'>[← Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut className='btn-icon' /> Return to Home</button></Link>
       <Bottom />
     </div>
   )
