@@ -346,6 +346,7 @@ a {
 
 .body {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -353,8 +354,9 @@ a {
   border-radius: 5px;
   margin: auto 5vw;
   padding: 5rem;
-  font-size: 3.5vmin;
+  font-size: 3vmin;
   font-family: Georgia, serif;
+  letter-spacing: -0.1rem;
   box-shadow: 0 0 50px red;
   /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
   /* font-family: avenir-lt-w01_35-light1475496,sans-serif; */
@@ -443,16 +445,21 @@ a {
 }
 
 .button-circle {
-  background-color: rgb(255, 255, 255);
-  position: relative;
-  z-index: 0;
-  border-radius: 50px;
-  font-size: 20px;
+  border-radius: 50%;
+  background-color: white; /* Set a background color */
+  color: black; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  font-size: 20px; /* Increase font size */
   transition: all 0.2s ease-in-out;
-  width: 50px;
-  height: 50px;
-  color: rgb(0, 0, 0);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.button-circle:hover {
+  background-color: rgb(0, 0, 0);
+  border-color: white;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 .arrow-down {
@@ -507,10 +514,10 @@ a {
   max-width: 100%;
   height: 100%;
   margin: auto;
-  justify-content: space-around;
   border-radius: 5px;
   font-size: 25px;
   border: 1px solid black;
+  letter-spacing: normal;
 }
 
 .wolftv-segments > a {
@@ -537,8 +544,9 @@ a {
 }
 
 .segment button:hover {
-  background-color: rgb(219, 218, 218);
+  box-shadow: 0px 0px 40px rgba(183, 183, 183, 0.8);
   border: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -580,13 +588,6 @@ a {
   background-color: #ffffff;
   border: 5px solid #8a0808;
   color: black;
-  cursor: pointer;
-}
-
-.button-circle:hover {
-  background-color: rgb(0, 0, 0);
-  border-color: white;
-  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
@@ -705,7 +706,6 @@ a {
 .modal-content {
   display: flex;
   justify-content: center;
-
   background-color: #c1c1c1;
   border-radius: 5px;
   text-align: center;
@@ -719,8 +719,11 @@ a {
   color: white;
   text-shadow: 2px 0 2px black;
   font-size: 25px;
-  position: relative;
-  top: -20px;
+  position: fixed;
+  bottom: 25%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 90%;
+  height: 4%;
 }
 
 .modal-description {
@@ -735,7 +738,7 @@ a {
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 0;
+  bottom: -2%;
   right: 0;
   margin-right: 10px;
 }
@@ -1004,6 +1007,7 @@ a {
 
 
 
+
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
   /* Center logo */
@@ -1015,6 +1019,7 @@ a {
   .body {
     margin: auto 10vw;
     padding: 2rem;
+    font-size: 2.5vmax;
   }
 
   .subtitle {
@@ -1073,8 +1078,6 @@ a {
 
   .modal-description {
     font-size: 10px;
-
-    bottom: 10%;
     margin: 0;
   }
 

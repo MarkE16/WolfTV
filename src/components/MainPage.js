@@ -8,9 +8,10 @@ import SlideShow from './SlideShow';
 import "../App.css";
 import { Link } from "react-router-dom";
 import InfoBox from './InfoBox';
-import { BsArrowDown, BsPlayFill } from "react-icons/bs";
-import { IoIosArrowUp } from "react-icons/io";
+import { BsPlayFill } from "react-icons/bs";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import classNames from 'classnames';
+import Loading from './Loading';
 
 // function sort(sortItem) {
 //   useEffect(() => {
@@ -25,7 +26,7 @@ import classNames from 'classnames';
 function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
   const [currentVimeoEpData, setCurrentVimeoEpData] = useState({title: "", linkCode: ""});
-  
+  const [loadingVideo, setLoadingVideo] = useState(false);
 
   const members = require("../data/crew.json");
 
@@ -33,17 +34,17 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
     "token": "a0ca4b46a912abfcac526a6a9a8cb4f8"
   }
   
-  const fetchVimeo = () => fetch("https://api.vimeo.com/users/152561840/videos", {
+  const fetchVimeo = async () => {
+    setLoadingVideo(true);
+    const getVideo = await fetch("https://api.vimeo.com/users/152561840/videos", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + vimeoStuff["token"]
       }
     })
-      .then(response => response.json())
-      .then(data => setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)}) )
-      .catch(error => console.log(error))
-
-  const videoRef = React.createRef();
+    const videoData = await getVideo.json();
+    return videoData;
+    }
 
   const appClass = classNames({
     "App": true,
@@ -51,10 +52,11 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
   })
 
   useEffect(() => {
-    fetchVimeo();
-    videoRef.current?.load();
-
-  }, [])
+    fetchVimeo().then(data => {
+      setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
+      setLoadingVideo(false);
+    })
+  }, []);
 
   document.title = "Wolf TV | Home";
   return (
@@ -77,7 +79,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
             <div className='intro-actions'>
-              <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
+              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
               <a href='#segments'><button varient="primary" className='button' title='View Wolf TV Segments'>Segments</button></a>
               <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
             </div>
@@ -91,7 +93,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </p>
           <div className='body'>
             <div className='video-bg'>
-              <iframe id="vimeoVideo" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
+              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" title="Wolf TV Vimeo Video" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>}
             </div>
           </div>
         </div>
@@ -105,12 +107,12 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
-            <a href='#crew'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
+            <a href='#crew'><Button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></Button></a>
           </div>
         </div>
       </div>
       <div id='crew'>
-        <h1 className='title'>WOLF TV Members</h1>
+        <h1 className='title'>WOLF TV Crew</h1>
         <div className='body'>
           <p>
             The following people help continue bring new content to WOLF TV: 
@@ -143,7 +145,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               These members gave it their all to make the best content possible for Wolf TV. Whether it took minutes, hours, or
               even days, they made sure to continue producing. Thank you!
             </p>
-            <a href='#segments'><Button className='button-circle' title='Next'><BsArrowDown className='arrow-down'/></Button></a>
+            <a href='#segments'><Button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></Button></a>
           </div>
         </div>
       </div>
