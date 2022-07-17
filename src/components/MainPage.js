@@ -46,8 +46,6 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
     return videoData;
     }
 
-  const videoRef = React.createRef();
-
   const appClass = classNames({
     "App": true,
     "modal-open": modalOpen
@@ -58,7 +56,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
       setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
       setLoadingVideo(false);
     })
-  }, [])
+  }, []);
 
   document.title = "Wolf TV | Home";
   return (
@@ -81,7 +79,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
             <div className='intro-actions'>
-              <a href='https://vimeo.com/user152561840' target="_blank"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
+              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
               <a href='#segments'><button varient="primary" className='button' title='View Wolf TV Segments'>Segments</button></a>
               <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
             </div>
@@ -95,7 +93,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </p>
           <div className='body'>
             <div className='video-bg'>
-              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>}
+              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" title="Wolf TV Vimeo Video" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>}
             </div>
           </div>
         </div>
@@ -114,7 +112,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
         </div>
       </div>
       <div id='crew'>
-        <h1 className='title'>WOLF TV Members</h1>
+        <h1 className='title'>WOLF TV Crew</h1>
         <div className='body'>
           <p>
             The following people help continue bring new content to WOLF TV: 
