@@ -51,6 +51,14 @@ li {
   margin: 20px;
 }
 
+ul li::before {
+  content: ">| ";
+}
+
+ul li::after {
+  content: " |<";
+}
+
 a li {
   display: block;
   color: white;
@@ -513,6 +521,11 @@ a {
   cursor: pointer;
 }
 
+.member:active {
+  outline: 2px solid white;
+
+}
+
 .member-name {
   color: white;
   text-shadow: 2px 0 rgb(0, 0, 0);
@@ -532,13 +545,9 @@ a {
   letter-spacing: normal;
 }
 
-.wolftv-segments > a {
-  bottom: 0;
-}
-
 .segment {
   max-width: 100%;
-  height: 100%;
+
   font-size: 30px;
 }
 
@@ -547,8 +556,8 @@ a {
   border: none;
   border-radius: 5px;
   padding: 5px;
-  margin: auto;
-  margin-bottom: 20px;
+  position: relative;
+  bottom: 0;
   transition: all 0.2s ease-in-out;
   font-size: 20px;
   color: black;
@@ -739,7 +748,7 @@ a {
 }
 
 .modal-description {
-  font-size: 20px;
+  font-size: calc(5px + 1vw);
   display: flex;
   justify-content: center;
   margin: 50px;
@@ -1089,7 +1098,7 @@ a {
 
 
   .modal-description {
-    font-size: 10px;
+    font-size: calc(10px + 1vw);
     margin: 0;
   }
 
