@@ -432,6 +432,7 @@ a {
   color:rgb(0, 0, 0);
   box-shadow: 0px 0px 40px rgba(253, 183, 183, 0.8);
   transition: all 0.3s ease-in-out;
+  outline: 2px solid transparent;
 }
 
 .button:disabled {
@@ -439,6 +440,11 @@ a {
   border: 1px solid black;
   color: black;
   cursor: default;
+}
+
+.button:active {
+  outline: 2px solid rgb(255, 212, 212);
+  outline-offset: 2px;
 }
 
 .button-icon {
@@ -452,6 +458,8 @@ a {
   padding: 15px; /* Some padding */
   font-size: 20px; /* Increase font size */
   transition: all 0.2s ease-in-out;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -460,6 +468,10 @@ a {
   border-color: white;
   color: rgb(255, 255, 255);
   cursor: pointer;
+}
+
+.button-circle:active {
+    outline: 2px solid white;
 }
 
 .arrow-down {
