@@ -421,9 +421,8 @@ a {
 
 .button {
   background-color: rgb(185, 136, 136);
-  border: 1px solid rgb(185, 136, 136);
+  border: 1px solid #8a0808;
   border-radius: 5px;
-  border-color: #8a0808;
   font-size: 20px;
   transition: all 0.2s ease-in-out;
   padding-left: 30px;
@@ -484,11 +483,12 @@ a {
 
 .arrow-down {
   position: relative;
+  transform: translateY(5px);
   transition: all 0.2s ease-in-out;
 }
 
 .button-circle:hover .arrow-down {
-  transform: translateY(5px);
+  transform: translateY(10px);
 }
 
 .member-imgs {
@@ -865,6 +865,46 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
+/* MODAL ARROWS CSS */
+
+.modal-arrow {
+  position: fixed;
+  transform: translateY(-50%) scale(4);
+  top: 50%;
+  z-index: 2;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-arrow:hover {
+  color: black;
+}
+
+.modal-arrow:disabled {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+
+.modal-arrow.left {
+  left: 0;
+}
+
+.modal-arrow.right {
+    right: 0;
+}
+
+.modal-arrow.left:hover{
+  transform: translate(-25%, -50%) scale(4);
+}
+
+.modal-arrow.right:hover{
+  transform: translate(25%, -50%) scale(4);
+}
+
 /* DROP DOWN CSS */
 .hamburger {
   display: none;
@@ -1130,6 +1170,14 @@ a {
     display: block;
     float: right;
     margin: 10px;
+  }
+
+  .modal-arrow.left {
+    left: -35%;
+  }
+
+  .modal-arrow.right {
+    right: -35%;
   }
  
 }

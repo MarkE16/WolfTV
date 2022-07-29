@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from './Modal';
+import Loading from './Loading';
 import "../App.css";
 
 function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
-  const memberImgFileName = member[Object.keys(member)[0]][0].slice(24);
+  const [loadingImg, setLoadingImg] = useState(false);
+  const memberImgFileName = member[Object.keys(member)[0]][0][0].slice(24);
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
 
   useEffect(() => {
@@ -21,12 +23,17 @@ function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSel
         setSelectedMemberName(memberName)
         }}>
         <div>
-          <img 
-            src={require(`../assets/crew_imgs/${memberImgFileName}`)}
-            loading="lazy"
-            alt='Rendering...'
-            className='member-img'
-            />
+          {
+            loadingImg ? <Loading /> :
+              (
+                <img
+                  src={require(`../assets/crew_imgs/${memberImgFileName}`)}
+                  loading="lazy"
+                  alt='Rendering...'
+                  className='member-img'
+                />
+              )
+          }
         </div>
         <p className='member-name'>{memberName}</p>
       </div>
