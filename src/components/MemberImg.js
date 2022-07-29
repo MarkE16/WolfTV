@@ -5,8 +5,16 @@ import "../App.css";
 
 function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
   const [loadingImg, setLoadingImg] = useState(false);
+  const [img, setImg] = useState(null);
   const memberImgFileName = member[Object.keys(member)[0]][0][0].slice(24);
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
+  console.log(memberImgFileName);
+
+
+  useEffect(() => {
+    setImg(require(`../assets/crew_imgs/${memberImgFileName}`));
+
+  }, [])
 
   useEffect(() => {
     if (modalOpen) {
@@ -27,7 +35,7 @@ function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSel
             loadingImg ? <Loading /> :
               (
                 <img
-                  src={require(`../assets/crew_imgs/${memberImgFileName}`)}
+                  src={img}
                   loading="lazy"
                   alt='Rendering...'
                   className='member-img'
