@@ -12,6 +12,7 @@ import { BsPlayFill } from "react-icons/bs";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import classNames from 'classnames';
 import Loading from './Loading';
+import Segment from "./Segment";
 
 // function sort(sortItem) {
 //   useEffect(() => {
@@ -22,6 +23,8 @@ import Loading from './Loading';
 //     }
 //   }, [sortItem]);
 // }
+
+
 
 function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
@@ -77,6 +80,8 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </video> */}
           <div className='intro-subtitle'>
             <h1 className='intro-title'>Welcome to Wolf TV</h1>
+            {/*<h2 className='intro-subtitle-text'>The Official Website of the Wolf Pack</h2>*/}
+            <hr />
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
             <div className='intro-actions'>
               <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
@@ -93,7 +98,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </p>
           <div className='body'>
             <div className='video-bg'>
-              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" title="Wolf TV Vimeo Video" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>}
+              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" title="Wolf TV Vimeo Video" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%"  allow="autoplay; fullscreen" allowFullScreen></iframe>}
             </div>
           </div>
         </div>
@@ -131,7 +136,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             </div> */}
             <h2 className='title'>2022-2023</h2>
             <div className='member-imgs'>
-              <p><strong>This section isn't available yet. Check back later.</strong></p>
+              <p><strong>This section isn't available yet. Check back later.</strong><br />Estimated Update/Release: <em>Sometime in September?</em></p>
             </div>
             <h2 className='title'>2021-2022</h2>
             <div className='member-imgs'>
@@ -157,39 +162,23 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           </p>
           <div>
             <div className='wolftv-segments'>
-              <div className='segment'>
-                <h3 style={{ color: "#b31b1b", textShadow: "0px 1px 2px black"}}>Announcements</h3>
-                <p className='segment-desc'>
-                  The main part of the show: the announcements! This segement contains all the information one Weiss Wolf should
-                  know when at the school. It contains information about classes, tests, and events.
-                </p>
-                <Link to="/announcements"><Button className='button'>Learn More</Button></Link>
-              </div>
-              <div className='segment'>
-                <h3 style={{ color: "#4ff0ff", textShadow: "0px 1px 2px black" }}>Cyber News</h3>
-                <p className='segment-desc'>
-                  Cyber News is a segment that updates you on the latest on the Cyber World, whether it'd be video games, music,
-                  or just news in general.
-                </p>
-                <Link to="/cyber-news"><Button className='button'>Learn More</Button></Link>
-              </div>
-              <div className='segment'>
-                <h3 style={{ color: "#f09e4d", textShadow: "0px 1px 2px black" }}>Retro Review</h3>
-                <p className='segment-desc'>
-                  Retro Review is a segment that takes a deep dive into the past of classical TV shows, video games, movies,
-                  and music. 
-                </p>
-                <Link to="/retro-review"><Button className='button'>Learn More</Button></Link>
-              </div>
-              <div className='segment'>
-                <h3 style={{ color: "#00ff0d", textShadow: "0px 1px 2px black" }}>Stories</h3>
-                <p className='segment-desc'>
-                  Stories are about people that are experiencing something big.
-                  Whether it may be something special, tramatic, or heart-warming,
-                  we want people's stories to be heard!
-                </p>
-                <Link to="/stories"><Button className='button'>Learn More</Button></Link>
-              </div>
+              <Segment title="Announcements" color="#b31b1b" path="/announcements">
+                The main part of the show: the announcements! This segment contains all the information one Weiss Wolf should
+                know when at the school. It contains information about classes, tests, and events.
+              </Segment>
+              <Segment title="Cyber News" color="#4ff0ff" path="/cyber-news">
+                Cyber News is a segment that updates you on the latest on the Cyber World, whether it'd be video games, music,
+                or just news in general.
+              </Segment>
+              <Segment title="Retro Review" color="#f09e4d" path="/retro-review">
+                Retro Review is a segment that takes a deep dive into the past of classical TV shows, video games, movies,
+                and music.
+              </Segment>
+              <Segment title="Stories" color="#00ff0d" path="/stories">
+                Stories are about people that are experiencing something big.
+                Whether it may be something special, traumatic, or heart-warming,
+                we want people's stories to be heard!
+              </Segment>
             </div>
           </div>
         </div>

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineQuestion } from "react-icons/ai";
-import classNames from 'classnames';
 import { RiCloseLine } from 'react-icons/ri';
 
 function NavBar() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const location = useLocation().pathname;
 
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function NavBar() {
           </Link>
         </div>
         <div className="header-items">
-          <a href="#crew"><li>Crew</li></a>
+          {location === "/" ? <a href="#crew"><li>Crew</li></a> : null}
           <div className='dropdown'>
             <a href='#segments'><li>Segments</li></a>
             <div className="dropdown-content" title='View segment'>
@@ -53,9 +53,9 @@ function NavBar() {
             </button>
             <div className="hamburger-menu" onClick={e => e.stopPropagation()}>
               <h2 className='subtitle'>Navigate</h2>
-              <a href='#crew'>
+              {location === "/" ? <a href='#crew'>
                 <button className="menuItem">Crew</button>
-              </a>
+              </a> : null}
               <Link to="/announcements">
                 <button className="menuItem">Announcements</button>
               </Link>
