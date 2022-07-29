@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "../App.css";
 import Button from 'react-bootstrap/Button';
 import { RiCloseLine } from 'react-icons/ri';
-import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import Loading from "./Loading";
 
 function Modal({ member, setOpen }) {
@@ -24,6 +24,7 @@ function Modal({ member, setOpen }) {
             <RiCloseLine style={{ marginBottom: "-7px" }} />
           </Button>
         </div>
+        <p style={{ fontSize: "1em", position: "fixed", left: 0, right: 0, top: "9%" }}>Image {currentIndex + 1} of {images.length}</p>
         <div className='modal-img'>
           {
             loadingImg ? <Loading /> :
@@ -44,7 +45,7 @@ function Modal({ member, setOpen }) {
                     setCurrentIndex(prev => prev - 1);
                     setLoadingImg(false);
                   }}>
-            <BsArrowLeftCircle />
+            <MdOutlineArrowBackIos />
           </button>
           <button disabled={currentIndex === (images.length - 1)}
                   title="Next Image"
@@ -54,7 +55,7 @@ function Modal({ member, setOpen }) {
                     setCurrentIndex(prev => prev + 1)
                     setLoadingImg(false);
                   }}>
-            <BsArrowRightCircle  />
+            <MdOutlineArrowForwardIos  />
           </button>
         </div>
         <div className='modal-content'>
