@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../App.css";
 import Button from 'react-bootstrap/Button';
 import { RiCloseLine } from 'react-icons/ri';
+import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
+import Loading from "./Loading";
 
 function Modal({ member, setOpen }) {
-  const memberImgFileName = member[Object.keys(member)[0]][0].slice(24);
+  const [loadingImg, setLoadingImg] = useState(false);
+  const images = member[Object.keys(member)[0]][0];
+  const [currentIndex, setCurrentIndex] = useState(0);
   const memberRole = member[Object.keys(member)[0]][1];
   const memberDescription = member[Object.keys(member)[0]][2];
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
@@ -20,8 +24,39 @@ function Modal({ member, setOpen }) {
             <RiCloseLine style={{ marginBottom: "-7px" }} />
           </Button>
         </div>
+        <p style={{ fontSize: "1em", position: "fixed", left: 0, right: 0, top: "9%" }}>Image {currentIndex + 1} of {images.length}</p>
         <div className='modal-img'>
-          <img title={`${memberName}'s image`} alt="Rendering..." style={{ borderRadius: 5, borderColor: "black"}} src={require(`../assets/crew_imgs/${memberImgFileName}`)} />
+          {
+            loadingImg ? <Loading /> :
+              (
+                <img
+                  title={`${memberName}'s image`}
+                  alt="Rendering..."
+                  style={{ borderRadius: 5, borderColor: "black"}}
+                  src={require(`../assets/crew_imgs/${images[currentIndex].slice(24)}`)}
+                />
+              )
+          }
+          <button disabled={currentIndex === 0}
+                  title="Previous Image"
+                  className="modal-arrow left"
+                  onClick={() => {
+                    setLoadingImg(true);
+                    setCurrentIndex(prev => prev - 1);
+                    setLoadingImg(false);
+                  }}>
+            <MdOutlineArrowBackIos />
+          </button>
+          <button disabled={currentIndex === (images.length - 1)}
+                  title="Next Image"
+                  className="modal-arrow right"
+                  onClick={() => {
+                    setLoadingImg(true);
+                    setCurrentIndex(prev => prev + 1)
+                    setLoadingImg(false);
+                  }}>
+            <MdOutlineArrowForwardIos  />
+          </button>
         </div>
         <div className='modal-content'>
           <h5 className='modal-role'>Role(s): {memberRole}</h5>
