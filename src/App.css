@@ -518,7 +518,6 @@ a {
 
 .member {
   background-color: rgb(210, 210, 210);
-  width: 80%;
   border-radius: 5px;
   padding: 5px;
   margin: 50px;
@@ -578,6 +577,10 @@ a {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.segment button:active {
+  outline: 2px solid rgba(204, 204, 204, 0.5);
 }
 
 .segment-container {
@@ -673,6 +676,16 @@ a {
   transform: translate(-50%, -50%);
   z-index: 1;
   justify-items: center;
+  animation: bruh 0.5s ease forwards;
+}
+
+@keyframes bruh {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
 }
 
 .modal > .button {
@@ -942,7 +955,7 @@ a {
 
 .hamburger-menu {
   position: fixed;
-  transform: translateY(-100%);
+  transform: translateY(-150%);
   transition: transform 0.2s;
   top: 0;
   left: 0;
@@ -1105,6 +1118,11 @@ a {
   .intro {
     height: 75vh;
   }
+
+  .intro-title {
+    font-size: 4vmax;
+  }
+
   .slide {
     object-fit: cover;
     height: 75vh;

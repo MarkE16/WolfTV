@@ -1,36 +1,38 @@
 import './App.css';
-import React, { useState, useLayoutEffect, useContext } from "react";
+import React, { useState, useLayoutEffect, useContext, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Loading from './components/Loading';
-import MainPage from "./components/MainPage";
 import ModalProvider, { ModalContext } from "./components/ModalCxt";
-// import MainPage from './components/MainPage';
+import MainPage from './components/MainPage';
+import SegmentPage from "./components/SegmentPage";
 
 // WOLFTV SITE | v0.1
 
-let location;
 function App() {
   const [selectedMemberName, setSelectedMemberName] = useState("");
   const [infoboxShown, setInfoboxShown] = useState(true);
   const { modalOpen } = useContext(ModalContext);
 
-  function Wrapper({ children }) {
-    location = useLocation();
+  function ScrollTop({ children }) {
+    const location = useLocation();
     useLayoutEffect(() => {
-      if (modalOpen) return
-
+      console.log("Scrolling!")
       window.scrollTo(0, 0);
-    }, []);
+      console.log(location.pathname)
+    }, [location.pathname]);
     return children;
   }
 
+  const Wrapper = useMemo(() => {
+    if (modalOpen) return;
+    return ScrollTop;
+  }, [modalOpen]);
+
 
   // Lazy loading pages
-  const MainPage = React.lazy(() => import('./components/MainPage'));
-  const CyberNews = React.lazy(() => import('./components/CyberNews'));
-  const RetroReview = React.lazy(() => import('./components/RetroReview'));
-  const Stories = React.lazy(() => import('./components/Stories'));
-  const Announcements = React.lazy(() => import('./components/Announcements'));
+  // const MainPage = React.lazy(() => import('./components/MainPage'));
+  // const SegmentPage = React.lazy(() => import('./components/SegmentPage'));
+  const crew = require("./data/crew.json");
 
   return (
     <ModalProvider>
@@ -53,7 +55,21 @@ function App() {
                   element={
                     <React.Suspense fallback={<Loading />}>
                       <div>
-                        <Announcements selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                        <SegmentPage
+                          title="announcements"
+                          about={`
+                          The announcements is the main segment of the entire show of Wolf TV. Without it, who knows what the purpose of
+                          Wolf TV would've been this whole time.
+                          `}
+                          content={`
+                          The type of content displayed during the announcements are mainly just info about the school. Types of info could
+                          be:
+                          `}
+                          contentList={["Information about Classes", "Information about Tests (SAT, PSAT, STAAR, etc)", "Information about Events (Football games, prom, etc)"]}
+                          members={[crew["2021-2022"][0], crew["2021-2022"][1], crew["2021-2022"][2], crew["2021-2022"][3], crew["2021-2022"][10], crew["2021-2022"][7]]}
+                          selectedMemberName={selectedMemberName}
+                          setSelectedMemberName={setSelectedMemberName}
+                        />
                       </div>
                     </React.Suspense>
                   }
@@ -63,7 +79,20 @@ function App() {
                   element={
                     <React.Suspense fallback={<Loading />}>
                       <div>
-                        <CyberNews selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                        <SegmentPage
+                          title="cyber news"
+                          about={`
+                          Cyber News is a segment of Wolf TV that delivers news that happens in the cyber world AKA the internet.
+                          `}
+                          content={`
+                          The type of content displayed during the Cyber News are mainly just info about the cyber world. Types of info could
+                          be:
+                          `}
+                          contentList={["Movies", "Video Games", "Music", "News in general", "Social Media"]}
+                          members={[crew["2021-2022"][4], crew["2021-2022"][3], crew["2021-2022"][2]]}
+                          selectedMemberName={selectedMemberName}
+                          setSelectedMemberName={setSelectedMemberName}
+                        />
                       </div>
                     </React.Suspense>
                   }
@@ -73,7 +102,20 @@ function App() {
                   element={
                     <React.Suspense fallback={<Loading />}>
                       <div>
-                        <RetroReview selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                        <SegmentPage
+                          title="retro review"
+                          about={`
+                          Retro Review is a segment of Wolf TV that reviews all kinds of things that occurred in the past.
+                          `}
+                          content={`
+                          The type of content displayed during the Retro Review are mainly just things, like the name suggests, from the past. 
+                          Types of content could be:
+                          `}
+                          contentList={["Movies", "Video Games", "Music"]}
+                          members={[crew["2021-2022"][6], crew["2021-2022"][9]]}
+                          selectedMemberName={selectedMemberName}
+                          setSelectedMemberName={setSelectedMemberName}
+                        />
                       </div>
                     </React.Suspense>
                   }
@@ -83,7 +125,26 @@ function App() {
                   element={
                     <React.Suspense fallback={<Loading />}>
                       <div>
-                        <Stories selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                        <SegmentPage
+                          title="stories"
+                          about={`
+                          Stories is a segment of Wolf TV that delivers a story about 1 or multiple individuals. Stories allow the individual(s) 
+                          express their story to the viewers, to allow them to share their story with the world, and to let them be heard.
+                          `}
+                          content={`
+                          The type of content in Stories could literally be anything. Whether the topic is about a person, an event, a place, or 
+                          anything else, it can qualify as a story.
+                          `}
+                          contentList={undefined}
+                          purpose={`
+                          The purpose of Stories is that the Wolf TV team wants to get people's stories out there. The Wolf TV team wants to make
+                          the stories have an impact on the viewers. The team also wants the viewer to be aware that those stories exist. That 
+                          is part of the goal Wolf TV has.
+                          `}
+                          members={[crew["2021-2022"][0], crew["2021-2022"][1], crew["2021-2022"][3], crew["2021-2022"][8], crew["2021-2022"][9]]}
+                          selectedMemberName={selectedMemberName}
+                          setSelectedMemberName={setSelectedMemberName}
+                        />
                       </div>
                     </React.Suspense>
                   }
