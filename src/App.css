@@ -147,7 +147,7 @@ a {
   background-color: var(--navBar-color);
   min-height: 10vh;
   font-size: calc(5px + 2vmin);
-  color: rgb(255, 255, 255);
+  /*color: rgb(255, 255, 255);*/
   box-shadow: 0 4px 7px rgb(0, 0, 0);
   transition: 0.5s ease;
 }
@@ -275,23 +275,23 @@ a {
   background-color: rgba(176, 176, 176, 0.4);
 }
 
-@keyframes changeImage {
-  0% {
-    background-image: url("../src/assets/images/ethan.JPG");
-  }
+/*@keyframes changeImage {*/
+/*  0% {*/
+/*    background-image: url("../src/assets/images/ethan.JPG");*/
+/*  }*/
 
-  25% {
-    background-image: url("../src/assets/images/wideshot-of-crew.JPG");
-  }
+/*  25% {*/
+/*    background-image: url("../src/assets/images/wideshot-of-crew.JPG");*/
+/*  }*/
 
-  50% {
-    background-image: url("../src/assets/images/studio.JPG");
-  }
+/*  50% {*/
+/*    background-image: url("../src/assets/images/studio.JPG");*/
+/*  }*/
 
-  75% {
-    background-image: url("../src/assets/images/camera.JPG");
-  }
-}
+/*  75% {*/
+/*    background-image: url("../src/assets/images/camera.JPG");*/
+/*  }*/
+/*}*/
 
 .intro-title {
   color: white;
