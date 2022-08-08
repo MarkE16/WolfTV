@@ -1,5 +1,4 @@
-import Button from 'react-bootstrap/Button';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import MemberImg from './MemberImg';
 import MessageModal from './MessageModal';
 import NavBar from './NavBar';
@@ -10,7 +9,6 @@ import { Link } from "react-router-dom";
 import InfoBox from './InfoBox';
 import { BsPlayFill } from "react-icons/bs";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-import classNames from 'classnames';
 import Loading from './Loading';
 import Segment from "./Segment";
 
@@ -26,7 +24,7 @@ import Segment from "./Segment";
 
 
 
-function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
+function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
   const [currentVimeoEpData, setCurrentVimeoEpData] = useState({title: "", linkCode: ""});
   const [loadingVideo, setLoadingVideo] = useState(false);
@@ -49,11 +47,6 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
     return videoData;
     }
 
-  const appClass = classNames({
-    "App": true,
-    "modal-open": modalOpen
-  })
-
   useEffect(() => {
     fetchVimeo().then(data => {
       setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
@@ -63,8 +56,8 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
 
   document.title = "Wolf TV | Home";
   return (
-    <div id="top" className={appClass}>
-      { <a href='#top'><Button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></Button></a>}
+    <div id="top" className="App">
+      { <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>}
       <NavBar />
       <div style={{zIndex: 0 }}>
         <div className='intro'>
@@ -112,7 +105,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
-            <a href='#crew'><Button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></Button></a>
+            <a href='#crew'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
           </div>
         </div>
       </div>
@@ -125,7 +118,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
           <div>
             <h2 className='title'>Teacher</h2>
             <div className='member-imgs'>
-              <MemberImg member={members["teacher"]} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+              <MemberImg member={members["teacher"]} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
             </div>
             {/* <div style={{ float: "right" }}>
               <label>Sort by:</label>
@@ -142,7 +135,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
             <div className='member-imgs'>
               {
                 members['2021-2022'].map(member => {
-                  return <MemberImg member={member} modalOpen={modalOpen} setModalOpen={setModalOpen} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                  return <MemberImg member={member} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
                 })
               }
             </div>
@@ -150,7 +143,7 @@ function MainPage({ modalOpen, setModalOpen, selectedMemberName, setSelectedMemb
               These members gave it their all to make the best content possible for Wolf TV. Whether it took minutes, hours, or
               even days, they made sure to continue producing. Thank you!
             </p>
-            <a href='#segments'><Button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></Button></a>
+            <a href='#segments'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
           </div>
         </div>
       </div>
