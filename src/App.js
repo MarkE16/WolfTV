@@ -2,31 +2,23 @@ import './App.css';
 import React, { useState, useLayoutEffect, useContext, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Loading from './components/Loading';
-import ModalProvider, { ModalContext } from "./components/ModalCxt";
+import ModalProvider from "./components/ModalCxt";
 import MainPage from './components/MainPage';
 import SegmentPage from "./components/SegmentPage";
 
 // WOLFTV SITE | v0.1
 
+function Wrapper({ children }) {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children;
+}
+
 function App() {
   const [selectedMemberName, setSelectedMemberName] = useState("");
   const [infoboxShown, setInfoboxShown] = useState(true);
-  const { modalOpen } = useContext(ModalContext);
-
-  function ScrollTop({ children }) {
-    const location = useLocation();
-    useLayoutEffect(() => {
-      console.log("Scrolling!")
-      window.scrollTo(0, 0);
-      console.log(location.pathname)
-    }, [location.pathname]);
-    return children;
-  }
-
-  const Wrapper = useMemo(() => {
-    if (modalOpen) return;
-    return ScrollTop;
-  }, [modalOpen]);
 
 
   // Lazy loading pages
