@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 /* ROOT */
 :root {
   --navBar-color: #b31b1b;
@@ -111,8 +115,12 @@ a {
 }
 
 .loading {
-  align-self: center;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
   position: absolute;
+
   box-sizing: border-box;
 }
 
@@ -502,7 +510,7 @@ a {
 
 .member-img {
   object-fit: cover;
-  max-width: 100%;
+  width: 100%;
   border-radius: 5px;
   border-color: black;
   transform: scale(0.9);
@@ -510,6 +518,7 @@ a {
 
 .member {
   background-color: rgb(210, 210, 210);
+  width: 80%;
   border-radius: 5px;
   padding: 5px;
   margin: 50px;
@@ -664,8 +673,6 @@ a {
   transform: translate(-50%, -50%);
   z-index: 1;
   justify-items: center;
-  animation-name: modalAnim;
-  animation-duration: 0.5s;
 }
 
 .modal > .button {
@@ -720,8 +727,13 @@ a {
 .modal-img {
   display: flex;
   justify-content: center;
-  margin: 95px;
+  margin: 12% 0;
   transform: scale(1.1);
+}
+
+.modal-img img {
+  object-fit: cover;
+    width: 20%;
 }
 
 .modal-content {
@@ -774,8 +786,8 @@ a {
   align-self: flex-start;
   margin-left: -10px;
   margin-top: -10px;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   box-shadow: 4px 4px 3px black;
   transition: all 0.2s;
 }
@@ -1144,6 +1156,10 @@ a {
   .modal-description {
     font-size: calc(10px + 1vw);
     margin: 0;
+  }
+
+  .modal-img img {
+    width: 50%;
   }
 
   .intro-subtitle a > li {

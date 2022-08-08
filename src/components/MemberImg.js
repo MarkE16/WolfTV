@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Modal from './Modal';
+import { ModalContext } from "./ModalCxt";
 import Loading from './Loading';
 import "../App.css";
 
-function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSelectedMemberName }) {
-  const [loadingImg, setLoadingImg] = useState(false);
-  const [img, setImg] = useState(null);
+function MemberImg({ member, selectedMemberName, setSelectedMemberName }) {
+  const { modalOpen, setModalOpen } = useContext(ModalContext);
+  const [img, setImg] = useState("");
   const memberImgFileName = member[Object.keys(member)[0]][0][0].slice(24);
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
-  console.log(memberImgFileName);
-
-
-  useEffect(() => {
-    setImg(require(`../assets/crew_imgs/${memberImgFileName}`));
-
-  }, [])
 
   useEffect(() => {
     if (modalOpen) {
@@ -31,17 +25,12 @@ function MemberImg({ member, modalOpen, setModalOpen, selectedMemberName, setSel
         setSelectedMemberName(memberName)
         }}>
         <div>
-          {
-            loadingImg ? <Loading /> :
-              (
-                <img
-                  src={img}
-                  loading="lazy"
-                  alt='Rendering...'
-                  className='member-img'
-                />
-              )
-          }
+          <img
+            src={require(`../assets/crew_imgs/${memberImgFileName}`)}
+            loading="lazy"
+            alt='Rendering...'
+            className='member-img'
+          />
         </div>
         <p className='member-name'>{memberName}</p>
       </div>
