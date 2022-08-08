@@ -1,6 +1,5 @@
 import React from 'react';
 import "../App.css";
-import Button from 'react-bootstrap/Button';
 
 function MessageModal({ setMsgModalOpen, msg, title }) {
   return (
@@ -12,7 +11,7 @@ function MessageModal({ setMsgModalOpen, msg, title }) {
         <div>
           <p className='msgDescription'>{msg}</p>
         </div>
-        <Button className='button' onClick={() => setMsgModalOpen(false)}>OK</Button>
+        <button className='button' onClick={() => setMsgModalOpen(false)}>OK</button>
       </div>
     </div>
   )
