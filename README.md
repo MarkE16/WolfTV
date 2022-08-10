@@ -9,14 +9,8 @@ Wolf TV is a student produced announcement show owned by PFISD/Weiss High School
 
 ## What is the link to the website?
 
-The first released version of the website is [here](https://wolf-tv.herokuapp.com/)!
-
-## Preview
-
-This is the current up-to-date preview of the Wolf TV website.
-
-
+The latest version of the website is [here](https://wolf-tv.herokuapp.com/)!
 
 ## When will the website be finished?
 
-Who knows. Hopefully sometime soon before I graduate senior year. Seriously though, it should be very soon, maybe before September.
+The website has *officially* been considered complete on August 8th, 2022. From this point on, there will be updates when there are new team members for the 2022-2023 school year, visual improvements, or overall features.
