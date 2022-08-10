@@ -110,10 +110,10 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
         </div>
       </div>
       <div id='crew'>
-        <h1 className='title'>WOLF TV Crew</h1>
+        <h1 className='title'>Meet the WolfTV Crew</h1>
         <div className='body'>
           <p>
-            The following people help continue bring new content to WOLF TV: 
+            The following people have helped bring new announcements and content to WolfTV:
           </p>
           <div>
             <h2 className='title'>Teacher</h2>
