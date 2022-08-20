@@ -17,7 +17,11 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
     <div className='App'>
       <NavBar />
       <div className='segment-container'>
-        <h1 className='title announcements'>{titleSplitCap}</h1>
+        <Link to="/"><button className='button'><CgLogOut className='button-icon' /> Return to Home</button></Link>
+        <h1 className={`title ${title === "announcements" ? "announcements" 
+                              : title === "cyber news" ? "cyber-news" 
+                              : title === "retro review" ? "retro-review" 
+                              : title === "stories" ? "stories" : ""}`}>{titleSplitCap}</h1>
         <div className="body">
           <h2 className='subtitle'>What {title === "announcements" ? "are the" : "is"} {titleSplitCap}?</h2>
           <p>
@@ -47,7 +51,7 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
           </div>
         </div>
       </div>
-      <Link to="/"><button className='button'><CgLogOut className='btn-icon' /> Return to Home</button></Link>
+      <Link to="/"><button className='button'><CgLogOut className='button-icon' /> Return to Home</button></Link>
       <Bottom />
     </div>
   );
