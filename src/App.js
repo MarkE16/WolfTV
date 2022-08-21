@@ -18,7 +18,7 @@ function Wrapper({ children }) {
 }
 
 function App() {
-  const [selectedMemberName, setSelectedMemberName] = useState("");
+  const [selectedMemberName, setSelectedMemberName] = useState(null);
   const [infoboxShown, setInfoboxShown] = useState(true);
 
 

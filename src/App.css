@@ -71,8 +71,8 @@ a li {
   text-align: center;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
-  padding: 0 10px;
-  font-family: apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  padding: 0 20px;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 a li:hover {
@@ -112,6 +112,7 @@ a {
 
 .App.not-found {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .App-logo {
@@ -168,7 +169,6 @@ a {
   background-color: var(--navBar-color);
   min-height: 10vh;
   font-size: calc(5px + 2vmin);
-  /*color: rgb(255, 255, 255);*/
   box-shadow: 0 4px 7px rgb(0, 0, 0);
   transition: 0.5s ease;
 }
@@ -176,11 +176,7 @@ a {
 .header-items {
   display: flex;
   float: left;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1vw;
+  padding: 10px;
 }
 
 .App-title {
@@ -210,6 +206,7 @@ a {
   margin: inherit;
   z-index: 1;
   display: block;
+  font-family: 'Nunito', sans-serif;
 }
 
 .intro-subtitle a > button {
@@ -365,13 +362,14 @@ a {
   color: #ffffff;
 }
 
-.title::before,
-.title::after {
+h1::before,
+h1::after {
   content: "";
   position: absolute;
   border: solid white;
+  box-shadow: 0 3px 5px black;
   width: 15%;
-  height: calc(17.5% - 4vmax);
+  height: min-content;
 }
 
 .title::before {
@@ -407,8 +405,6 @@ a {
   font-family: Georgia, serif;
   letter-spacing: -0.1rem;
   box-shadow: 0 0 50px red;
-  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-  /* font-family: avenir-lt-w01_35-light1475496,sans-serif; */
   max-width: 100%;
 }
 
@@ -584,8 +580,6 @@ a {
 
 .segment {
   max-width: 100%;
-
-  font-size: 30px;
 }
 
 .segment button {
@@ -692,7 +686,7 @@ a {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
-  z-index: 99;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -785,7 +779,7 @@ a {
 
 .modal-img img {
   object-fit: cover;
-    width: 20%;
+  width: 20%;
 }
 
 .modal-content {
@@ -869,8 +863,7 @@ a {
   transform: translate(-50%, -50%);
   z-index: 99;
   justify-items: center;
-  animation-name: msgModalAnim;
-  animation-duration: 0.3s;
+  animation: modalAnim 0.5s ease forwards;
 }
 
 .msgModal > button {
@@ -887,29 +880,26 @@ a {
 }
 
 @keyframes msgModalAnim {
-  0% { opacity: 0%; transition: ease-in; }
+  0% { opacity: 0; transition: ease-in; }
   100% { opacity: 100%; transition: ease-out; }
 }
 
 @keyframes modalAnim {
   0% { 
     top: 1300px;
-    opacity: 0%; 
+    opacity: 0;
     transition: ease-in;
   }
   100% { 
-    bottom: 0px;
+    bottom: 0;
     opacity: 100%; 
     transition: ease-out;
   }
-  /* 0% { opacity: 0%; }
-  100% { opacity: 100%; } */
 }
 
 /* Disable scroll when modal is open */
 .modal-open {
   overflow: hidden;
-
 }
 
 .infobox-x-btn {
@@ -929,38 +919,76 @@ a {
 
 /* MODAL ARROWS CSS */
 
-.modal-arrow {
+.inner-modal-arrow {
   position: fixed;
   transform: translateY(-50%) scale(4);
   top: 50%;
-  z-index: 2;
+  z-index: 3;
   background-color: transparent;
   border: none;
-  border-radius: 5px;
+  border-radius: 1px;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease-in-out;
 }
 
-.modal-arrow:hover {
+.inner-modal-arrow:hover {
   color: black;
 }
 
-.modal-arrow:disabled {
+.inner-modal-arrow:disabled {
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.1);
 }
 
-.modal-arrow:active {
+.inner-modal-arrow:active {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.modal-arrow.left {
+.inner-modal-arrow.left {
   left: 10%;
 }
 
-.modal-arrow.right {
+.inner-modal-arrow.right {
     right: 10%;
+}
+
+.outer-modal-arrow {
+  position: fixed;
+  top: 50%;
+  z-index: 2;
+  background-color: white;
+  border: none;
+  border-radius:1px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-50%) scale(4);
+  transition: all 0.2s ease-in-out;
+}
+
+.outer-modal-arrow:hover {
+  color: black;
+}
+
+.outer-modal-arrow:disabled {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.outer-modal-arrow:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.outer-modal-arrow.left {
+  left: 10%;
+}
+
+.outer-modal-arrow.right {
+    right: 10%;
+}
+
+.arrow-icon {
+  transform: translateY(1px);
 }
 
 /* DROP DOWN CSS */
@@ -1131,6 +1159,10 @@ a {
 
   }
 
+  .App.not-found {
+    overflow-y: scroll;
+  }
+
   .body {
     margin: auto 10vw;
     padding: 2rem;
@@ -1175,8 +1207,6 @@ a {
     transform: scale(0.5);
     margin: auto;
   }
-  
-
 
   .modal-role {
     font-size: 15px;
@@ -1198,7 +1228,8 @@ a {
   }
 
   .modal-img img {
-    width: 50%;
+    width: 90%;
+    height: 90%;
   }
 
   .intro-subtitle a > li {

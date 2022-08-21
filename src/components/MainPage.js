@@ -61,7 +61,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
         <div className='intro'>
           <SlideShow />
           <div className='intro-subtitle'>
-            <h1 className='intro-title'>Welcome to WOLF TV</h1>
+            <h2 className='intro-title'>Welcome to WOLF TV</h2>
             {/*<h2 className='intro-subtitle-text'>The Official Website of the Wolf Pack</h2>*/}
             <hr />
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
@@ -99,10 +99,10 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
         </div>
       </div>
       <div id='crew'>
-        <h1 className='title'>Meet the WolfTV Crew</h1>
+        <h1 className='title'>Meet the WOLF TV Crew</h1>
         <div className='body'>
           <p>
-            The following people have helped bring new announcements and content to WolfTV:
+            The following people have helped bring new announcements and content to WOLF TV:
           </p>
           <div>
             <h2 className='title'>Teacher</h2>
@@ -168,7 +168,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
       </div>
       { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option is currently in development and is not available yet. Come back later!"/> }
       <div className='end'>
-        <h1 className='title'>You've scrolled to the end.</h1>
+        <h2 className='title'>You've scrolled to the end.</h2>
         <a href="https://vimeo.com/user152561840"><button className='button'><BsPlayFill className="button-icon" /> WATCH WOLF TV</button></a>
       </div>
       { infoBoxOpen && <InfoBox setOpen={setInfoBoxOpen} />}
