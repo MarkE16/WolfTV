@@ -64,7 +64,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
             <h2 className='intro-title'>Welcome to WOLF TV</h2>
             {/*<h2 className='intro-subtitle-text'>The Official Website of the Wolf Pack</h2>*/}
             <hr />
-            <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
+            <p className='intro-body'>The website for Weiss High School's announcement broadcast show</p>
             <div className='intro-actions'>
               <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
               <a href='#segments'><button className='button' title='View Wolf TV Segments'>Segments</button></a>

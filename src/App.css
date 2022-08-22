@@ -210,7 +210,6 @@ a {
 }
 
 .intro-subtitle a > button {
-  /*margin: auto 20px;*/
   padding: 10px;
   transition: 0.6s ease-in;
 }
@@ -259,11 +258,13 @@ a {
 }
 
 .dots {
-  text-align: center;
-  position: relative;
+  position: absolute;
   z-index: 100;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  left: 47%;
+  top: 90%;
 }
 
 .dot {
@@ -272,7 +273,7 @@ a {
   width: 20px;
   border-radius: 50%;
   cursor: pointer;
-  margin: 15px 7px 0px;
+  margin: 15px 7px 0;
   border: 1px solid black;
   background-color: #c4c4c4;
 }
@@ -282,7 +283,7 @@ a {
 }
 
 .dot:hover {
-  background-color: rgba(176, 176, 176, 0.4);
+  background-color: rgba(110, 8, 8, 0.7);
 }
 
 /*@keyframes changeImage {*/
@@ -455,11 +456,10 @@ h1::after {
   border: 1px solid #8a0808;
   outline: 2px solid transparent;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 2vmin;
   transition: all 0.2s ease-in-out;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin: 20px auto;
+  padding: 0 30px;
+  /*margin: 20px auto;*/
   color: white;
   font-family: "Nunito", sans-serif;
 }
@@ -720,25 +720,17 @@ h1::after {
     }
 }
 
-.modal > .button {
-  font-size: 20px;
-  margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  position: fixed;
-  top: 95%;
-  left: 43vw;
-  box-shadow: 2px 3px 2px black;
-  transition: all 0.2s ease-in-out;
+.modal-footer > .button {
+  float: right;
 }
 
-.modal > .button:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
-  cursor: pointer;
-  /* box-shadow: 0 0 0; */
-  transition: all 0.2s ease-in-out;
-}
+/*.modal-footer > .button:hover {*/
+/*  background-color: rgb(255, 255, 255);*/
+/*  color: black;*/
+/*  cursor: pointer;*/
+/*  !* box-shadow: 0 0 0; *!*/
+/*  transition: all 0.2s ease-in-out;*/
+/*}*/
 
 @keyframes modalBtnAnim {
   from {
@@ -762,7 +754,7 @@ h1::after {
 
 .heading {
   text-align: center;
-  font-size: 45px;
+  font-size: 5vmin;
   margin: 20px 0;
   font-family: 'Merriweather Sans', sans-serif;
   /*text-shadow: 2px 1px 1px black;*/
@@ -797,7 +789,7 @@ h1::after {
 .modal-role {
   color: white;
   text-shadow: 2px 0 2px black;
-  font-size: 25px;
+  font-size: 2.5vmin;
   position: fixed;
   bottom: 25%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -806,20 +798,17 @@ h1::after {
 }
 
 .modal-description {
-  font-size: calc(5px + 1vw);
+  font-size: 2.5vmin;
   display: flex;
   justify-content: center;
-  margin: 50px;
+  margin: 30px;
   font-family: "Nunito", sans-serif;
 }
 
 .modal-footer {
-  display: flex;
-  justify-content: center;
   position: absolute;
-  bottom: -2%;
-  right: 0;
-  margin-right: 10px;
+  bottom: 5px;
+  right: 5px;
 }
 
 .x-btn {
@@ -1159,6 +1148,10 @@ h1::after {
 
   }
 
+  .button {
+    font-size: 5vmin;
+  }
+
   .App.not-found {
     overflow-y: scroll;
   }
@@ -1200,7 +1193,7 @@ h1::after {
   }
 
   .heading {
-    font-size: 35px;
+    font-size: 8vmin;
   }
 
   .modal-img {
@@ -1208,22 +1201,22 @@ h1::after {
     margin: auto;
   }
 
-  .modal-role {
-    font-size: 15px;
-  }
+  /*.modal-role {*/
+  /*  font-size: 15px;*/
+  /*}*/
 
-  .modal > .button {
-    align-self: center;
-    font-size: 15px;
-    top: 93%;
-    left: 55vw;
-    margin: auto;
-  }
+  /*.modal > .button {*/
+  /*  align-self: center;*/
+  /*  font-size: 15px;*/
+  /*  top: 93%;*/
+  /*  left: 55vw;*/
+  /*  margin: auto;*/
+  /*}*/
 
 
 
   .modal-description {
-    font-size: calc(10px + 1vw);
+    font-size: 1.7vmax;
     margin: 0;
   }
 
@@ -1269,7 +1262,15 @@ h1::after {
   .modal-arrow.right {
     right: -35%;
   }
- 
+
+  .dots {
+    left: 40%;
+  }
+
+  .dot {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
