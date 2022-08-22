@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import MemberImg from './MemberImg';
-import MessageModal from './MessageModal';
-import NavBar from './NavBar';
+import React, { useEffect, useState } from "react";
+import MemberImg from "./MemberImg";
+import MessageModal from "./MessageModal";
+import NavBar from "./NavBar";
 import Bottom from "./Bottom";
-import SlideShow from './SlideShow';
+import SlideShow from "./SlideShow";
 import "../App.css";
-import { Link } from "react-router-dom";
-import InfoBox from './InfoBox';
+import InfoBox from "./InfoBox";
 import { BsPlayFill } from "react-icons/bs";
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-import Loading from './Loading';
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import Loading from "./Loading";
 import Segment from "./Segment";
 
 // function sort(sortItem) {
@@ -43,8 +42,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
         "Authorization": "Bearer " + vimeoStuff["token"]
       }
     })
-    const videoData = await getVideo.json();
-    return videoData;
+    return await getVideo.json();
     }
 
   useEffect(() => {
@@ -62,24 +60,15 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
       <div style={{zIndex: 0 }}>
         <div className='intro'>
           <SlideShow />
-          {/* <video autoPlay={true} muted={true} loop={true}>
-            <source src={require("../assets/videos/max_editing.mp4")} type="video/mp4" />
-          </video>
-          <video autoPlay={true} muted={true} loop={true}>
-            <source src={require("../assets/videos/michael_editing.mp4")} type="video/mp4" />
-          </video>
-          <video autoPlay={true} muted={true} loop={true}>
-            <source src={require("../assets/videos/josh_hodge.MP4")} type="video/mp4" />
-          </video> */}
           <div className='intro-subtitle'>
-            <h1 className='intro-title'>Welcome to Wolf TV</h1>
+            <h2 className='intro-title'>Welcome to WOLF TV</h2>
             {/*<h2 className='intro-subtitle-text'>The Official Website of the Wolf Pack</h2>*/}
             <hr />
-            <p className='intro-body'>The website for Weiss High School's announcement broadcast show.</p>
+            <p className='intro-body'>The website for Weiss High School's announcement broadcast show</p>
             <div className='intro-actions'>
-              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button varient="primary" className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
-              <a href='#segments'><button varient="primary" className='button' title='View Wolf TV Segments'>Segments</button></a>
-              <a href='#latest-ep'><button varient="primary" className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
+              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
+              <a href='#segments'><button className='button' title='View Wolf TV Segments'>Segments</button></a>
+              <a href='#latest-ep'><button className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
             </div>
           </div>
         </div>
@@ -102,7 +91,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               WolfTV is an announcement video broadcast at Weiss High School. WolfTV is produced by students in the AV
               (Audio Visual) class. It mainly showcases important information
               for students, teachers, and staff. Often times, segments are included to add some "fun" to the show. The
-              show is broadcasted daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
+              show is broadcast daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
             <a href='#crew'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
@@ -110,10 +99,10 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
         </div>
       </div>
       <div id='crew'>
-        <h1 className='title'>Meet the WolfTV Crew</h1>
+        <h1 className='title'>Meet the WOLF TV Crew</h1>
         <div className='body'>
           <p>
-            The following people have helped bring new announcements and content to WolfTV:
+            The following people have helped bring new announcements and content to WOLF TV:
           </p>
           <div>
             <h2 className='title'>Teacher</h2>
@@ -179,8 +168,8 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
       </div>
       { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option is currently in development and is not available yet. Come back later!"/> }
       <div className='end'>
-        <h1 className='title'>You've scrolled to the end.</h1>
-        <a href="https://vimeo.com/user152561840"><button className='button'><BsPlayFill /> WATCH WOLFTV</button></a>
+        <h2 className='title'>You've scrolled to the end.</h2>
+        <a href="https://vimeo.com/user152561840"><button className='button'><BsPlayFill className="button-icon" /> WATCH WOLF TV</button></a>
       </div>
       { infoBoxOpen && <InfoBox setOpen={setInfoBoxOpen} />}
       <Bottom />

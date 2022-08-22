@@ -15,16 +15,12 @@ function NavBar() {
     const hamburger = document.querySelector(".hamburger");
     const items = document.querySelectorAll(".menuItem");
 
-    if (menu.classList.contains("showingMenu")) {
+    if (!hamburgerOpen) {
       document.querySelector("html").style.overflow = "auto";
-      menu.classList.remove("showingMenu");
-
     } else {
       document.querySelector("html").style.overflow = "hidden";
-      menu.classList.add("showingMenu");
     }
-    
-    // items.forEach(item => item.addEventListener("click", toggleMenu));
+
   }, [hamburgerOpen])
 
   return (
@@ -36,7 +32,7 @@ function NavBar() {
           </Link>
         </div>
         <div className="header-items">
-          {location === "/" ? <a href="#crew"><li>Crew</li></a> : null}
+          {location === "/" && <a href="#crew"><li>Crew</li></a>}
           <div className='dropdown'>
             <a href='#segments'><li>Segments</li></a>
             <div className="dropdown-content" title='View segment'>
@@ -48,29 +44,30 @@ function NavBar() {
           </div>
         </div>
         <div>
-            <button id="hamburger" className="hamburger" title='More' onClick={() => setHamburgerOpen(!hamburgerOpen ? true : false)}>
-              { !hamburgerOpen ? <GiHamburgerMenu /> : <RiCloseLine /> }
-            </button>
-            <div className="hamburger-menu" onClick={e => e.stopPropagation()}>
-              <h2 className='subtitle'>Navigate</h2>
-              {location === "/" ? <a href='#crew'>
+          <button id="hamburger" className="hamburger" title='More' onClick={() => setHamburgerOpen(!hamburgerOpen)}>
+            { !hamburgerOpen ? <GiHamburgerMenu /> : <RiCloseLine /> }
+          </button>
+          <div className={`hamburger-menu ${hamburgerOpen ? "showingMenu" : ""}`} onClick={e => e.stopPropagation()}>
+            <h2 className='subtitle'>Navigate</h2>
+            {location === "/" &&
+              <a href='#crew'>
                 <button className="menuItem">Crew</button>
-              </a> : null}
-              <Link to="/announcements">
-                <button className="menuItem">Announcements</button>
-              </Link>
-              <Link to="/cyber-news">
-                <button className="menuItem">Cyber News</button>
-              </Link>
-              <Link to="/retro-review">
-                <button className="menuItem">Retro Review</button>
-              </Link>
-              <Link to="/stories">
-                <button className="menuItem">Stories</button>
-              </Link>
-              <p style={{ fontStyle: "italic", fontSize: 15, textShadow: "0 2px 0 black" }}><AiOutlineQuestion /> Where would you like to navigate to?</p>
-            </div>
+              </a>}
+            <Link to="/announcements">
+              <button className="menuItem">Announcements</button>
+            </Link>
+            <Link to="/cyber-news">
+              <button className="menuItem">Cyber News</button>
+            </Link>
+            <Link to="/retro-review">
+              <button className="menuItem">Retro Review</button>
+            </Link>
+            <Link to="/stories">
+              <button className="menuItem">Stories</button>
+            </Link>
+            <p style={{ fontStyle: "italic", fontSize: 15, textShadow: "0 2px 0 black" }}><AiOutlineQuestion /> Where would you like to navigate to?</p>
           </div>
+        </div>
       </header>
     </div>
   )

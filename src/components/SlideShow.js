@@ -27,7 +27,7 @@ function SlideShow() {
     <div className='slideShow'>
       <div className='slider' style={{ transform: `translate3d(${-imgIndex * 100}%, 0, 0)` }}>
         {
-          imgs.map((img, index) => <img className='slide' key={index} loading="lazy" src={img} alt="Rendering..." />)
+          imgs.map((img, index) => <img className='slide' key={index} src={img} alt="Rendering..." />)
         }
       </div>
 

@@ -5,6 +5,7 @@ import Loading from './components/Loading';
 import ModalProvider from "./components/ModalCxt";
 import MainPage from './components/MainPage';
 import SegmentPage from "./components/SegmentPage";
+import NotFound from "./components/NotFound";
 
 // WOLFTV SITE | v0.1
 
@@ -17,7 +18,7 @@ function Wrapper({ children }) {
 }
 
 function App() {
-  const [selectedMemberName, setSelectedMemberName] = useState("");
+  const [selectedMemberName, setSelectedMemberName] = useState(null);
   const [infoboxShown, setInfoboxShown] = useState(true);
 
 
@@ -141,6 +142,7 @@ function App() {
                     </React.Suspense>
                   }
                   />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
             {/* </CSSTransition>
           </TransitionGroup> */}
