@@ -123,9 +123,8 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
             <h2 className='title'>2021-2022</h2>
             <div className='member-imgs'>
               {
-                members['2021-2022'].map(member => {
-                  return <MemberImg member={member} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
-                })
+                members['2021-2022'].map(member => <MemberImg member={member} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                )
               }
             </div>
             <p>
@@ -142,6 +141,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
           <p>
             Currently, there are a total of <strong>4 segments</strong> that can appear on Wolf TV. Please, give them a look!
           </p>
+          <p className="notice">Note: This is subject to change.</p>
           <div>
             <div className='wolftv-segments'>
               <Segment title="Announcements" color="#b31b1b" path="/announcements">
