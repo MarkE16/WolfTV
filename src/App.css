@@ -71,7 +71,7 @@ a li {
   text-align: center;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
-  padding: 0 20px;
+  padding: 5px 10px;
   font-family: "Merriweather Sans", sans-serif;
 }
 
@@ -112,7 +112,7 @@ a {
 
 .App.not-found {
   height: 100vh;
-  overflow-y: hidden;
+  /*overflow-y: hidden;*/
 }
 
 .App-logo {
@@ -176,7 +176,7 @@ a {
 .header-items {
   display: flex;
   float: left;
-  padding: 10px;
+  margin: 10px 0;
 }
 
 .App-title {
@@ -212,10 +212,6 @@ a {
 .intro-subtitle a > button {
   padding: 10px;
   transition: 0.6s ease-in;
-}
-
-.intro-subtitle a > button:hover {
-  background-color: rgb(255, 255, 255);
 }
 
 .intro {
@@ -310,7 +306,7 @@ a {
   text-shadow: 3px 1px 3px black;
   position: relative;
   padding: 10px;
-  font-family: "Merriweather Sans", 'Expletus Sans', cursive, sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
   margin: auto;
 }
 
@@ -332,6 +328,7 @@ a {
 
 .intro-actions a > button {
   font-size: 2vmin;
+  margin: 0;
 }
 
 .title {
@@ -341,10 +338,21 @@ a {
   font-size: 4vmax;
   font-family: 'Merriweather Sans', sans-serif;
   font-style: italic;
+  border: 1px solid black;
 }
 
 .body div > .title {
   background-color: rgb(221, 221, 221);;
+}
+
+.notice {
+  font-size: 20px;
+}
+
+.notice::before,
+.notice::after {
+  content: "*";
+  color: red;
 }
 
 .title.stories {
@@ -409,8 +417,6 @@ h1::after {
   max-width: 100%;
 }
 
-
-
 .video-bg {
   background-color: black;
   width: 100%;
@@ -436,40 +442,38 @@ h1::after {
 
 .icon {
   border: none;
+  cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
   transform: scale(2);
   max-width: 100%;
   max-height: 100%;
-  transition: all 0.3s ease-in-out;
-  margin: 15px;
+  transition: 200ms ease-in-out;
+  margin: 10px 15px;
 }
 
 .icon:hover {
   color: white;
-  cursor: pointer;
-  transform: scale(2.5);
-  transition: all 0.3s ease-in-out;
 }
 
 .button {
-  background-color: rgb(185, 136, 136);
+  background-color: #ff6666;
   border: 1px solid #8a0808;
   outline: 2px solid transparent;
   border-radius: 5px;
   font-size: 2vmin;
   transition: all 0.2s ease-in-out;
   padding: 0 30px;
-  /*margin: 20px auto;*/
+  margin: 20px auto;
   color: white;
   font-family: "Nunito", sans-serif;
 }
 
 .button:hover {
-  background-color: rgb(255, 212, 212);
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
   cursor: pointer;
   color:rgb(0, 0, 0);
-  box-shadow: 0 0 40px rgba(253, 183, 183, 0.8);
+  box-shadow: 0 0 40px rgba(255, 176, 176, 0.68);
   transition: all 0.3s ease-in-out;
 }
 
@@ -481,7 +485,7 @@ h1::after {
 }
 
 .button:active {
-  outline: 2px solid rgb(255, 212, 212);
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -524,12 +528,17 @@ h1::after {
   transform: translateY(10px);
 }
 
+.button-circle:active .arrow-down {
+  transform: translateY(15px);
+}
+
 .member-imgs {
-  padding-top: 30px;
+  padding: 0 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 100%;
+
 }
 
 
@@ -631,7 +640,7 @@ h1::after {
 
 .end button {
   background-color: transparent;
-  border: 5px solid #8a0808;
+  border: 1px solid transparent;
   border-radius: 5px;
   font-size: 30px;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -642,11 +651,14 @@ h1::after {
 
 .end button:hover {
   background-color: #ffffff;
-  border: 5px solid #8a0808;
+  border: 1px solid transparent;
   color: black;
   cursor: pointer;
 }
 
+.end .title {
+  border: none;
+}
 
 .scroll-to-top-btn {
   display: none;
@@ -722,6 +734,7 @@ h1::after {
 
 .modal-footer > .button {
   float: right;
+  margin: 0;
 }
 
 /*.modal-footer > .button:hover {*/
@@ -779,6 +792,7 @@ h1::after {
   justify-content: center;
   background-color: #c1c1c1;
   border-radius: 5px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   height: 35%;
   width: 100%;

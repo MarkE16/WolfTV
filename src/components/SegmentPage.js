@@ -12,6 +12,7 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
     return word.charAt(0).toUpperCase() + word.slice(1) + " ";
   })
 
+
   document.title = "Wolf TV | " + titleSplitCap;
   return (
     <div className='App'>

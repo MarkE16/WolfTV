@@ -6,10 +6,12 @@ function NotFound() {
   return (
     <div className="App not-found">
       <div className="not-found-err">
-        <img style={{ border: "none", height: "12vh", objectFit: "contain" }} src={require("../assets/wolftv-logo-transparent.png")} alt="Wolf TV" />
+        <img style={{ border: "none", height: "10vh", objectFit: "contain" }} src={require("../assets/wolftv-logo-transparent.png")} alt="Wolf TV" />
       </div>
       <h1 className="title">404</h1>
-      <h2 className="subtitle">No Webpage?</h2>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img src={require("../assets/nowebpage.PNG")} alt="No Webpage" style={{ width: 100, height: 100 }} />
+      </div>
       <div style={{ backgroundColor: "white", borderRadius: 5, padding: 20 }}>
         <p className="err-text">
           I'm sure both you and I know that you're not supposed to be here. You might want to make sure you typed in the URL correctly,
