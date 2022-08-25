@@ -19,7 +19,7 @@ function MemberImg({ member, selectedMemberName, setSelectedMemberName }) {
     }
   }, [modalOpen])
 
-  console.log(member)
+  // console.log(member)
   return (
     <div>
       <div className='member' title={memberName} onClick={() => {

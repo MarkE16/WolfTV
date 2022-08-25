@@ -29,7 +29,7 @@ function App() {
 
   return (
     <ModalProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Wrapper>
           {/* <TransitionGroup>
             <CSSTransition key={useLocation().pathname} classNames="fade" timeout={300}> */}

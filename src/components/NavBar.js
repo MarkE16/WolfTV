@@ -22,7 +22,6 @@ function NavBar() {
     }
 
   }, [hamburgerOpen])
-
   return (
     <div id="navBar" style={{ display: "sticky", position: "fixed", top: 0, zIndex: 1, width: "100%" }}>
       <header className='App-header'>
@@ -36,10 +35,10 @@ function NavBar() {
           <div className='dropdown'>
             <a href='#segments'><li>Segments</li></a>
             <div className="dropdown-content" title='View segment'>
-              <Link to="/announcements">Announcements</Link>
-              <Link to="/cyber-news">Cyber News</Link>
-              <Link to="/retro-review">Retro Review</Link>
-              <Link to="/stories">Stories</Link>
+              <Link to="../announcements">Announcements</Link>
+              <Link to="../cyber-news">Cyber News</Link>
+              <Link to="../retro-review">Retro Review</Link>
+              <Link to="../stories">Stories</Link>
             </div>
           </div>
         </div>
