@@ -13,7 +13,7 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
   })
 
 
-  document.title = "Wolf TV | " + titleSplitCap;
+  document.title = "WOLF TV | " + titleSplitCap;
   return (
     <div className='App'>
       <NavBar />

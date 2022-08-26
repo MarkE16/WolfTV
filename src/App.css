@@ -403,11 +403,6 @@ h1::after {
 }
 
 .body {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   background-color: #cdcdcd;
   border-radius: 5px;
   margin: auto 5vw;
@@ -626,12 +621,12 @@ h1::after {
 }
 
 .segment button:active {
-  outline: 2px solid rgba(204, 204, 204, 0.5);
+  background-color: #efefef;
 }
 
 
 .segment-title {
-  font-size: 30px;
+  font-size: calc(20px + 1vmin);
   font-family: "Merriweather Sans", sans-serif;
   text-shadow: 2px 0 rgb(0, 0, 0);
   color: #b31b1b;
@@ -902,7 +897,7 @@ h1::after {
   transform: translate(-50%, -50%);
   z-index: 99;
   justify-items: center;
-  animation: modalAnim 0.5s ease forwards;
+  animation: modalAnim 0.3s ease forwards;
 }
 
 .msgModal > button {
@@ -1235,9 +1230,9 @@ h1::after {
     font-size: 15px;
   }
 
-  /* .title {
-    font-size: 50px;
-  } */
+  .segment-desc {
+    font-size: calc(10px + 0.9vmin);
+  }
 
   .modal {
     width: 90vw;

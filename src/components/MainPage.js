@@ -52,7 +52,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
     })
   }, []);
 
-  document.title = "Wolf TV | Home";
+  document.title = "WOLF TV | Home";
   return (
     <div id="top" className="App">
       { <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>}
