@@ -429,7 +429,7 @@ h1::after {
   background-color: #8a0808;
   margin: auto;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   font-size: 15px;
   border: 1px solid;
   bottom: 0;
