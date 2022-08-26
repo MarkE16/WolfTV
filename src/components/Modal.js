@@ -36,7 +36,7 @@ function Modal({ member, setOpen, setChosenMemberName }) {
   console.log(member)
 
   return (
-    <div className='darkBG'>
+    <div className='darkBG' onClick={() => setOpen(false)}>
       {/*<button title="Previous Member" className="outer-modal-arrow left" onClick={e => {*/}
       {/*  e.stopPropagation();*/}
       {/*  if (crew["2021-2022"][memberIndex - 1] !== undefined) {*/}
@@ -53,7 +53,7 @@ function Modal({ member, setOpen, setChosenMemberName }) {
       {/*}}>*/}
       {/*  <MdOutlineArrowForwardIos className="arrow-icon" />*/}
       {/*</button>*/}
-      <div className='modal'>
+      <div className='modal' onClick={e => e.stopPropagation()}>
         <div className='modal-header'>
           <h5 className='heading'>{memberName}</h5>
           <button title="Close this window" className='x-btn' onClick={() => setOpen(false)}>

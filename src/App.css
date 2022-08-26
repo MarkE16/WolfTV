@@ -54,7 +54,7 @@ ul {
 
 li {
   float: left;
-  margin: 20px;
+  margin: 1.5vh 5px;
 }
 
 ul li::before {
@@ -116,7 +116,7 @@ a {
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 9vmin;
   object-fit: contain;
   float: left;
 }
@@ -167,8 +167,10 @@ a {
 .App-header { 
   color: rgb(169, 26, 26);
   background-color: var(--navBar-color);
-  min-height: 10vh;
-  font-size: calc(5px + 2vmin);
+  min-height: 5vh;
+  height: 8vh;
+  max-height: 8vh;
+  font-size: calc(5px + 1vmax);
   box-shadow: 0 4px 7px rgb(0, 0, 0);
   transition: 0.5s ease;
 }
@@ -572,23 +574,36 @@ h1::after {
   color: white;
   text-shadow: 2px 0 rgb(0, 0, 0);
   font-size: 30px;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 .wolftv-segments {
   background-color: white;
   display: flex;
-  max-width: 100%;
-  height: 100%;
-  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
   border-radius: 5px;
   font-size: 25px;
   border: 1px solid black;
   letter-spacing: normal;
 }
 
+.segment-page-container {
+  margin-top: calc(150px + 1vmin);
+}
+
 .segment {
-  max-width: 100%;
+  flex: 1;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  transition: all 200ms ease-in-out;
+}
+
+.segment:hover {
+  border-color: #8a0808;
 }
 
 .segment button {
@@ -596,7 +611,7 @@ h1::after {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   position: relative;
   bottom: 0;
   transition: all 0.2s ease-in-out;
@@ -614,13 +629,34 @@ h1::after {
   outline: 2px solid rgba(204, 204, 204, 0.5);
 }
 
-.segment-container {
-  margin-top: 15vh;
+
+.segment-title {
+  font-size: 30px;
+  font-family: "Merriweather Sans", sans-serif;
+  text-shadow: 2px 0 rgb(0, 0, 0);
+  color: #b31b1b;
+  /*padding: 20px;*/
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.segment-title.cyber-news {
+  color: #4ff0ff;
+}
+
+.segment-title.retro-review {
+  color: #f09e4d;
+}
+
+.segment-title.stories {
+    color: #00ff0d;
 }
 
 .segment-desc {
   margin: 40px;
-  font-size: 1.5rem;
+  /* Calculate the font size based on the container width. */
+  font-size: calc(10px + 0.9rem);
 }
 
 .end {
@@ -698,7 +734,7 @@ h1::after {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1017,6 +1053,7 @@ h1::after {
   position: fixed;
   transform: translateY(-150%);
   transition: transform 0.2s;
+  display: none;
   top: 0;
   left: 0;
   bottom: 0;
@@ -1137,6 +1174,7 @@ h1::after {
   justify-content: center;
   background-color: #8a0808;
   font-size: 2vmin;
+  font-family: "Nunito", sans-serif;
   position: fixed;
   border-top: 1px solid #ec1212;
   width: 100%;
@@ -1267,6 +1305,10 @@ h1::after {
     display: block;
     float: right;
     margin: 10px;
+  }
+
+  .hamburger-menu {
+    display: block;
   }
 
   .modal-arrow.left {

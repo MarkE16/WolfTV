@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Segment({ title, color, children, path }) {
+function Segment({ title, color, children, path, year }) {
   return (
     <div className="segment">
-      <h3 style={{ color: color, textShadow: "0 1px 2px black"}}>{title}</h3>
+      <h3 className={`segment-title ${color}`}>{title}</h3>
+      <p>{year}</p>
       <hr />
       <p className="segment-desc">
         {children}

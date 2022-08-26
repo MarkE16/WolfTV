@@ -37,7 +37,7 @@
       // the single page app to route accordingly.
       (function(l) {
         if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
+          var decoded = l.search.slice(1).split('&').map(function(s) {
             return s.replace(/~and~/g, '&')
           }).join('?');
           window.history.replaceState(null, null,
@@ -76,7 +76,7 @@
             $('#topBtn').css('display', 'block');
             $(".App-header").css("background-color", "rgba(169, 26, 26, 0.5)");
             $(".App-header").css("box-shadow", "0px 0px 10px rgba(0, 0, 0, 0.5)");
-            $(".App-header").css("min-height", "9vh");
+            $(".App-header").css("min-height", "7avh");
             // $(".dropdown-content").css("background-color", "rgba(169, 26, 26, 0.5)");
             $(".dropdown-content").css("border", "none");
             // $('#navBar').css('display', 'block');
@@ -86,7 +86,7 @@
             // Set App-header's background color to rgba(169, 26, 26, 1) and box-shadow to 0 4px 7px rgb(0, 0, 0)
             $(".App-header").css("background-color", "rgba(169, 26, 26, 1)");
             $(".App-header").css("box-shadow", "0 4px 7px rgb(0, 0, 0)");
-            $(".App-header").css("min-height", "10vh");
+            $(".App-header").css("min-height", "8vh");
             // $(".dropdown-content").css("background-color", "rgba(169, 26, 26, 1)");
             $(".dropdown-content").css("border", "2px solid black");
             // $('#navBar').css('display', 'none');
