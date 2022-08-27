@@ -32,15 +32,16 @@ function NavBar() {
         </div>
         <div className="header-items">
           {location === "/" && <a href="#crew"><li>Crew</li></a>}
-          <div className='dropdown'>
-            <a href='#segments'><li>Segments</li></a>
+          <a href='#segments'><li>Segments
+            <div className='dropdown'>
+              ▽
             <div className="dropdown-content" title='View segment'>
               <Link to="../announcements">Announcements</Link>
               <Link to="../cyber-news">Cyber News</Link>
               <Link to="../retro-review">Retro Review</Link>
               <Link to="../stories">Stories</Link>
             </div>
-          </div>
+          </div></li></a>
         </div>
         <div>
           <button id="hamburger" className="hamburger" title='More' onClick={() => setHamburgerOpen(!hamburgerOpen)}>
