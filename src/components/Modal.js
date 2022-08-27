@@ -53,7 +53,7 @@ function Modal({ member, setOpen, setChosenMemberName }) {
       {/*}}>*/}
       {/*  <MdOutlineArrowForwardIos className="arrow-icon" />*/}
       {/*</button>*/}
-      <div className='modal' onClick={e => e.stopPropagation()}>
+      <div id="MODAL" className='modal' onClick={e => e.stopPropagation()}>
         <div className='modal-header'>
           <h5 className='heading'>{memberName}</h5>
           <button title="Close this window" className='x-btn' onClick={() => setOpen(false)}>

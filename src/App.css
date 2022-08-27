@@ -603,6 +603,7 @@ h1::after {
 
 .segment button {
   background-color: transparent;
+  outline: none;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -622,6 +623,7 @@ h1::after {
 
 .segment button:active {
   background-color: #efefef;
+  outline: none;
 }
 
 
@@ -748,20 +750,17 @@ h1::after {
   position: relative;
   top: 50%;
   left: 50%;
+  opacity: 0;
   transform: translate(-50%, -50%);
   z-index: 1;
   justify-items: center;
-  animation: bruh 0.5s ease forwards;
+  animation: fadeIn 0.3s ease forwards;
 }
 
-@keyframes bruh {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+.modal:target {
+  opacity: 1;
 }
+
 
 .modal-footer > .button {
   float: right;
@@ -775,17 +774,6 @@ h1::after {
 /*  !* box-shadow: 0 0 0; *!*/
 /*  transition: all 0.2s ease-in-out;*/
 /*}*/
-
-@keyframes modalBtnAnim {
-  from {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  to {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-}
 
 .modal-header {
   height: 85px;
@@ -911,24 +899,6 @@ h1::after {
   white-space: normal;
   flex-wrap: wrap;
   margin: 30px;
-}
-
-@keyframes msgModalAnim {
-  0% { opacity: 0; transition: ease-in; }
-  100% { opacity: 100%; transition: ease-out; }
-}
-
-@keyframes modalAnim {
-  0% { 
-    top: 1300px;
-    opacity: 0;
-    transition: ease-in;
-  }
-  100% { 
-    bottom: 0;
-    opacity: 100%; 
-    transition: ease-out;
-  }
 }
 
 /* Disable scroll when modal is open */
@@ -1175,6 +1145,7 @@ h1::after {
   width: 100%;
   z-index: 1;
   height: fit-content;
+  transition: 200ms ease;
   bottom: 0;
 }
 
