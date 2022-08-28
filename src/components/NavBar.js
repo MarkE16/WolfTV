@@ -32,9 +32,8 @@ function NavBar() {
         </div>
         <div className="header-items">
           {location === "/" && <a href="#crew"><li>Crew</li></a>}
-          <a href='#segments'><li>Segments
-            <div className='dropdown'>
-              ▽
+          <a href='#segments'><li><div className='dropdown'>
+            Segments
             <div className="dropdown-content" title='View segment'>
               <Link to="../announcements">Announcements</Link>
               <Link to="../cyber-news">Cyber News</Link>

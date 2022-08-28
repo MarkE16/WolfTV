@@ -60,8 +60,20 @@ function Modal({ member, setOpen, setChosenMemberName }) {
             <RiCloseLine style={{ marginBottom: "-7px" }} />
           </button>
         </div>
-        <p style={{ fontSize: "1em", position: "fixed", left: 0, right: 0, top: "9%" }}>Image {currentIndex + 1} of {images.length}</p>
+        <button disabled={currentIndex === 0}
+                title="Previous Image"
+                className="inner-modal-arrow left"
+                onClick={() => changeImg(currentIndex - 1)}>
+          <MdOutlineArrowBackIos className="arrow-icon" />
+        </button>
+        <button disabled={currentIndex === (images.length - 1)}
+                title="Next Image"
+                className="inner-modal-arrow right"
+                onClick={() => changeImg(currentIndex + 1)}>
+          <MdOutlineArrowForwardIos className="arrow-icon" />
+        </button>
         <div className='modal-img'>
+          <p style={{ fontSize: "1em", position: "fixed", left: 0, right: 0, top: "9%" }}>Image {currentIndex + 1} of {images.length}</p>
           {
             loadingImg ? <Loading /> :
               <img
@@ -72,18 +84,6 @@ function Modal({ member, setOpen, setChosenMemberName }) {
                 loading="lazy"
               />
           }
-          <button disabled={currentIndex === 0}
-                  title="Previous Image"
-                  className="inner-modal-arrow left"
-                  onClick={() => changeImg(currentIndex - 1)}>
-            <MdOutlineArrowBackIos className="arrow-icon" />
-          </button>
-          <button disabled={currentIndex === (images.length - 1)}
-                  title="Next Image"
-                  className="inner-modal-arrow right"
-                  onClick={() => changeImg(currentIndex + 1)}>
-            <MdOutlineArrowForwardIos className="arrow-icon" />
-          </button>
         </div>
         <div className='modal-content'>
           <h5 className='modal-role'>Role(s): {memberRole}</h5>

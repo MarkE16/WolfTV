@@ -540,8 +540,9 @@ h1::after {
 
 
 .member-img {
-  object-fit: cover;
+  display: flex;
   width: 100%;
+  object-fit: cover;
   border-radius: 5px;
   border-color: black;
   transform: scale(0.9);
@@ -797,13 +798,14 @@ h1::after {
 .modal-img {
   display: flex;
   justify-content: center;
-  margin: 12% 0;
-  transform: scale(1.1);
+  margin: 10% 0;
 }
 
 .modal-img img {
   object-fit: cover;
-  width: 20%;
+  transform: scale(1.1);
+  width: 30%;
+  height: calc(30vh - 20px);
 }
 
 .modal-content {
@@ -822,7 +824,7 @@ h1::after {
 .modal-role {
   color: white;
   text-shadow: 2px 0 2px black;
-  font-size: 2.5vmin;
+  font-size: calc(1vmin + 2vmin);
   position: fixed;
   bottom: 25%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -832,6 +834,7 @@ h1::after {
 
 .modal-description {
   font-family: "Nunito", sans-serif;
+  font-size: 3vmin;
 }
 
 .modal-footer {
@@ -920,9 +923,9 @@ h1::after {
 /* MODAL ARROWS CSS */
 
 .inner-modal-arrow {
-  position: fixed;
-  transform: translateY(-50%) scale(4);
-  top: 50%;
+  position: absolute;
+  transform: translateY(-50%) scale(3);
+  top: 40%;
   z-index: 3;
   background-color: transparent;
   border: none;
@@ -946,11 +949,11 @@ h1::after {
 }
 
 .inner-modal-arrow.left {
-  left: 10%;
+  right: 90%;
 }
 
 .inner-modal-arrow.right {
-    right: 10%;
+    left: 90%;
 }
 
 .outer-modal-arrow {
@@ -1033,7 +1036,7 @@ h1::after {
 .menuItem {
   display: block;
   margin: 2rem 4rem;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   border: none;
   background-color: transparent;
   color: white;
@@ -1065,12 +1068,12 @@ h1::after {
 
 .dropdown-content {
   display: none;
-  position: relative;
-  top: 50px;
+  position: absolute;
+  top: 64px;
   background-color: var(--navBar-color);
   box-shadow: 0 8px 16px 11px rgba(0,0,0,0.2);
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: 6px;
   z-index: 1;
   min-height: 100%;
   margin: 0 auto;
@@ -1095,9 +1098,8 @@ h1::after {
 
 .dropdown-content > a:hover {
   background-color: #981212a4;
-  color: white;
-  transition: background-color 0.2s, color 0.2s;
-  transition-timing-function: ease-in-out;
+  border-radius: 5px;
+  transition: 0.2s ease;
 }
 
 .dropdown:hover .dropdown-content {
@@ -1173,7 +1175,6 @@ h1::after {
   }
 
   .body {
-    margin: auto 10vw;
     padding: 2rem;
     font-size: 2.5vmax;
   }
@@ -1212,33 +1213,10 @@ h1::after {
     font-size: 8vmin;
   }
 
-  .modal-img {
-    transform: scale(0.5);
-    margin: auto;
-  }
-
-  /*.modal-role {*/
-  /*  font-size: 15px;*/
-  /*}*/
-
-  /*.modal > .button {*/
-  /*  align-self: center;*/
-  /*  font-size: 15px;*/
-  /*  top: 93%;*/
-  /*  left: 55vw;*/
-  /*  margin: auto;*/
-  /*}*/
-
-
-
-  /*.modal-description {*/
-  /*  font-size: 1.7vmax;*/
-  /*  margin: 0;*/
-  /*}*/
-
   .modal-img img {
-    width: 90%;
-    height: 90%;
+    transform: scale(0.9);
+    width: 50%;
+    height: calc(25vh - 20px);
   }
 
   .intro-subtitle a > li {
@@ -1273,14 +1251,6 @@ h1::after {
 
   .hamburger-menu {
     display: block;
-  }
-
-  .modal-arrow.left {
-    left: -35%;
-  }
-
-  .modal-arrow.right {
-    right: -35%;
   }
 
   .dots {
