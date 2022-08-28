@@ -6,24 +6,24 @@
 
 /* ROOT */
 :root {
-  --navBar-color: #b31b1b;
+  --navBar-color-half-opacity: rgba(169, 26, 26, 0.5);
+  --navBar-color-full-opacity: rgb(169, 26, 26);
 }
 
 /* SCROLL BAR */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
+  /*height: 10px;*/
 }
 
 ::-webkit-scrollbar-button {
-  width: 5px;
-  height: 5px;
+
 }
 
 ::-webkit-scrollbar-thumb {
   background: #b4b4b4;
-  border: 0 none #ffffff;
-  border-radius: 5px;
+  border: none;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -31,8 +31,8 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
-  border: 0 none #ffffff;
+  background-color: transparent;
+  border: none;
   border-radius: 0;
 }
 
@@ -98,7 +98,8 @@ a > img {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ClassName CSS */
@@ -166,13 +167,15 @@ a {
 
 .App-header { 
   color: rgb(169, 26, 26);
-  background-color: var(--navBar-color);
+  display: none;
+  background-color: var(--navBar-color-half-opacity);
   min-height: 5vh;
   height: 8vh;
   max-height: 8vh;
   font-size: calc(5px + 1vmax);
-  box-shadow: 0 4px 7px rgb(0, 0, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: 0.5s ease;
+  opacity: 0;
 }
 
 .header-items {
@@ -593,9 +596,9 @@ video {
   letter-spacing: normal;
 }
 
-.segment-page-container {
-  margin-top: calc(150px + 1vmin);
-}
+/*.segment-page-container {*/
+/*  margin-top: calc(150px + 1vmin);*/
+/*}*/
 
 .segment {
   flex: 1;
@@ -953,6 +956,10 @@ video {
   color: rgba(0, 0, 0, 0.1);
 }
 
+.inner-modal-arrow:disabled:active {
+  background-color: transparent;
+}
+
 .inner-modal-arrow:active {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -1079,9 +1086,9 @@ video {
   display: none;
   position: absolute;
   top: 6vh;
-  background-color: var(--navBar-color);
+  background-color: var(--navBar-color-full-opacity);
   box-shadow: 0 8px 16px 11px rgba(0,0,0,0.2);
-  border: 2px solid black;
+  border: none;
   border-radius: 6px;
   z-index: 1;
   min-height: 100%;

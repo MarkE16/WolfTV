@@ -76,11 +76,11 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
             </div>
           </div>
         </div>
-        <div style={{ zIndex: 0 }}>
+        <div>
           <h1 className='title'>Latest Wolf TV Episode</h1>
           <p id="latest-ep" className='subtitle'>
             Here you can watch the latest episode of WOLF TV! <br />
-            Latest Episode: <strong>Ep {(currentVimeoEpData.title && currentVimeoEpData.linkCode) === "" ? "Fetching..." : currentVimeoEpData.title.slice(10, 14) + " | " + currentVimeoEpData.title.slice(15, 22)}</strong>
+            Latest Episode: <strong>{(currentVimeoEpData.title && currentVimeoEpData.linkCode) === "" ? "Fetching..." : "Ep " + currentVimeoEpData.title.slice(10, 14) + " | " + currentVimeoEpData.title.slice(15, 22)}</strong>
           </p>
           <div className='body'>
             <div className='video-bg'>
