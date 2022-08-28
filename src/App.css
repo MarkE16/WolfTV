@@ -1078,7 +1078,7 @@ video {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 60px;
+  top: 6vh;
   background-color: var(--navBar-color);
   box-shadow: 0 8px 16px 11px rgba(0,0,0,0.2);
   border: 2px solid black;
