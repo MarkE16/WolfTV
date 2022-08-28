@@ -33,6 +33,11 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
   const vimeoStuff = {
     "token": "a0ca4b46a912abfcac526a6a9a8cb4f8"
   }
+
+  const videos = [
+    require("../assets/videos/michael_editing_no_audio.mp4"),
+    require("../assets/videos/max_editing_no_audio.mp4"),
+  ]
   
   const fetchVimeo = async () => {
     setLoadingVideo(true);
@@ -55,18 +60,17 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
   document.title = "WOLF TV | Home";
   return (
     <div id="top" className="App">
-      { <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>}
+      <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>
       <NavBar />
-      <div style={{zIndex: 0 }}>
+      <div>
         <div className='intro'>
           <SlideShow />
-          <div className='intro-subtitle'>
+          <div id="intro-txt" className='intro-subtitle'>
             <h2 className='intro-title'>Welcome to WOLF TV</h2>
-            {/*<h2 className='intro-subtitle-text'>The Official Website of the Wolf Pack</h2>*/}
             <hr />
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show</p>
             <div className='intro-actions'>
-              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
+              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WOLF TV Vimeo Page</button></a>
               <a href='#segments'><button className='button' title='View Wolf TV Segments'>Segments</button></a>
               <a href='#latest-ep'><button className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
             </div>
@@ -94,6 +98,14 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               show is broadcast daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
+            <div>
+              <video autoPlay={true} muted={true} loop={true} width="fit-content" height="150vh" playsInline preload="metadata" title="Michael Editing">
+                <source src={videos[0]} type="video/mp4" />
+              </video>
+              <video autoPlay={true} muted={true} loop={true} width="fit-content" height="150vh" playsInline preload="metadata" title="Max Editing">
+                <source src={videos[1]} type="video/mp4" />
+              </video>
+            </div>
             <a href='#crew'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
           </div>
         </div>

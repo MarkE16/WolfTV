@@ -23,7 +23,7 @@ function NavBar() {
 
   }, [hamburgerOpen])
   return (
-    <div id="navBar" style={{ display: "sticky", position: "fixed", top: 0, zIndex: 1, width: "100%" }}>
+    <div id="navBar" style={{ position: "fixed", top: 0, zIndex: 1, width: "100%" }}>
       <header className='App-header'>
         <div>
           <Link to="/" title="WolfTV Home Page">

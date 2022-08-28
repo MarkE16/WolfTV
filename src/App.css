@@ -244,15 +244,18 @@ a {
 }
 
 .slide {
-  display: inline-block;
-  position: relative;
-
-  /* Make the image fit the container,
-  regardless of it's dimenstions. */
+  display: block;
+  position: absolute;
+  opacity: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   border: none;
+  transition: ease 1000ms;
+}
+
+.slide.active {
+  opacity: 1;
 }
 
 .dots {
@@ -412,6 +415,11 @@ h1::after {
   letter-spacing: -0.1rem;
   box-shadow: 0 0 50px red;
   max-width: 100%;
+}
+
+video {
+  margin: 20px;
+  border-radius: 5px;
 }
 
 .video-bg {
@@ -695,7 +703,7 @@ h1::after {
 }
 
 .scroll-to-top-btn {
-  display: none;
+  opacity: 0;
   position: fixed; /* Fixed/sticky position */
   bottom: 20px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
@@ -707,6 +715,7 @@ h1::after {
   padding: 15px; /* Some padding */
   font-size: 20px; /* Increase font size */
   box-shadow: 0 1px 2px black;
+  transition: 0.2s ease-in-out;
 }
 
 .link {
@@ -1069,7 +1078,7 @@ h1::after {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 64px;
+  top: 60px;
   background-color: var(--navBar-color);
   box-shadow: 0 8px 16px 11px rgba(0,0,0,0.2);
   border: 2px solid black;
@@ -1160,6 +1169,10 @@ h1::after {
 
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
+  video {
+    margin: 20px 0;
+  }
+
   /* Center logo */
   .App-logo {
     height: 10vmax;
@@ -1183,7 +1196,7 @@ h1::after {
     font-size: 20px;
   }
   .intro {
-    height: 75vh;
+    height: 50vh;
   }
 
   .intro-title {
@@ -1191,9 +1204,7 @@ h1::after {
   }
 
   .slide {
-    object-fit: cover;
-    height: 75vh;
-    max-width: 100%;
+    object-fit: contain;
   }
 
   .segment {
