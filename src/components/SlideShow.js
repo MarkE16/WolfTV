@@ -22,12 +22,11 @@ function SlideShow() {
     return () => resetTimeout();
   }, [imgIndex]);
 
-
   return (
     <div className='slideShow'>
-      <div className='slider' style={{ transform: `translate3d(${-imgIndex * 100}%, 0, 0)` }}>
+      <div className='slider'>
         {
-          imgs.map((img, index) => <img className='slide' key={index} src={img} alt="Rendering..." />)
+          imgs.map((img, index) => <img loading="lazy" className={`slide ${index === imgIndex ? "active" : ""}`} key={index} src={img} alt="Rendering..." />)
         }
       </div>
 
@@ -42,8 +41,8 @@ function SlideShow() {
           />
         )
         }
-        {/* <input size={50} type="checkbox" id="slideShowCheckbox" value={checked} onChange={() => setChecked(!checked ? true : false)}/>
-        <label for="slideShowCheckbox" style={{ color: "white", textShadow: "1px 1px 1px black" }}>Hide Intro Text</label> */}
+        {/*<input size={50} type="checkbox" id="slideShowCheckbox" value={checked} onChange={() => setChecked(!checked)}/>*/}
+        {/*<label for="slideShowCheckbox" style={{ color: "white", textShadow: "1px 1px 1px black" }}>Hide Intro Text</label>*/}
       </div>
     </div>
   )

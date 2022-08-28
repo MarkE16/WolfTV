@@ -13,12 +13,11 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
   })
 
 
-  document.title = "Wolf TV | " + titleSplitCap;
+  document.title = "WOLF TV | " + titleSplitCap;
   return (
     <div className='App'>
       <NavBar />
-      <div className='segment-container'>
-        <Link to="/"><button className='button'><CgLogOut className='button-icon' /> Return to Home</button></Link>
+      <div className='segment-page-container'>
         <h1 className={`title ${title === "announcements" ? "announcements" 
                               : title === "cyber news" ? "cyber-news" 
                               : title === "retro review" ? "retro-review" 

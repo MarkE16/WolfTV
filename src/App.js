@@ -7,8 +7,6 @@ import MainPage from './components/MainPage';
 import SegmentPage from "./components/SegmentPage";
 import NotFound from "./components/NotFound";
 
-// WOLFTV SITE | v0.1
-
 function Wrapper({ children }) {
   const location = useLocation();
   useLayoutEffect(() => {

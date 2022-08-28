@@ -23,7 +23,7 @@ function NavBar() {
 
   }, [hamburgerOpen])
   return (
-    <div id="navBar" style={{ display: "sticky", position: "fixed", top: 0, zIndex: 1, width: "100%" }}>
+    <div id="navBar" style={{ position: "fixed", top: 0, zIndex: 1, width: "100%" }}>
       <header className='App-header'>
         <div>
           <Link to="/" title="WolfTV Home Page">
@@ -32,15 +32,15 @@ function NavBar() {
         </div>
         <div className="header-items">
           {location === "/" && <a href="#crew"><li>Crew</li></a>}
-          <div className='dropdown'>
-            <a href='#segments'><li>Segments</li></a>
+          <a href='#segments'><li><div className='dropdown'>
+            Segments
             <div className="dropdown-content" title='View segment'>
               <Link to="../announcements">Announcements</Link>
               <Link to="../cyber-news">Cyber News</Link>
               <Link to="../retro-review">Retro Review</Link>
               <Link to="../stories">Stories</Link>
             </div>
-          </div>
+          </div></li></a>
         </div>
         <div>
           <button id="hamburger" className="hamburger" title='More' onClick={() => setHamburgerOpen(!hamburgerOpen)}>

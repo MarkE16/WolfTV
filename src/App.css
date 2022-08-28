@@ -6,24 +6,23 @@
 
 /* ROOT */
 :root {
-  --navBar-color: #b31b1b;
+  --navBar-color-half-opacity: rgba(169, 26, 26, 0.5);
+  --navBar-color-full-opacity: rgb(169, 26, 26);
 }
 
 /* SCROLL BAR */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
 }
 
 ::-webkit-scrollbar-button {
-  width: 5px;
-  height: 5px;
+
 }
 
 ::-webkit-scrollbar-thumb {
   background: #b4b4b4;
-  border: 0 none #ffffff;
-  border-radius: 5px;
+  border: none;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -31,8 +30,8 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
-  border: 0 none #ffffff;
+  background-color: transparent;
+  border: none;
   border-radius: 0;
 }
 
@@ -54,7 +53,7 @@ ul {
 
 li {
   float: left;
-  margin: 20px;
+  margin: 1.5vh 5px;
 }
 
 ul li::before {
@@ -98,7 +97,8 @@ a > img {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ClassName CSS */
@@ -116,7 +116,7 @@ a {
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 9vmin;
   object-fit: contain;
   float: left;
 }
@@ -166,11 +166,15 @@ a {
 
 .App-header { 
   color: rgb(169, 26, 26);
-  background-color: var(--navBar-color);
-  min-height: 10vh;
-  font-size: calc(5px + 2vmin);
-  box-shadow: 0 4px 7px rgb(0, 0, 0);
+  display: none;
+  background-color: var(--navBar-color-half-opacity);
+  min-height: 5vh;
+  height: 8vh;
+  max-height: 8vh;
+  font-size: calc(5px + 1vmax);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: 0.5s ease;
+  opacity: 0;
 }
 
 .header-items {
@@ -242,15 +246,18 @@ a {
 }
 
 .slide {
-  display: inline-block;
-  position: relative;
-
-  /* Make the image fit the container,
-  regardless of it's dimenstions. */
+  display: block;
+  position: absolute;
+  opacity: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   border: none;
+  transition: ease 1000ms;
+}
+
+.slide.active {
+  opacity: 1;
 }
 
 .dots {
@@ -401,11 +408,6 @@ h1::after {
 }
 
 .body {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   background-color: #cdcdcd;
   border-radius: 5px;
   margin: auto 5vw;
@@ -415,6 +417,11 @@ h1::after {
   letter-spacing: -0.1rem;
   box-shadow: 0 0 50px red;
   max-width: 100%;
+}
+
+video {
+  margin: 20px;
+  border-radius: 5px;
 }
 
 .video-bg {
@@ -432,7 +439,7 @@ h1::after {
   background-color: #8a0808;
   margin: auto;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   font-size: 15px;
   border: 1px solid;
   bottom: 0;
@@ -543,8 +550,9 @@ h1::after {
 
 
 .member-img {
-  object-fit: cover;
+  display: flex;
   width: 100%;
+  object-fit: cover;
   border-radius: 5px;
   border-color: black;
   transform: scale(0.9);
@@ -572,31 +580,45 @@ h1::after {
   color: white;
   text-shadow: 2px 0 rgb(0, 0, 0);
   font-size: 30px;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 .wolftv-segments {
   background-color: white;
   display: flex;
-  max-width: 100%;
-  height: 100%;
-  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
   border-radius: 5px;
   font-size: 25px;
   border: 1px solid black;
   letter-spacing: normal;
 }
 
+/*.segment-page-container {*/
+/*  margin-top: calc(150px + 1vmin);*/
+/*}*/
+
 .segment {
-  max-width: 100%;
+  flex: 1;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  transition: all 200ms ease-in-out;
+}
+
+.segment:hover {
+  border-color: #8a0808;
 }
 
 .segment button {
   background-color: transparent;
+  outline: none;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   position: relative;
   bottom: 0;
   transition: all 0.2s ease-in-out;
@@ -611,16 +633,38 @@ h1::after {
 }
 
 .segment button:active {
-  outline: 2px solid rgba(204, 204, 204, 0.5);
+  background-color: rgba(183, 183, 183, 0.8);
+  outline: none;
 }
 
-.segment-container {
-  margin-top: 15vh;
+
+.segment-title {
+  font-size: calc(20px + 1vmin);
+  font-family: "Merriweather Sans", sans-serif;
+  text-shadow: 2px 0 rgb(0, 0, 0);
+  color: #b31b1b;
+  /*padding: 20px;*/
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.segment-title.cyber-news {
+  color: #4ff0ff;
+}
+
+.segment-title.retro-review {
+  color: #f09e4d;
+}
+
+.segment-title.stories {
+    color: #00ff0d;
 }
 
 .segment-desc {
   margin: 40px;
-  font-size: 1.5rem;
+  /* Calculate the font size based on the container width. */
+  font-size: calc(10px + 0.9rem);
 }
 
 .end {
@@ -661,7 +705,7 @@ h1::after {
 }
 
 .scroll-to-top-btn {
-  display: none;
+  opacity: 0;
   position: fixed; /* Fixed/sticky position */
   bottom: 20px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
@@ -673,6 +717,7 @@ h1::after {
   padding: 15px; /* Some padding */
   font-size: 20px; /* Increase font size */
   box-shadow: 0 1px 2px black;
+  transition: 0.2s ease-in-out;
 }
 
 .link {
@@ -698,7 +743,7 @@ h1::after {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -717,23 +762,20 @@ h1::after {
   position: relative;
   top: 50%;
   left: 50%;
+  opacity: 0;
   transform: translate(-50%, -50%);
   z-index: 1;
   justify-items: center;
-  animation: bruh 0.5s ease forwards;
+  animation: fadeIn 0.3s ease forwards;
 }
 
-@keyframes bruh {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+.modal:target {
+  opacity: 1;
 }
+
 
 .modal-footer > .button {
-  float: right;
+  font-size: calc(10px + 0.8vmin);
   margin: 0;
 }
 
@@ -744,17 +786,6 @@ h1::after {
 /*  !* box-shadow: 0 0 0; *!*/
 /*  transition: all 0.2s ease-in-out;*/
 /*}*/
-
-@keyframes modalBtnAnim {
-  from {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  to {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-}
 
 .modal-header {
   height: 85px;
@@ -778,13 +809,14 @@ h1::after {
 .modal-img {
   display: flex;
   justify-content: center;
-  margin: 12% 0;
-  transform: scale(1.1);
+  margin: 10% 0;
 }
 
 .modal-img img {
   object-fit: cover;
-  width: 20%;
+  transform: scale(1.1);
+  width: 30%;
+  height: calc(30vh - 20px);
 }
 
 .modal-content {
@@ -803,7 +835,7 @@ h1::after {
 .modal-role {
   color: white;
   text-shadow: 2px 0 2px black;
-  font-size: 2.5vmin;
+  font-size: calc(1vmin + 2vmin);
   position: fixed;
   bottom: 25%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -812,11 +844,8 @@ h1::after {
 }
 
 .modal-description {
-  font-size: 2.5vmin;
-  display: flex;
-  justify-content: center;
-  margin: 30px;
   font-family: "Nunito", sans-serif;
+  font-size: 3vmin;
 }
 
 .modal-footer {
@@ -866,7 +895,7 @@ h1::after {
   transform: translate(-50%, -50%);
   z-index: 99;
   justify-items: center;
-  animation: modalAnim 0.5s ease forwards;
+  animation: modalAnim 0.3s ease forwards;
 }
 
 .msgModal > button {
@@ -880,24 +909,6 @@ h1::after {
   white-space: normal;
   flex-wrap: wrap;
   margin: 30px;
-}
-
-@keyframes msgModalAnim {
-  0% { opacity: 0; transition: ease-in; }
-  100% { opacity: 100%; transition: ease-out; }
-}
-
-@keyframes modalAnim {
-  0% { 
-    top: 1300px;
-    opacity: 0;
-    transition: ease-in;
-  }
-  100% { 
-    bottom: 0;
-    opacity: 100%; 
-    transition: ease-out;
-  }
 }
 
 /* Disable scroll when modal is open */
@@ -923,9 +934,9 @@ h1::after {
 /* MODAL ARROWS CSS */
 
 .inner-modal-arrow {
-  position: fixed;
-  transform: translateY(-50%) scale(4);
-  top: 50%;
+  position: absolute;
+  transform: translateY(-50%) scale(3);
+  top: 40%;
   z-index: 3;
   background-color: transparent;
   border: none;
@@ -944,16 +955,20 @@ h1::after {
   color: rgba(0, 0, 0, 0.1);
 }
 
+.inner-modal-arrow:disabled:active {
+  background-color: transparent;
+}
+
 .inner-modal-arrow:active {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 .inner-modal-arrow.left {
-  left: 10%;
+  right: 90%;
 }
 
 .inner-modal-arrow.right {
-    right: 10%;
+    left: 90%;
 }
 
 .outer-modal-arrow {
@@ -1017,6 +1032,7 @@ h1::after {
   position: fixed;
   transform: translateY(-150%);
   transition: transform 0.2s;
+  display: none;
   top: 0;
   left: 0;
   bottom: 0;
@@ -1035,7 +1051,7 @@ h1::after {
 .menuItem {
   display: block;
   margin: 2rem 4rem;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   border: none;
   background-color: transparent;
   color: white;
@@ -1068,14 +1084,16 @@ h1::after {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--navBar-color);
-  box-shadow: 0px 8px 16px 11px rgba(0,0,0,0.2);
-  border: 2px solid black;
+  top: 6vh;
+  background-color: var(--navBar-color-full-opacity);
+  box-shadow: 0 8px 16px 11px rgba(0,0,0,0.2);
+  border: none;
+  border-radius: 6px;
   z-index: 1;
   min-height: 100%;
   margin: 0 auto;
   animation: fadeIn 0.3s;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 @keyframes fadeIn {
@@ -1095,9 +1113,8 @@ h1::after {
 
 .dropdown-content > a:hover {
   background-color: #981212a4;
-  color: white;
-  transition: background-color 0.2s, color 0.2s;
-  transition-timing-function: ease-in-out;
+  border-radius: 5px;
+  transition: 0.2s ease;
 }
 
 .dropdown:hover .dropdown-content {
@@ -1137,11 +1154,13 @@ h1::after {
   justify-content: center;
   background-color: #8a0808;
   font-size: 2vmin;
+  font-family: "Nunito", sans-serif;
   position: fixed;
   border-top: 1px solid #ec1212;
   width: 100%;
   z-index: 1;
   height: fit-content;
+  transition: 200ms ease;
   bottom: 0;
 }
 
@@ -1154,8 +1173,21 @@ h1::after {
   text-decoration: none;
 }
 
+#video-descs {
+  font-size: 2.5vmin;
+}
+
+#video-descs::before,
+#video-descs::after {
+  content: "--";
+}
+
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
+  video {
+    margin: 20px 0;
+  }
+
   /* Center logo */
   .App-logo {
     height: 10vmax;
@@ -1171,7 +1203,6 @@ h1::after {
   }
 
   .body {
-    margin: auto 10vw;
     padding: 2rem;
     font-size: 2.5vmax;
   }
@@ -1180,7 +1211,7 @@ h1::after {
     font-size: 20px;
   }
   .intro {
-    height: 75vh;
+    height: 50vh;
   }
 
   .intro-title {
@@ -1188,18 +1219,16 @@ h1::after {
   }
 
   .slide {
-    object-fit: cover;
-    height: 75vh;
-    max-width: 100%;
+    object-fit: contain;
   }
 
   .segment {
     font-size: 15px;
   }
 
-  /* .title {
-    font-size: 50px;
-  } */
+  .segment-desc {
+    font-size: calc(10px + 0.9vmin);
+  }
 
   .modal {
     width: 90vw;
@@ -1210,33 +1239,10 @@ h1::after {
     font-size: 8vmin;
   }
 
-  .modal-img {
-    transform: scale(0.5);
-    margin: auto;
-  }
-
-  /*.modal-role {*/
-  /*  font-size: 15px;*/
-  /*}*/
-
-  /*.modal > .button {*/
-  /*  align-self: center;*/
-  /*  font-size: 15px;*/
-  /*  top: 93%;*/
-  /*  left: 55vw;*/
-  /*  margin: auto;*/
-  /*}*/
-
-
-
-  .modal-description {
-    font-size: 1.7vmax;
-    margin: 0;
-  }
-
   .modal-img img {
-    width: 90%;
-    height: 90%;
+    transform: scale(0.9);
+    width: 50%;
+    height: calc(25vh - 20px);
   }
 
   .intro-subtitle a > li {
@@ -1269,12 +1275,8 @@ h1::after {
     margin: 10px;
   }
 
-  .modal-arrow.left {
-    left: -35%;
-  }
-
-  .modal-arrow.right {
-    right: -35%;
+  .hamburger-menu {
+    display: block;
   }
 
   .dots {

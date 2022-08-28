@@ -33,6 +33,11 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
   const vimeoStuff = {
     "token": "a0ca4b46a912abfcac526a6a9a8cb4f8"
   }
+
+  const videos = [
+    require("../assets/videos/michael_editing_no_audio.mp4"),
+    require("../assets/videos/max_editing_no_audio.mp4"),
+  ]
   
   const fetchVimeo = async () => {
     setLoadingVideo(true);
@@ -52,31 +57,30 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
     })
   }, []);
 
-  document.title = "Wolf TV | Home";
+  document.title = "WOLF TV | Home";
   return (
     <div id="top" className="App">
-      { <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>}
+      <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>
       <NavBar />
-      <div style={{zIndex: 0 }}>
+      <div>
         <div className='intro'>
           <SlideShow />
-          <div className='intro-subtitle'>
+          <div id="intro-txt" className='intro-subtitle'>
             <h2 className='intro-title'>Welcome to WOLF TV</h2>
-            {/*<h2 className='intro-subtitle-text'>The Official Website of the Wolf Pack</h2>*/}
             <hr />
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show</p>
             <div className='intro-actions'>
-              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WolfTV Vimeo Page</button></a>
+              <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WOLF TV Vimeo Page</button></a>
               <a href='#segments'><button className='button' title='View Wolf TV Segments'>Segments</button></a>
               <a href='#latest-ep'><button className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
             </div>
           </div>
         </div>
-        <div style={{ zIndex: 0 }}>
+        <div>
           <h1 className='title'>Latest Wolf TV Episode</h1>
           <p id="latest-ep" className='subtitle'>
-            Here you can watch the latest episode of Wolf TV! <br />
-            Latest Episode: <strong>Ep {(currentVimeoEpData.title && currentVimeoEpData.linkCode) === "" ? "Fetching..." : currentVimeoEpData.title.slice(10, 14) + " | " + currentVimeoEpData.title.slice(15, 22)}</strong>
+            Here you can watch the latest episode of WOLF TV! <br />
+            Latest Episode: <strong>{(currentVimeoEpData.title && currentVimeoEpData.linkCode) === "" ? "Fetching..." : "Ep " + currentVimeoEpData.title.slice(10, 14) + " | " + currentVimeoEpData.title.slice(15, 22)}</strong>
           </p>
           <div className='body'>
             <div className='video-bg'>
@@ -88,12 +92,21 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
           <h1 id="start" className='title'>What is WOLF TV?</h1>
           <div className='body'>
             <p className='paragraph-txt'>
-              WolfTV is an announcement video broadcast at Weiss High School. WolfTV is produced by students in the AV
+              WOLF TV is an announcement video broadcast at Weiss High School. WOLF TV is produced by students in the AV
               (Audio Visual) class. It mainly showcases important information
               for students, teachers, and staff. Often times, segments are included to add some "fun" to the show. The
               show is broadcast daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
               going on around the school.
             </p>
+            <div>
+              <p id="video-descs">A look at WOLF TV crew at work</p>
+              <video autoPlay={true} muted={true} loop={true} width="fit-content" height="150vh" playsInline preload="metadata" title="Michael Editing">
+                <source src={videos[0]} type="video/mp4" />
+              </video>
+              <video autoPlay={true} muted={true} loop={true} width="fit-content" height="150vh" playsInline preload="metadata" title="Max Editing">
+                <source src={videos[1]} type="video/mp4" />
+              </video>
+            </div>
             <a href='#crew'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
           </div>
         </div>
@@ -128,7 +141,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               }
             </div>
             <p>
-              These members gave it their all to make the best content possible for Wolf TV. Whether it took minutes, hours, or
+              These members gave it their all to make the best content possible for WOLF TV. Whether it took minutes, hours, or
               even days, they made sure to continue producing. Thank you!
             </p>
             <a href='#segments'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
@@ -139,24 +152,23 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
         <h1 className='title'>WOLF TV Segments</h1>
         <div className='body'>
           <p>
-            Currently, there are a total of <strong>4 segments</strong> that can appear on Wolf TV. Please, give them a look!
+            This is the history of all the WOLF TV segments that appeared on the show.
           </p>
-          <p className="notice">Note: This is subject to change.</p>
           <div>
             <div className='wolftv-segments'>
-              <Segment title="Announcements" color="#b31b1b" path="/announcements">
+              <Segment title="Announcements" path="/announcements" year="2020-present">
                 The main part of the show: the announcements! This segment contains all the information one Weiss Wolf should
                 know when at the school. It contains information about classes, tests, and events.
               </Segment>
-              <Segment title="Cyber News" color="#4ff0ff" path="/cyber-news">
+              <Segment title="Cyber News" color="cyber-news" path="/cyber-news" year="2021-present">
                 Cyber News is a segment that updates you on the latest on the Cyber World, whether it'd be video games, music,
                 or just news in general.
               </Segment>
-              <Segment title="Retro Review" color="#f09e4d" path="/retro-review">
+              <Segment title="Retro Review" color="retro-review" path="/retro-review" year="2021-2022">
                 Retro Review is a segment that takes a deep dive into the past of classical TV shows, video games, movies,
                 and music.
               </Segment>
-              <Segment title="Stories" color="#00ff0d" path="/stories">
+              <Segment title="Stories" color="stories" path="/stories" year="2021-present">
                 Stories are about people that are experiencing something big.
                 Whether it may be something special, traumatic, or heart-warming,
                 we want people's stories to be heard!
