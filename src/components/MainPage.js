@@ -99,6 +99,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               going on around the school.
             </p>
             <div>
+              <p id="video-descs">A look at WOLF TV crew at work</p>
               <video autoPlay={true} muted={true} loop={true} width="fit-content" height="150vh" playsInline preload="metadata" title="Michael Editing">
                 <source src={videos[0]} type="video/mp4" />
               </video>

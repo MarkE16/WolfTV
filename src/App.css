@@ -1167,6 +1167,15 @@ video {
   text-decoration: none;
 }
 
+#video-descs {
+  font-size: 2.5vmin;
+}
+
+#video-descs::before,
+#video-descs::after {
+  content: "--";
+}
+
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
   video {
