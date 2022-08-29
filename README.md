@@ -1,11 +1,11 @@
 ![wolftv-logo-transparent](https://user-images.githubusercontent.com/76978800/179336821-35ad8f9d-1a69-46d5-ba4c-3662186952c2.png)
 # Wolf TV Website
 
-This is the Github page for the Wolf TV website.
+This is the GitHub page for the Wolf TV website.
 
 ## What is Wolf TV?
 
-Wolf TV is a student produced announcement show owned by PFISD/Weiss High School. The content produced is to allow students, teachers, and staff to know what events are happening around the school. There are even segments, which are "fun" little shows that go onto different topics other than the announcements shown.
+WOLF TV is a student produced announcement show owned by PFISD/Weiss High School. The content produced is to allow students, teachers, and staff to know what events are happening around the school. There are even segments, which are "fun" little shows that go onto different topics other than the announcements shown.
 
 ## What is the link to the website?
 
