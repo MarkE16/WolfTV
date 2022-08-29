@@ -240,7 +240,6 @@ a {
 .slider {
   white-space: nowrap;
   transition: ease 1000ms;
-
   height: 100%;
   width: 100%;
 }
@@ -253,6 +252,8 @@ a {
   height: 100%;
   object-fit: cover;
   border: none;
+  pointer-events: none;
+  user-select: none;
   transition: ease 1000ms;
 }
 
@@ -472,13 +473,14 @@ video {
   padding: 0 30px;
   margin: 20px auto;
   color: white;
+  user-select: none;
+  cursor: pointer;
   font-family: "Nunito", sans-serif;
 }
 
 .button:hover {
   background-color: rgb(255, 255, 255);
   border: 1px solid black;
-  cursor: pointer;
   color:rgb(0, 0, 0);
   box-shadow: 0 0 40px rgba(255, 176, 176, 0.68);
   transition: all 0.3s ease-in-out;
@@ -1219,7 +1221,7 @@ video {
   }
 
   .slide {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .segment {

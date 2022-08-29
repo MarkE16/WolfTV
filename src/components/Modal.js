@@ -93,7 +93,7 @@ function Modal({ member, setOpen, setChosenMemberName }) {
           </div>
         </div>
         <div className='modal-footer'>
-          <button className='button' onClick={() => setOpen(false)}>OK</button>
+          <button className='button' title="OK" onClick={() => setOpen(false)}>OK</button>
         </div>
       </div>
     </div>
