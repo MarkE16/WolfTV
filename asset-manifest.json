@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/WolfTV/static/css/main.78fbc15a.css",
-    "main.js": "/WolfTV/static/js/main.10cd8e3f.js",
+    "main.css": "/WolfTV/static/css/main.d569b804.css",
+    "main.js": "/WolfTV/static/js/main.ebc319c4.js",
     "static/js/787.49e88457.chunk.js": "/WolfTV/static/js/787.49e88457.chunk.js",
+    "static/media/max_editing_no_audio.mp4": "/WolfTV/static/media/max_editing_no_audio.803aea7b63df225885d6.mp4",
+    "static/media/michael_editing_no_audio.mp4": "/WolfTV/static/media/michael_editing_no_audio.d95543aff49c14a742e3.mp4",
     "static/media/nowebpage.PNG": "/WolfTV/static/media/nowebpage.7355e60b55452691ad60.PNG",
     "static/media/max2.JPG": "/WolfTV/static/media/max2.c5ee2c952b6558ac8547.JPG",
     "static/media/maddie2.JPG": "/WolfTV/static/media/maddie2.8dbb71264b364eae5e04.JPG",
@@ -34,12 +36,12 @@
     "static/media/eli1.JPG": "/WolfTV/static/media/eli1.0f860f5ee732c6df4c90.JPG",
     "static/media/hodge1.JPG": "/WolfTV/static/media/hodge1.73491a1322d844027d57.JPG",
     "index.html": "/WolfTV/index.html",
-    "main.78fbc15a.css.map": "/WolfTV/static/css/main.78fbc15a.css.map",
-    "main.10cd8e3f.js.map": "/WolfTV/static/js/main.10cd8e3f.js.map",
+    "main.d569b804.css.map": "/WolfTV/static/css/main.d569b804.css.map",
+    "main.ebc319c4.js.map": "/WolfTV/static/js/main.ebc319c4.js.map",
     "787.49e88457.chunk.js.map": "/WolfTV/static/js/787.49e88457.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.78fbc15a.css",
-    "static/js/main.10cd8e3f.js"
+    "static/css/main.d569b804.css",
+    "static/js/main.ebc319c4.js"
   ]
 }
