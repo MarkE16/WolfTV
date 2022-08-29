@@ -71,8 +71,9 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
             <p className='intro-body'>The website for Weiss High School's announcement broadcast show</p>
             <div className='intro-actions'>
               <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WOLF TV Vimeo Page</button></a>
-              <a href='#segments'><button className='button' title='View Wolf TV Segments'>Segments</button></a>
-              <a href='#latest-ep'><button className='button' title='Watch the latest Wolf TV Episode'>Watch Latest Episode</button></a>
+              <a href='#segments'><button className='button' title='View WOLF TV Segments'>WOLF TV Segments</button></a>
+              <a href="#crew"><button className="button" title="View WOLF TV Crew">WOLF TV Crew</button></a>
+              <a href='#latest-ep'><button className='button' title='Watch the latest WOLF TV Episode'>Watch Latest Episode</button></a>
             </div>
           </div>
         </div>
