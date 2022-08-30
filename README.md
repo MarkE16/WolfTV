@@ -15,5 +15,27 @@ The latest version of the website is [here](https://marke16.github.io/WolfTV/)!
 
 The website has *officially* been considered complete on August 8th, 2022. From this point on, there will be updates when there are new team members for the 2022-2023 school year, visual improvements, or overall features.
 
-### More information
+## Contributing
+
+Contributions are welcome! If you see any sort of bug, or want to include
+a feature for the website, but don't want to submit a form on the feedback form,
+you can clone this repository, create a branch, write your code, and then create 
+a pull request.
+
+> [**NOTE**] When creating a pull request, please use the following 
+> format in your pull request.
+> ---
+> ### Title *(required)*
+> - The name of the feature/bug you want to push.
+> ### Description *(required)*
+>> #### Description *(required)*
+> - A brief description of the feature/bug you want to push.
+>> #### Version Number
+> - If you're submitting a bug, please state what version of the website
+> this pull request is supposed to fix. 
+> - If submitting a feature, this is
+> not required.
+
+
+### About the Site
 - This site was developed using [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [React](https://reactjs.org/), and [GitHub Pages](https://pages.github.com/).
