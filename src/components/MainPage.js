@@ -26,7 +26,9 @@ import Segment from "./Segment";
 function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
   const [currentVimeoEpData, setCurrentVimeoEpData] = useState({title: "", linkCode: ""});
+  const [currentVimeoPodcastData, setCurrentVimeoPodcastData] = useState({title: "", linkCode: ""});
   const [loadingVideo, setLoadingVideo] = useState(false);
+  const [loadingPodcast, setLoadingPodcast] = useState(false);
 
   const members = require("../data/crew.json");
 
@@ -39,9 +41,9 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
     require("../assets/videos/max_editing_no_audio.mp4"),
   ]
   
-  const fetchVimeo = async () => {
+  const fetchVimeo = async userID => {
     setLoadingVideo(true);
-    const getVideo = await fetch("https://api.vimeo.com/users/152561840/videos", {
+    const getVideo = await fetch(`https://api.vimeo.com/users/${userID}/videos`, {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + vimeoStuff["token"]
@@ -51,10 +53,15 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
     }
 
   useEffect(() => {
-    fetchVimeo().then(data => {
+    fetchVimeo("152561840").then(data => {
       setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
       setLoadingVideo(false);
     })
+    // Fetch podcast data
+    // fetchVimeo("IDHERE").then(data => {
+    //   setCurrentVimeoPodcastData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
+    //   setLoadingPodcast(false);
+    // })
   }, []);
 
   document.title = "WOLF TV | Home";
@@ -73,6 +80,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               <a href='https://vimeo.com/user152561840' target="_blank"  rel="noreferrer"><button className='button' title='View Vimeo Page'>WOLF TV Vimeo Page</button></a>
               <a href='#segments'><button className='button' title='View WOLF TV Segments'>WOLF TV Segments</button></a>
               <a href="#crew"><button className="button" title="View WOLF TV Crew">WOLF TV Crew</button></a>
+              <a href="#podcast"><button className="button" title="View WOLF TV Podcast">WOLF TV Podcast</button></a>
               <a href='#latest-ep'><button className='button' title='Watch the latest WOLF TV Episode'>Watch Latest Episode</button></a>
             </div>
           </div>
@@ -177,7 +185,23 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
             </div>
           </div>
         </div>
-        
+        <div>
+          <h1 id="podcast" className='title'>WOLF TV Podcast</h1>
+          <div className='body'>
+            <p>
+              The WOLF TV Podcast is a show that hosts the WOLF TV crew where they discuss about many different topics, such as tier rankings,
+              video games, school, social media, and much more!<br />
+              <hr />
+              <strong>Listen to the WOLF TV Podcast on:</strong>
+              [Buttons here...] <br />
+              == OR == <br />
+              Listen to the latest episode below!
+            </p>
+            <div className='video-bg'>
+              {loadingPodcast ? <Loading /> : <iframe id="podcastVideo" title="Wolf TV Podcast Video" src={`https://player.vimeo.com/video/${currentVimeoPodcastData.linkCode}`} width="100%" height="100%"  allow="autoplay; fullscreen" allowFullScreen></iframe>}
+            </div>
+          </div>
+        </div>
       </div>
       { messageModalShown && <MessageModal setMsgModalOpen={setMessageModalShown} title="Option Unavailable" msg="This option is currently in development and is not available yet. Come back later!"/> }
       <div className='end'>

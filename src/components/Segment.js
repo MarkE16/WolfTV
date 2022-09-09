@@ -5,7 +5,7 @@ function Segment({ title, color, children, path, year }) {
   return (
     <div className="segment">
       <h3 className={`segment-title ${color}`}>{title}</h3>
-      <p>{year}</p>
+      <p id="timeline">{year}</p>
       <hr />
       <p className="segment-desc">
         {children}

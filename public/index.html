@@ -71,6 +71,10 @@
         //
         // })
 
+        $("#topBtn").click(function(){
+          $("html").animate({scrollTop: 0}, 300);
+        });
+
         $(window).scroll(function() {
           if ($(window).scrollTop() > 20) {
             $('#topBtn').css('opacity', '1');

@@ -121,6 +121,19 @@ a {
   float: left;
 }
 
+.footer-logo {
+  height: 5vmin;
+  object-fit: contain;
+  border: none;
+  margin: 10px;
+  opacity: 0.5;
+  transition: 200ms;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
 .loading {
   display: flex;
   margin: 0 auto;
@@ -409,6 +422,10 @@ h1::after {
 }
 
 .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #cdcdcd;
   border-radius: 5px;
   margin: auto 5vw;
@@ -426,6 +443,9 @@ video {
 }
 
 .video-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: black;
   width: 100%;
   height: 50vh;
@@ -437,6 +457,10 @@ video {
 }
 
 .Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
   background-color: #8a0808;
   margin: auto;
   width: 100%;
@@ -604,7 +628,7 @@ video {
 .segment {
   flex: 1;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 5px;
   border-radius: 5px;
   border: 1px solid black;
   transition: all 200ms ease-in-out;
@@ -612,6 +636,10 @@ video {
 
 .segment:hover {
   border-color: #8a0808;
+}
+
+#timeline {
+  font-size: 1.3vmax;
 }
 
 .segment button {
@@ -641,7 +669,7 @@ video {
 
 
 .segment-title {
-  font-size: calc(20px + 1vmin);
+  font-size: calc(20px + 0.8vmin);
   font-family: "Merriweather Sans", sans-serif;
   text-shadow: 2px 0 rgb(0, 0, 0);
   color: #b31b1b;
@@ -665,8 +693,7 @@ video {
 
 .segment-desc {
   margin: 40px;
-  /* Calculate the font size based on the container width. */
-  font-size: calc(10px + 0.9rem);
+  font-size: calc(10px + 0.6rem);
 }
 
 .end {
@@ -1044,6 +1071,9 @@ video {
   color: white;
   list-style: none;
   padding-top: 4rem;
+}
+.hamburger-menu > a {
+  text-decoration: none;
 }
 
 .hamburger-menu > .subtitle {
