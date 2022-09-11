@@ -41,6 +41,7 @@ function NavBar() {
               <Link to="../stories">Stories</Link>
             </div>
           </div></li></a>
+          <a href='#podcast'><li>Podcast</li></a>
         </div>
         <div>
           <button id="hamburger" className="hamburger" title='More' onClick={() => setHamburgerOpen(!hamburgerOpen)}>
@@ -52,6 +53,9 @@ function NavBar() {
               <a href='#crew'>
                 <button className="menuItem">Crew</button>
               </a>}
+            <a href="#podcast">
+              <button className="menuItem">Podcast</button>
+            </a>
             <Link to="/announcements">
               <button className="menuItem">Announcements</button>
             </Link>
