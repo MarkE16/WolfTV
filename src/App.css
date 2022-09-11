@@ -835,29 +835,39 @@ video {
 }
 /*#8a0808*/
 
-.modal-img {
-  display: flex;
-  justify-content: center;
-  margin: 10% 0;
-}
+/*.modal-img {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  margin: 10% 0;*/
+/*}*/
 
-.modal-img img {
-  object-fit: cover;
-  transform: scale(1.1);
+/*.modal-img img {*/
+/*  object-fit: cover;*/
+/*  transform: scale(1.1);*/
+/*  width: 30%;*/
+/*  height: calc(30vh - 20px);*/
+/*}*/
+
+.modal-img {
+  position: relative;
+  /*margin: 10% 0;*/
+  margin: 10% auto;
   width: 30%;
-  height: calc(30vh - 20px);
+  height: calc(25vh - 20px);
+  object-fit: cover;
 }
 
 .modal-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: #c1c1c1;
   border-radius: 5px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
   height: 35%;
   width: 100%;
   position: absolute;
+  margin: 0;
   bottom: 0;
 }
 
@@ -865,22 +875,31 @@ video {
   color: white;
   text-shadow: 2px 0 2px black;
   font-size: calc(1vmin + 2vmin);
-  position: fixed;
-  bottom: 25%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  /*position: fixed;*/
+  /*bottom: 25%;*/
+  padding: 2px;
   width: 90%;
-  height: 4%;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  /*width: 90%;*/
+  /*height: 4%;*/
 }
 
 .modal-description {
   font-family: "Nunito", sans-serif;
-  font-size: 3vmin;
+  font-size: 3.5vmin;
 }
 
 .modal-footer {
+  /*background-color: tr;*/
+  width: 100%;
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 0;
+}
+
+.modal-footer > .button {
+  float: right;
+  margin: 10px;
 }
 
 .x-btn {
@@ -1264,7 +1283,7 @@ video {
 
   .modal {
     width: 90vw;
-    height: 60vh;
+    height: 70vh;
   }
 
   .heading {
