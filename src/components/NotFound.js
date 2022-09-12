@@ -23,7 +23,7 @@ function NotFound() {
           form, or through his supporting contact methods.
         </p>
       </div>
-      <Link to={-1}><button className='button'><CgLogOut className='button-icon' /> Return Back</button></Link>
+      <Link to="/"><button className='button'><CgLogOut className='button-icon' /> Return to Home</button></Link>
     </div>
   );
 }

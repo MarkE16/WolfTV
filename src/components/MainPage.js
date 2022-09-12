@@ -42,7 +42,6 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
   ]
   
   const fetchVimeo = async userID => {
-    setLoadingVideo(true);
     const getVideo = await fetch(`https://api.vimeo.com/users/${userID}/videos`, {
       method: "GET",
       headers: {
@@ -53,11 +52,13 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
     }
 
   useEffect(() => {
+    // Fetch the latest WOLF TV episode from Vimeo
+    setLoadingVideo(true);
     fetchVimeo("152561840").then(data => {
       setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
       setLoadingVideo(false);
     })
-    // Fetch podcast data
+    // Fetch the latest WOLF TV podcast from Vimeo
     // fetchVimeo("IDHERE").then(data => {
     //   setCurrentVimeoPodcastData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
     //   setLoadingPodcast(false);
@@ -194,7 +195,11 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               <hr />
               <strong>Listen to the WOLF TV Podcast on:</strong>
               [Buttons here...] <br />
-              == OR == <br />
+              <div className="styled-or">
+                <hr />
+                OR <br />
+                <hr />
+              </div>
               Listen to the latest episode below!
             </p>
             <div className='video-bg'>

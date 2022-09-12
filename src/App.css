@@ -51,9 +51,13 @@ ul {
   position: relative;
 }
 
-li {
-  float: left;
-  margin: 1.5vh 5px;
+ul li {
+  color: black;
+  text-shadow: none;
+}
+
+ul li:hover {
+  background-color: transparent;
 }
 
 ul li::before {
@@ -64,17 +68,18 @@ ul li::after {
   content: " |<";
 }
 
-a li {
+li {
   display: block;
   color: white;
   text-align: center;
   text-shadow: 2px 1px rgb(0, 0, 0);
   border-radius: 5px;
   padding: 5px 10px;
+  margin-top: 20px;
   font-family: "Merriweather Sans", sans-serif;
 }
 
-a li:hover {
+li:hover {
   background-color: rgb(197, 49, 49);
 }
 
@@ -97,8 +102,8 @@ a > img {
 }
 
 a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+  margin: 0;
 }
 
 /* ClassName CSS */
@@ -116,7 +121,7 @@ a {
 }
 
 .App-logo {
-  height: 9vmin;
+  height: 8vh;
   object-fit: contain;
   float: left;
 }
@@ -193,8 +198,8 @@ a {
 
 .header-items {
   display: flex;
+  /*align-items: center;*/
   float: left;
-  margin: 10px 0;
 }
 
 .App-title {
@@ -227,10 +232,7 @@ a {
   font-family: 'Nunito', sans-serif;
 }
 
-.intro-subtitle a > button {
-  padding: 10px;
-  transition: 0.6s ease-in;
-}
+
 
 .intro {
   width: 100vw;
@@ -351,6 +353,7 @@ a {
 
 .intro-actions a > button {
   font-size: 2vmin;
+  padding: 10px;
   margin: 0;
 }
 
@@ -700,6 +703,7 @@ video {
 
 .end {
   margin: 10vmax;
+  padding: 10px 0;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -713,7 +717,7 @@ video {
   background-color: transparent;
 }
 
-.end button {
+.end .button {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -721,6 +725,7 @@ video {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bolder;
   color: white;
+  margin: 0;
   transition: all 0.2s ease-in-out;
 }
 
@@ -766,6 +771,16 @@ video {
 
 .body-link:hover {
   color: #2aabdc;
+}
+
+.link, .body-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:active, .body-link:active {
+  color: #2aabdc;
+  background-color: rgba(27, 172, 229, 0.2);
 }
 
 /* MODAL CSS */
@@ -1064,7 +1079,8 @@ video {
   display: none;
   border: none;
   background-color: rgba(0, 0, 0, 0);
-  padding: 15px;
+  float: right;
+  margin: 15px;
   font-size: 20px;
   position: relative;
   z-index: 100;
@@ -1137,7 +1153,7 @@ video {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 6vh;
+  top: 5.3vh;
   background-color: var(--navBar-color-full-opacity);
   box-shadow: 0 8px 16px 11px rgba(0,0,0,0.2);
   border: none;
@@ -1235,6 +1251,22 @@ video {
   content: "--";
 }
 
+.styled-or {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+  margin: 20px auto;
+  user-select: none;
+}
+
+.styled-or > hr {
+    flex: 1;
+    border: 1px solid rgba(225, 225, 225, 0.81);
+    height: 1px;
+    margin: 0 0.2rem;
+}
+
 /* RESIZING BASED ON SCREEN SIZE */
 @media screen and (max-width: 700px) {
   video {
@@ -1243,8 +1275,7 @@ video {
 
   /* Center logo */
   .App-logo {
-    height: 10vmax;
-
+    height: 8vh;
   }
 
   .footer-logo {
@@ -1328,8 +1359,6 @@ video {
 
   .hamburger {
     display: block;
-    float: right;
-    margin: 10px;
   }
 
   .hamburger-menu {
@@ -1343,6 +1372,10 @@ video {
   .dot {
     width: 15px;
     height: 15px;
+  }
+
+  .styled-or {
+    width: 50%;
   }
 }
 
