@@ -21,21 +21,22 @@ const getLatest = async (sig) => {
 
 function Bottom() {
   const googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfGEBMAZqY-2TjH9Br1C7Tb48PuTaG4r7JOSlD8rsrRZKRwVw/viewform";
-  const [version, setVersion] = useState("");
+  const [version, setVersion] = useState("v1.3");
 
-  useEffect(() => {
-    if (!sessionStorage.getItem("version")) {
-      const controller = new AbortController();
-      const signal = controller.signal;
-      getLatest(signal).then(data => {
-        console.log(data);
-        setVersion(data[0].tag_name);
-        sessionStorage.setItem("version", data[0].tag_name);
-      })
-      return () => controller.abort();
-    }
-    setVersion(sessionStorage.getItem("version"));
-  }, [])
+  // This is effective, but I don't want my token exposed. Doesn't matter any, if I hide it, it won't be included in the build.
+  // useEffect(() => {
+  //   if (!sessionStorage.getItem("version")) {
+  //     const controller = new AbortController();
+  //     const signal = controller.signal;
+  //     getLatest(signal).then(data => {
+  //       console.log(data);
+  //       setVersion(data[0].tag_name);
+  //       sessionStorage.setItem("version", data[0].tag_name);
+  //     })
+  //     return () => controller.abort();
+  //   }
+  //   setVersion(sessionStorage.getItem("version"));
+  // }, [])
 
   return (
     <div className='Bottom'>

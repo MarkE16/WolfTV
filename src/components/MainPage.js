@@ -185,6 +185,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               </Segment>
             </div>
           </div>
+          <a href='#podcast'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
         </div>
         <div>
           <h1 id="podcast" className='title'>WOLF TV Podcast</h1>

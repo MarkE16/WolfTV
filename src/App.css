@@ -15,9 +15,7 @@
   width: 10px;
 }
 
-::-webkit-scrollbar-button {
 
-}
 
 ::-webkit-scrollbar-thumb {
   background: #b4b4b4;
@@ -211,19 +209,19 @@ a {
   text-shadow: 2px 1px rgb(0, 0, 0);
 }
 
-.App-title-items {
-  margin: inherit;
-  /* margin-left: 50px; */
-  padding: 10px;
-  text-shadow: 2px 1px rgb(0, 0, 0);
-}
+/*.App-title-items {*/
+/*  margin: inherit;*/
+/*  !* margin-left: 50px; *!*/
+/*  padding: 10px;*/
+/*  text-shadow: 2px 1px rgb(0, 0, 0);*/
+/*}*/
 
-.App-title-items:hover {
-  color: rgb(243, 79, 79);
-  text-shadow: 2px 1px rgb(255, 255, 255);
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
+/*.App-title-items:hover {*/
+/*  color: rgb(243, 79, 79);*/
+/*  text-shadow: 2px 1px rgb(255, 255, 255);*/
+/*  cursor: pointer;*/
+/*  transition: 0.3s ease-in-out;*/
+/*}*/
 
 .intro-subtitle {
   margin: inherit;
@@ -352,14 +350,33 @@ a {
 }
 
 .intro-actions a > button {
+  background-color: transparent;
+  /*background-color: #ff6666;*/
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-width: 2px;
+  /*color: #ff6666;*/
+  color: white;
   font-size: 2vmin;
   padding: 10px;
   margin: 0;
 }
 
+.intro-actions a > button:hover {
+  border: 2px solid #ff4e4e;
+  text-shadow: none;
+  background-color: #ff6666;
+  /*background-color: white;*/
+  /*color: black;*/
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
 .title {
   color:rgb(255, 255, 255);
-  background-color: rgb(197, 49, 49);
+  /*background-color: rgb(197, 49, 49);*/
+  background: linear-gradient(90deg, rgb(196, 95, 95) 0%, rgb(197, 49, 49) 50%, rgb(196, 95, 95) 100%);
+  background: -moz-linear-gradient(90deg, rgb(196, 95, 95) 0%, rgb(197, 49, 49) 50%, rgb(196, 95, 95) 100%);
+    background: -webkit-linear-gradient(90deg, rgb(196, 95, 95) 0%, rgb(197, 49, 49) 50%, rgb(196, 95, 95) 100%);
   text-shadow: 2px 1px rgb(0, 0, 0);
   font-size: 4vmax;
   font-family: 'Merriweather Sans', sans-serif;
@@ -368,7 +385,7 @@ a {
 }
 
 .body div > .title {
-  background-color: rgb(221, 221, 221);;
+  background: rgb(221, 221, 221);;
 }
 
 .notice {
@@ -542,6 +559,7 @@ video {
   transition: all 0.2s ease-in-out;
   outline: 2px solid transparent;
   outline-offset: 2px;
+  margin: 10px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -664,7 +682,8 @@ video {
 .segment button:hover {
   box-shadow: 0 0 40px rgba(183, 183, 183, 0.8);
   border: none;
-  background-color: transparent;
+  background: linear-gradient(300deg, rgba(196, 35, 35, 0.1), #ffffff);
+
 }
 
 .segment button:active {
@@ -714,7 +733,7 @@ video {
 }
 
 .end > .title {
-  background-color: transparent;
+  background: transparent;
 }
 
 .end .button {
@@ -747,7 +766,8 @@ video {
   right: 30px; /* Place the button 30px from the right */
   z-index: 1; /* Make sure it does not overlap */
   border: none; /* Remove borders */
-  background-color: #b31b1b; /* Set a background color */
+  background: linear-gradient(300deg, rgba(175, 10, 10, 0.99), #da8a8a);
+  /*background-color: #b31b1b; !* Set a background color *!*/
   color: rgb(214, 205, 205); /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
@@ -871,7 +891,12 @@ video {
   margin: 10% auto;
   width: 30%;
   height: calc(25vh - 20px);
-  object-fit: cover;
+  object-fit: contain;
+  background-color: rgba(241, 241, 241, 0.27);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  transform: scale(1.5);
 }
 
 .modal-content {
