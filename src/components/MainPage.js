@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MemberImg from "./MemberImg";
 import MessageModal from "./MessageModal";
-import NavBar from "./NavBar";
-import Bottom from "./Bottom";
 import SlideShow from "./SlideShow";
 import "../App.css";
-import InfoBox from "./InfoBox";
 import { BsPlayFill } from "react-icons/bs";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Loading from "./Loading";
@@ -23,7 +20,7 @@ import Segment from "./Segment";
 
 
 
-function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setInfoBoxOpen }) {
+function MainPage({ selectedMemberName, setSelectedMemberName }) {
   const [messageModalShown, setMessageModalShown] = useState(false);
   const [currentVimeoEpData, setCurrentVimeoEpData] = useState({title: "", linkCode: ""});
   const [currentVimeoPodcastData, setCurrentVimeoPodcastData] = useState({title: "", linkCode: ""});
@@ -39,6 +36,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
   const videos = [
     require("../assets/videos/michael_editing_no_audio.mp4"),
     require("../assets/videos/max_editing_no_audio.mp4"),
+    require("../assets/videos/AnnBTS1.mp4"),
   ]
   
   const fetchVimeo = async userID => {
@@ -69,7 +67,6 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
   return (
     <div id="top" className="App">
       <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>
-      <NavBar />
       <div>
         <div className='intro'>
           <SlideShow />
@@ -115,6 +112,9 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
               </video>
               <video autoPlay={true} muted={true} loop={true} width="fit-content" height="150vh" playsInline preload="metadata" title="Max Editing">
                 <source src={videos[1]} type="video/mp4" />
+              </video>
+              <video autoPlay={true} muted={true} loop={true} width="fit-content" height="150vh" playsInline preload="metadata" title="Shooting Announcements">
+                <source src={videos[2]} type="video/mp4" />
               </video>
             </div>
             <a href='#crew'><button className='button-circle' title='Next'><IoIosArrowDown className='arrow-down'/></button></a>
@@ -214,8 +214,6 @@ function MainPage({ selectedMemberName, setSelectedMemberName, infoBoxOpen, setI
         <h2 className='title'>You've scrolled to the end.</h2>
         <a href="https://vimeo.com/user152561840"><button className='button'><BsPlayFill className="button-icon" /> WATCH WOLF TV</button></a>
       </div>
-      { infoBoxOpen && <InfoBox setOpen={setInfoBoxOpen} />}
-      <Bottom />
     </div>
   );
 }

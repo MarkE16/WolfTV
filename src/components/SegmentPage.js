@@ -1,10 +1,8 @@
 import React from "react";
-import NavBar from "./NavBar";
 import MemberImg from "./MemberImg";
 import members from "../data/crew.json";
 import { Link } from "react-router-dom";
 import { CgLogOut } from "react-icons/cg";
-import Bottom from "./Bottom";
 
 function SegmentPage({ title, about, content, contentList, purpose=undefined, members, selectedMemberName, setSelectedMemberName }) {
   const titleSplit = title.trim().split(" ")
@@ -16,7 +14,6 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
   document.title = "WOLF TV | " + titleSplitCap;
   return (
     <div className='App'>
-      <NavBar />
       <div className='segment-page-container'>
         <h1 className={`title ${title === "announcements" ? "announcements" 
                               : title === "cyber news" ? "cyber-news" 
@@ -52,7 +49,6 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
         </div>
       </div>
       <Link to="/"><button className='button'><CgLogOut className='button-icon' /> Return to Home</button></Link>
-      <Bottom />
     </div>
   );
 }

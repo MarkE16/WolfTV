@@ -15,16 +15,6 @@ function Modal({ member, setOpen, setChosenMemberName }) {
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
   const memberIndex = crew["2021-2022"].indexOf(member);
 
-  // useEffect(() => {
-  //   document.querySelector("html").style.overflow = "hidden";
-  // }, [])
-
-  useEffect(() => {
-    document.querySelector("img").addEventListener("load", () => {
-      setLoadingImg(false);
-    })
-  }, [currentIndex])
-
   const changeImg = index => {
     setLoadingImg(true);
     setCurrentIndex(index);
@@ -90,7 +80,7 @@ function Modal({ member, setOpen, setChosenMemberName }) {
         {/*</div>*/}
         <div className='modal-content'>
           <h5 className='modal-role'>Role(s): {memberRole}</h5>
-          <div style={{ overflowY: "scroll", height: "70%", margin: "0 30px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",  }}>
+          <div className="desc-container">
             {/*<p className='modal-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>*/}
             <p className='modal-description'>{memberDescription}</p>
           </div>

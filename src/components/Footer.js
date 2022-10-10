@@ -19,7 +19,7 @@ const getLatest = async (sig) => {
 }
 
 
-function Bottom() {
+function Footer() {
   const googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfGEBMAZqY-2TjH9Br1C7Tb48PuTaG4r7JOSlD8rsrRZKRwVw/viewform";
   const [version, setVersion] = useState("v1.3");
 
@@ -57,4 +57,4 @@ function Bottom() {
   )
 }
 
-export default Bottom;
+export default Footer;

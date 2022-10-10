@@ -67,9 +67,6 @@
       
 
       $(window).ready(function(){
-        // onmousemove(() => {
-        //
-        // })
 
         $("#topBtn").click(function(){
           $("html").animate({scrollTop: 0}, 300);
@@ -78,12 +75,15 @@
         $(window).scroll(function() {
           if ($(window).scrollTop() > 20) {
             $('#topBtn').css('opacity', '1');
+            $("#topBtn").css('pointer-events', 'auto');
+
             $(".App-header").css("opacity", "1");
-            $(".App-header").css("display", "block");
+            $("#navBar").css("z-index", "1");
           } else {
             $('#topBtn').css('opacity', '0');
+            $("#topBtn").css('pointer-events', 'none');
             $(".App-header").css("opacity", "0");
-            $(".App-header").css("display", "none");
+            $("#navBar").css("z-index", "-1");
           }
         })
 
