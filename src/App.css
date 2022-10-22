@@ -185,7 +185,9 @@ a {
   position: fixed;
   top: 0;
   z-index: 1;
+  opacity: 0;
   width: 100%;
+  transition: opacity 0.5s;
 }
 
 .App-header { 
@@ -195,8 +197,6 @@ a {
   height: calc(40pt + 1vmin);
   font-size: calc(7pt + 1vmin);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: 0.5s ease;
-  opacity: 0;
 }
 
 .header-items {
@@ -1126,7 +1126,7 @@ video {
   margin: 15px;
   font-size: 20px;
   position: relative;
-  z-index: 100;
+  z-index: 101;
   transition: all 0.2s ease-in-out;
   color: white;
 }
@@ -1205,8 +1205,9 @@ video {
   z-index: 1;
   min-height: 100%;
   margin: 0 auto;
+  animation: fadeIn 0.3s ease forwards;
   font-family: "Nunito", sans-serif;
-  transition: 0.3s;
+  /*transition: 0.3s;*/
 }
 
 @keyframes fadeIn {
@@ -1272,11 +1273,10 @@ video {
   border-top: 1px solid #ec1212;
   border-left: 1px solid #ec1212;
   border-right: 1px solid #ec1212;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
   width: fit-content;
   z-index: 1;
-  bottom: 0;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   padding: 0 20px;
@@ -1365,7 +1365,7 @@ video {
 
   .modal {
     width: 90vw;
-    height: 70vh;
+    height: 60vh;
   }
 
   .heading {

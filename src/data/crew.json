@@ -97,5 +97,16 @@
       "Talent",
       "Like Ethan, Christian is also a talent of the announcements. He gets the job done by doing the same thing as Ethan: reading the script! You also get to see him in action!"
     ]}
+  ],
+
+  "2022-2023": [
+    {"michael": [
+      [
+        "../src/assets/crew_imgs/2022-2023/michael1.JPG",
+        "../src/assets/crew_imgs/2022-2023/michael2.JPG"
+      ],
+        "Cameraman",
+        "Michael is a cameramen who goes out and helps fetch footage for stories. Without footage, Wolf TV wouldn't be a thing."
+    ]}
   ]
 }

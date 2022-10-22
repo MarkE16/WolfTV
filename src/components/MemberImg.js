@@ -9,7 +9,7 @@ function MemberImg({ member, selectedMemberName, setSelectedMemberName }) {
   const [img, setImg] = useState("");
   const memberImgFileName = member[Object.keys(member)[0]][0][0].slice(24);
   const memberName = Object.keys(member)[0].charAt(0).toUpperCase() + Object.keys(member)[0].slice(1);
-  const chosenMemberName = selectedMemberName != null ? Object.keys(selectedMemberName)[0].charAt(0).toUpperCase() + Object.keys(selectedMemberName)[0].slice(1) : "";
+  // const chosenMemberName = selectedMemberName != null ? Object.keys(selectedMemberName)[0].charAt(0).toUpperCase() + Object.keys(selectedMemberName)[0].slice(1) : "";
 
   useEffect(() => {
     if (modalOpen) {
@@ -19,7 +19,7 @@ function MemberImg({ member, selectedMemberName, setSelectedMemberName }) {
     }
   }, [modalOpen])
 
-  // console.log(member)
+
   return (
     <div>
       <div className='member' title={memberName} onClick={() => {
@@ -36,7 +36,7 @@ function MemberImg({ member, selectedMemberName, setSelectedMemberName }) {
         </div>
         <p className='member-name'>{memberName}</p>
       </div>
-      {modalOpen && chosenMemberName === memberName && <Modal member={member} setOpen={setModalOpen} setChosenMemberName={setSelectedMemberName} />}
+      {modalOpen && selectedMemberName === member && <Modal member={member} setOpen={setModalOpen} setChosenMemberName={setSelectedMemberName} />}
     </div>
   )
 }

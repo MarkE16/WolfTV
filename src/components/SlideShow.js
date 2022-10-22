@@ -4,7 +4,9 @@ function SlideShow() {
   const imgs = [
     require("../assets/images/ethan.JPG"),
     require("../assets/images/wideshot-of-crew.JPG"),
-    require("../assets/images/camera.JPG"),
+    require("../assets/images/eli_christian_michael.JPG"),
+    require("../assets/images/matthew_michael_mark.JPG"),
+    require("../assets/images/ethan_matthew.JPG"),
   ]
   const [imgIndex, setImgIndex] = useState(0);
   const timeoutRef = React.createRef(null);

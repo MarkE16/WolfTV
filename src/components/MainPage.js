@@ -141,7 +141,11 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
             </div> */}
             <h2 className='title'>2022-2023</h2>
             <div className='member-imgs'>
-              <p><strong>This section isn't available yet. Check back later.</strong><br />Estimated Update/Release: <em>Sometime in September?</em></p>
+              {/*<p><strong>This section isn't available yet. Check back later.</strong><br />Estimated Update/Release: <em>Sometime in September?</em></p>*/}
+              {
+                members["2022-2023"].map(member => <MemberImg member={member} selectedMemberName={selectedMemberName} setSelectedMemberName={setSelectedMemberName}/>
+                )
+              }
             </div>
             <h2 className='title'>2021-2022</h2>
             <div className='member-imgs'>

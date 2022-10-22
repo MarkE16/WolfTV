@@ -3,7 +3,6 @@ import "../App.css";
 import { RiCloseLine } from 'react-icons/ri';
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import Loading from "./Loading";
-import crew from "../data/crew.json";
 
 function Modal({ member, setOpen, setChosenMemberName }) {
   const [loadingImg, setLoadingImg] = useState(false);
@@ -23,6 +22,7 @@ function Modal({ member, setOpen, setChosenMemberName }) {
   // console.log(crew["2021-2022"][memberIndex][Object.keys(member)]);
   // console.log(Object.keys(member))
   // console.log(crew["2021-2022"][memberIndex - 1][Object.keys(member)]);
+
   console.log(member)
 
   return (
@@ -71,7 +71,6 @@ function Modal({ member, setOpen, setChosenMemberName }) {
               title={`${memberName}'s image`}
               alt={memberName}
               className="modal-img"
-              style={{ borderRadius: 5, borderColor: "black" }}
               srcSet={require(`../assets/crew_imgs/${images[currentIndex].slice(24)}`)}
               loading="lazy"
             />
