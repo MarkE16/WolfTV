@@ -21,7 +21,8 @@ const getLatest = async (sig) => {
 
 function Footer() {
   const googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfGEBMAZqY-2TjH9Br1C7Tb48PuTaG4r7JOSlD8rsrRZKRwVw/viewform";
-  const [version, setVersion] = useState("v1.3");
+  // const [version, setVersion] = useState("v1.3");
+  const version = "v1.3";
 
   // This is effective, but I don't want my token exposed. Doesn't matter any, if I hide it, it won't be included in the build.
   // useEffect(() => {
@@ -40,9 +41,9 @@ function Footer() {
 
   return (
     <div className='Bottom'>
-      <p style={{ color: "white", textShadow: "1px 4px 5px black" }}>
+      <p style={{ color: "white", textShadow: "1px 4px 5px black", padding: "0 10px" }}>
         © 2022 WOLF TV is owned by PFISD/Weiss High School | WOLF TV website developed by <a href='https://marke16.github.io/my-website/' title="Oh neat, you're about to go to my website, huh?" className='link' target="_blank" rel='noreferrer'>Mark Evola</a> | {version} |
-        Have feedback? Submit a <a href={googleForm} target="_blank" className='link'>form</a> here.
+        Have feedback? Submit a <a href={googleForm} rel="noreferrer noopener" target="_blank" className='link'>form</a> here.
       </p>
       <div className="socials">
         <a href='https://www.instagram.com/whs.productions/' target="_blank" rel='noreferrer' title='Wolf TV Instagram'><button className='icon'><BsInstagram /></button></a>

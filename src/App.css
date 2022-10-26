@@ -946,7 +946,8 @@ video {
 
 .modal-description {
   font-family: "Nunito", sans-serif;
-  font-size: 3.5vmin;
+  /*font-size: 3.5vmin;*/
+  font-size: calc(1vmin + 2vmin);
 }
 
 .modal-footer {
@@ -1268,14 +1269,13 @@ video {
   justify-content: center;
   position: fixed;
   background-color: #8a0808;
-  font-size: 2vmin;
+  font-size: calc(5pt + 0.7vmax);
   font-family: "Nunito", sans-serif;
-  border-top: 1px solid #ec1212;
-  border-left: 1px solid #ec1212;
-  border-right: 1px solid #ec1212;
+  border: 1px solid #ec1212;
   border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   width: fit-content;
-  z-index: 1;
+  z-index: 2;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
@@ -1328,7 +1328,7 @@ video {
   }
 
   .button {
-    font-size: 5vmin;
+    font-size: 4vmin;
   }
 
   .App.not-found {
@@ -1370,6 +1370,10 @@ video {
 
   .heading {
     font-size: 8vmin;
+  }
+
+  .modal-description {
+    font-size: calc(1.5vmin + 1vmax);
   }
 
   .modal-img img {

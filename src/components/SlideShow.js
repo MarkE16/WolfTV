@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createRef } from 'react'
 
 function SlideShow() {
   const imgs = [
@@ -9,7 +9,7 @@ function SlideShow() {
     require("../assets/images/ethan_matthew.JPG"),
   ]
   const [imgIndex, setImgIndex] = useState(0);
-  const timeoutRef = React.createRef(null);
+  const timeoutRef = createRef(null);
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -28,7 +28,7 @@ function SlideShow() {
     <div className='slideShow'>
       <div className='slider'>
         {
-          imgs.map((img, index) => <img loading="lazy" className={`slide ${index === imgIndex ? "active" : ""}`} key={index} src={img} alt="Rendering..." />)
+          imgs.map((img, index) => <img className={`slide ${index === imgIndex ? "active" : ""}`} key={index} src={img} alt="Rendering..." />)
         }
       </div>
 
