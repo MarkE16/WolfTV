@@ -18,6 +18,7 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
         <h1 className={`title ${title === "announcements" ? "announcements" 
                               : title === "cyber news" ? "cyber-news" 
                               : title === "retro review" ? "retro-review" 
+                              : title === "pop trivia" ? "pop-trivia" 
                               : title === "stories" ? "stories" : ""}`}>{titleSplitCap}</h1>
         <div className="body">
           <h2 className='subtitle'>What {title === "announcements" ? "are the" : "is"} {titleSplitCap}?</h2>

@@ -6,7 +6,6 @@ import ModalProvider from "./components/ModalCxt";
 import MainPage from './components/MainPage';
 import SegmentPage from "./components/SegmentPage";
 import NotFound from "./components/NotFound";
-import crew from "./data/crew.json";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 
@@ -109,6 +108,29 @@ function App() {
                           `}
                         contentList={["Movies", "Video Games", "Music"]}
                         members={[crew["2021-2022"][6], crew["2021-2022"][9]]}
+                        selectedMemberName={selectedMemberName}
+                        setSelectedMemberName={setSelectedMemberName}
+                      />
+                    </div>
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/pop-trivia"
+                element={
+                  <React.Suspense fallback={<Loading />}>
+                    <div>
+                      <SegmentPage
+                        title="pop trivia"
+                        about={`
+                          Pop Trivia is a segment of Wolf TV that tests the general knowledge of the Weiss student body with trivia questions!
+                          The team comes by sometimes during lunch, so if you see them, take the opportunity to have your knowledge tested on Wolf TV!
+                          `}
+                        content={`
+                          The type of content displayed during the Pop Trivia are mainly just trivia questions. The type of questions asked can range from:
+                          `}
+                        contentList={["General History", "Random Facts"]}
+                        members={[crew["2021-2022"][5], crew["2021-2022"][8]]}
                         selectedMemberName={selectedMemberName}
                         setSelectedMemberName={setSelectedMemberName}
                       />

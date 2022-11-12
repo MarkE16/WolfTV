@@ -411,6 +411,10 @@ a {
   color: #f09e4d;
 }
 
+.title.pop-trivia {
+  color: #f0f04d;
+}
+
 .title.cyber-news {
   color: #4ff0ff;
 }
@@ -714,6 +718,10 @@ video {
 
 .segment-title.retro-review {
   color: #f09e4d;
+}
+
+.segment-title.pop-trivia {
+  color: #f0d94d;
 }
 
 .segment-title.stories {

@@ -38,6 +38,7 @@ function NavBar({ infoBoxOpen, setInfoBoxOpen }) {
                 <Link to="../announcements">Announcements</Link>
                 <Link to="../cyber-news">Cyber News</Link>
                 <Link to="../retro-review">Retro Review</Link>
+                <Link to="../pop-trivia">Pop Trivia</Link>
                 <Link to="../stories">Stories</Link>
               </div>
             </div></li></a>
@@ -65,6 +66,9 @@ function NavBar({ infoBoxOpen, setInfoBoxOpen }) {
               </Link>
               <Link to="/retro-review">
                 <button className="menuItem">Retro Review</button>
+              </Link>
+              <Link to="/pop-trivia">
+                <button className="menuItem">Pop Trivia</button>
               </Link>
               <Link to="/stories">
                 <button className="menuItem">Stories</button>

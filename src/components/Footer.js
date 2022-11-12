@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import { BsInstagram, BsGithub } from "react-icons/bs";
+import { FaTiktok } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const getLatest = async (sig) => {
@@ -48,6 +49,7 @@ function Footer() {
       <div className="socials">
         <a href='https://www.instagram.com/whs.productions/' target="_blank" rel='noreferrer' title='Wolf TV Instagram'><button className='icon'><BsInstagram /></button></a>
         <a href='https://github.com/MarkE16/WolfTV' target="_blank" rel='noreferrer' title='Wolf TV GitHub'><button className='icon'><BsGithub /></button></a>
+        <a href='https://www.tiktok.com/@whsproductions' target="_blank" rel='noreferrer noopener' title='Wolf TV TikTok'><button className='icon'><FaTiktok /></button></a>
       </div>
       <div>
         <Link to="/">

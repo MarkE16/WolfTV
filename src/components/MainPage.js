@@ -53,7 +53,13 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
     // Fetch the latest WOLF TV episode from Vimeo
     setLoadingVideo(true);
     fetchVimeo("152561840").then(data => {
-      setCurrentVimeoEpData({title: data.data[0].name, linkCode: data.data[0].link.slice(18)});
+      console.log(data)
+      const release = new Date(data.data[0].release_time).toLocaleDateString();
+      const dotVersion = release.split("/").join(".");
+      const epStrIndex = data.data[0].name.indexOf("Episode");
+      const epNum = data.data[0].name.substring(epStrIndex + 8, epStrIndex + 11);
+
+      setCurrentVimeoEpData({episode: epNum, playerURL: data.data[0].player_embed_url, releaseDate: dotVersion });
       setLoadingVideo(false);
     })
     // Fetch the latest WOLF TV podcast from Vimeo
@@ -87,11 +93,11 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
           <h1 className='title'>Latest Wolf TV Episode</h1>
           <p id="latest-ep" className='subtitle'>
             Here you can watch the latest episode of WOLF TV! <br />
-            Latest Episode: <strong>{(currentVimeoEpData.title && currentVimeoEpData.linkCode) === "" ? "Fetching..." : "Ep " + currentVimeoEpData.title.slice(10, 14) + " | " + currentVimeoEpData.title.slice(15, 22)}</strong>
+            Latest Episode: <strong>{(currentVimeoEpData.episode && currentVimeoEpData.playerURL && currentVimeoEpData.releaseDate) === "" ? "Fetching..." : "Ep " + currentVimeoEpData.episode + " | " + currentVimeoEpData.releaseDate}</strong>
           </p>
           <div className='body'>
             <div className='video-bg'>
-              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" title="Wolf TV Vimeo Video" src={`https://player.vimeo.com/video/${currentVimeoEpData.linkCode}`} width="100%" height="100%"  allow="autoplay; fullscreen" allowFullScreen></iframe>}
+              {loadingVideo ? <Loading /> : <iframe id="vimeoVideo" title="Wolf TV Vimeo Video" src={currentVimeoEpData.playerURL} width="100%" height="100%"  allow="autoplay; fullscreen" allowFullScreen></iframe>}
             </div>
           </div>
         </div>
@@ -181,6 +187,9 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
               <Segment title="Retro Review" color="retro-review" path="/retro-review" year="2021-2022">
                 Retro Review is a segment that takes a deep dive into the past of classical TV shows, video games, movies,
                 and music.
+              </Segment>
+              <Segment title="Pop Trivia" color="pop-trivia" path="/pop-trivia" year="2022-present">
+                Pop Trivia is a segment that tests the Weiss student body on their knowledge on general knowledge.
               </Segment>
               <Segment title="Stories" color="stories" path="/stories" year="2021-present">
                 Stories are about people that are experiencing something big.
