@@ -42,7 +42,7 @@ function Footer() {
 
   return (
     <div className='Bottom'>
-      <p style={{ color: "white", textShadow: "1px 4px 5px black", padding: "0 10px" }}>
+      <p style={{ color: "white", textShadow: "0 1px 5px black", padding: "0 10px" }}>
         © 2022 WOLF TV is owned by PFISD/Weiss High School | WOLF TV website developed by <a href='https://marke16.github.io/my-website/' title="Oh neat, you're about to go to my website, huh?" className='link' target="_blank" rel='noreferrer'>Mark Evola</a> | {version} |
         Have feedback? Submit a <a href={googleForm} rel="noreferrer noopener" target="_blank" className='link'>form</a> here.
       </p>

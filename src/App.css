@@ -285,10 +285,11 @@ a {
   position: absolute;
   z-index: 100;
   display: flex;
-    justify-content: center;
-    align-items: center;
-  left: 47%;
-  top: 90%;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
 }
 
 .dot {
@@ -500,6 +501,7 @@ video {
   border: 1px solid;
   bottom: 0;
   box-shadow: 0 -2px 5px rgb(0, 0, 0);
+  font-family: "Merriweather Sans", sans-serif;
   z-index: 100;
 }
 
@@ -516,6 +518,10 @@ video {
 
 .icon:hover {
   color: white;
+}
+
+.icon:active {
+  transform: scale(1.8);
 }
 
 .button {
@@ -1214,6 +1220,7 @@ video {
   z-index: 1;
   min-height: 100%;
   margin: 0 auto;
+  transform: translateX(-25%);
   animation: fadeIn 0.3s ease forwards;
   font-family: "Nunito", sans-serif;
   /*transition: 0.3s;*/
@@ -1420,10 +1427,6 @@ video {
 
   .hamburger-menu {
     display: block;
-  }
-
-  .dots {
-    left: 40%;
   }
 
   .dot {

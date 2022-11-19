@@ -107,6 +107,21 @@
       ],
         "Cameraman",
         "Michael is a cameramen who goes out and helps fetch footage for stories. Without footage, Wolf TV wouldn't be a thing."
+    ]},
+    {"matthew": [
+      [
+        "../src/assets/crew_imgs/2022-2023/matthew1.JPG",
+        "../src/assets/crew_imgs/2022-2023/matthew2.JPG"
+      ],
+        "Editor, Cameraman, Talent",
+        "Matthew does a lot of things at Wolf TV! He does the editing for Cyber News & Pop Trivia, occasionally a cameraman, and even the HOST for Cyber News."
+    ]},
+    {"christian": [
+      [
+        "../src/assets/crew_imgs/2022-2023/christian1.JPG"
+      ],
+        "Editor",
+        "Christian is now apart of the editing team at Wolf TV! He now edits stories and the announcements with Mark."
     ]}
   ]
 }

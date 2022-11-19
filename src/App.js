@@ -8,6 +8,7 @@ import SegmentPage from "./components/SegmentPage";
 import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
+import { IoIosArrowUp } from "react-icons/io";
 
 function Wrapper({ children }) {
   const location = useLocation();
@@ -29,6 +30,8 @@ function App() {
 
   return (
     <>
+      <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>
+
       <ModalProvider>
         <Router basename={process.env.PUBLIC_URL}>
           <NavBar infoBoxOpen={infoboxShown} setInfoBoxOpen={setInfoboxShown} />

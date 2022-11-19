@@ -56,8 +56,14 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
       console.log(data)
       const release = new Date(data.data[0].release_time).toLocaleDateString();
       const dotVersion = release.split("/").join(".");
-      const epStrIndex = data.data[0].name.indexOf("Episode");
-      const epNum = data.data[0].name.substring(epStrIndex + 8, epStrIndex + 11);
+      const epName = data.data[0].name;
+      let epStrIndex;
+      if (epName.includes("Episode")) {
+        epStrIndex = epName.indexOf("Episode");
+      } else {
+        epStrIndex = epName.indexOf("Ep");
+      }
+      const epNum = epName.substring(epStrIndex + (epName.includes("Episode") ? 8 : 3), epStrIndex + (epName.includes("Episode") ? 8 : 3) + 3);
 
       setCurrentVimeoEpData({episode: epNum, playerURL: data.data[0].player_embed_url, releaseDate: dotVersion });
       setLoadingVideo(false);
@@ -72,7 +78,6 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
   document.title = "WOLF TV | Home";
   return (
     <div id="top" className="App">
-      <a href='#top'><button id="topBtn" className="button-circle scroll-to-top-btn" title="Scroll back to the top"><IoIosArrowUp /></button></a>
       <div>
         <div className='intro'>
           <SlideShow />
@@ -93,7 +98,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
           <h1 className='title'>Latest Wolf TV Episode</h1>
           <p id="latest-ep" className='subtitle'>
             Here you can watch the latest episode of WOLF TV! <br />
-            Latest Episode: <strong>{(currentVimeoEpData.episode && currentVimeoEpData.playerURL && currentVimeoEpData.releaseDate) === "" ? "Fetching..." : "Ep " + currentVimeoEpData.episode + " | " + currentVimeoEpData.releaseDate}</strong>
+            Latest Episode: <strong>{loadingVideo ? "Fetching..." : "Ep " + currentVimeoEpData.episode + " | " + currentVimeoEpData.releaseDate}</strong>
           </p>
           <div className='body'>
             <div className='video-bg'>
@@ -108,7 +113,7 @@ function MainPage({ selectedMemberName, setSelectedMemberName }) {
               WOLF TV is an announcement video broadcast at Weiss High School. WOLF TV is produced by students in the AV
               (Audio Visual) class. It mainly showcases important information
               for students, teachers, and staff. Often times, segments are included to add some "fun" to the show. The
-              show is broadcast daily during the beginning of 3rd/7th period to allow all persons to catch up on what's
+              show is broadcast every Friday during Wolf Pack Time (WPT) to allow all persons to catch up on what's
               going on around the school.
             </p>
             <div>

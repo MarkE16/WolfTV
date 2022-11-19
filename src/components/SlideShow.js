@@ -2,11 +2,11 @@ import React, { useEffect, useState, createRef } from 'react'
 
 function SlideShow() {
   const imgs = [
-    require("../assets/images/ethan.JPG"),
     require("../assets/images/wideshot-of-crew.JPG"),
     require("../assets/images/eli_christian_michael.JPG"),
-    require("../assets/images/matthew_michael_mark.JPG"),
     require("../assets/images/ethan_matthew.JPG"),
+    require("../assets/images/eli_christian_nikky.jpg"),
+    require("../assets/images/nikky_matthew.jpg"),
   ]
   const [imgIndex, setImgIndex] = useState(0);
   const timeoutRef = createRef(null);

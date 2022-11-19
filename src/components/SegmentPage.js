@@ -1,17 +1,13 @@
 import React from "react";
 import MemberImg from "./MemberImg";
-import members from "../data/crew.json";
 import { Link } from "react-router-dom";
 import { CgLogOut } from "react-icons/cg";
 
 function SegmentPage({ title, about, content, contentList, purpose=undefined, members, selectedMemberName, setSelectedMemberName }) {
-  const titleSplit = title.trim().split(" ")
-  const titleSplitCap = titleSplit.map(word => {
-    return word.charAt(0).toUpperCase() + word.slice(1) + " ";
-  })
+  const titleSplit = title.split(" ");
+  const newCapitalizedTitle = titleSplit.map(word => word.charAt(0).toUpperCase() + word.slice(1) + " ").join("").trimEnd();
 
-
-  document.title = "WOLF TV | " + titleSplitCap;
+  document.title = "WOLF TV | " + newCapitalizedTitle;
   return (
     <div className='App'>
       <div className='segment-page-container'>
@@ -19,9 +15,9 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
                               : title === "cyber news" ? "cyber-news" 
                               : title === "retro review" ? "retro-review" 
                               : title === "pop trivia" ? "pop-trivia" 
-                              : title === "stories" ? "stories" : ""}`}>{titleSplitCap}</h1>
+                              : title === "stories" ? "stories" : ""}`}>{newCapitalizedTitle}</h1>
         <div className="body">
-          <h2 className='subtitle'>What {title === "announcements" ? "are the" : "is"} {titleSplitCap}?</h2>
+          <h2 className='subtitle'>What {title === "announcements" ? "are the" : "is"} {newCapitalizedTitle}?</h2>
           <p>
             {about}
           </p>
@@ -36,7 +32,7 @@ function SegmentPage({ title, about, content, contentList, purpose=undefined, me
           </p>
           {purpose && (
             <div>
-              <h2 className='subtitle'>What is the purpose of {titleSplitCap}?</h2>
+              <h2 className='subtitle'>What is the purpose of {newCapitalizedTitle}?</h2>
               <p>
                 {purpose}
               </p>
